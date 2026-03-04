@@ -124,7 +124,7 @@ export function ShoweringFlowersOverlay() {
                 }}
                 initial={{ y: -50, rotate: 0, opacity: 0 }}
                 animate={{
-                    y: ["-10%", "120%"], // Fall through the circle
+                    y: [-30, 400], // Fall completely through the 256px circle
                     x: [0, Math.random() * 40 - 20, Math.random() * 60 - 30], // Random wind drift
                     rotate: [0, 360, 720],
                     opacity: [0, 1, 1, 0],
