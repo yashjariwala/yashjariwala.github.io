@@ -112,11 +112,13 @@ export default function EnvelopeReveal({ onOpen }: { onOpen?: () => void }) {
                     />
 
                     <div
-                        className="relative flex-none perspective-[2000px] z-10"
+                        className="relative flex-none z-10"
                         style={{
                             width: "max(100vw, 150vh)",
                             height: "max(calc(100vw / 1.5), 100vh)",
                             contain: "layout paint",
+                            perspective: 2000,
+                            WebkitPerspective: 2000,
                         }}
                     >
                         {/* Left flap */}
@@ -185,6 +187,7 @@ export default function EnvelopeReveal({ onOpen }: { onOpen?: () => void }) {
                                 style={{
                                     backfaceVisibility: "hidden",
                                     WebkitBackfaceVisibility: "hidden",
+                                    transform: "translateZ(1px)",
                                 }}
                             >
                                 <div className="w-full h-full" style={{ filter: "drop-shadow(0px 8px 12px rgba(0,0,0,0.25))" }}>
@@ -229,7 +232,7 @@ export default function EnvelopeReveal({ onOpen }: { onOpen?: () => void }) {
                                 className="absolute inset-0 bg-[#D4AF37] envelope-texture shadow-[inset_0_0_50px_rgba(0,0,0,0.3)]"
                                 style={{
                                     clipPath: "polygon(0 0, 100% 0, 50% 100%)",
-                                    transform: "translateZ(0) rotateX(180deg)",
+                                    transform: "translateZ(-1px) rotateX(180deg)",
                                     backfaceVisibility: "hidden",
                                     WebkitBackfaceVisibility: "hidden",
                                 }}
