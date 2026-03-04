@@ -1,12 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { invitationData } from "@/lib/invitationData";
 import IndianCard from "./IndianCard";
+import { FireEmbersOverlay, GlowingDustOverlay, ShoweringFlowersOverlay } from "./VideoEffects";
+import { AmbientBackgroundEffects } from "./AmbientEffects";
 
 export default function EventDetails() {
   return (
     <section id="details" className="py-24 px-4 bg-[#f4ebd9] text-[#4C1215] border-b border-[#e3dccf] relative overflow-hidden">
+      <AmbientBackgroundEffects />
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -97,12 +101,47 @@ function EventCard({
       <IndianCard>
         <div className="flex flex-col items-center text-center w-full h-full justify-between">
           <div className="flex flex-col items-center w-full">
-            {/* Top Decorative Motif */}
-            <div className="text-[#D4AF37] opacity-80 z-10 mb-4 transition-transform duration-500 hover:scale-110">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
-              </svg>
-            </div>
+            {/* Elegant Video Portals */}
+            {title === "Wedding Ceremony (Lagna)" ? (
+              <div className="w-52 h-52 md:w-64 md:h-64 mb-6 mt-2 relative rounded-full overflow-hidden border-[3px] border-[#D4AF37]/60 shadow-[0_10px_30px_rgba(76,18,21,0.4)] flex items-center justify-center bg-[#4C1215] group">
+                <div className="absolute inset-0 w-full h-full">
+                  {/* Base Image with Cinematic Pan */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-linear group-hover:scale-125"
+                    style={{ backgroundImage: `url('/v2/wedding_pheras_realistic.png')` }}
+                  />
+                  {/* Subtle pulsing CSS fire overlay over the image */}
+                  <FireEmbersOverlay />
+                  {/* Specific Showering Flowers for Wedding Card */}
+                  <ShoweringFlowersOverlay />
+                </div>
+                {/* Inner gold shadow ring to blend the video border */}
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(212,175,55,0.6)] pointer-events-none z-10" />
+              </div>
+            ) : title === "Reception" ? (
+              <div className="w-52 h-52 md:w-64 md:h-64 mb-6 mt-2 relative rounded-full overflow-hidden border-[3px] border-[#D4AF37]/60 shadow-[0_10px_30px_rgba(76,18,21,0.4)] flex items-center justify-center bg-[#4C1215]">
+                <div className="absolute inset-0 w-full h-full">
+                  <video
+                    src="/v2/your_reception_video.mp4"
+                    poster="/v2/reception_stage_cinematic.png"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="object-cover w-full h-full"
+                  />
+                  {/* Subtle elegant stardust overlay over the video */}
+                  <GlowingDustOverlay />
+                </div>
+                <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(212,175,55,0.6)] pointer-events-none z-10" />
+              </div>
+            ) : (
+              <div className="text-[#D4AF37] opacity-80 z-10 mb-4 transition-transform duration-500 hover:scale-110">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z" />
+                </svg>
+              </div>
+            )}
 
             <h3 className="font-serif text-2xl md:text-3xl text-[#4C1215] mb-3 leading-tight font-semibold relative z-10 w-full px-2">
               {title}
