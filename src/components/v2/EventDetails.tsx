@@ -119,18 +119,14 @@ function EventCard({
                 <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(212,175,55,0.6)] pointer-events-none z-10" />
               </div>
             ) : title === "Reception" ? (
-              <div className="w-52 h-52 md:w-64 md:h-64 mb-6 mt-2 relative rounded-full overflow-hidden border-[3px] border-[#D4AF37]/60 shadow-[0_10px_30px_rgba(76,18,21,0.4)] flex items-center justify-center bg-[#4C1215]">
+              <div className="w-52 h-52 md:w-64 md:h-64 mb-6 mt-2 relative rounded-full overflow-hidden border-[3px] border-[#D4AF37]/60 shadow-[0_10px_30px_rgba(76,18,21,0.4)] flex items-center justify-center bg-[#4C1215] group">
                 <div className="absolute inset-0 w-full h-full">
-                  <video
-                    src="/v2/your_reception_video.mp4"
-                    poster="/v2/reception_stage_cinematic.png"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="object-cover w-full h-full"
+                  {/* Base Image with Cinematic Pan */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-linear group-hover:scale-125"
+                    style={{ backgroundImage: `url('/v2/reception_sofa_realistic.png')` }}
                   />
-                  {/* Subtle elegant stardust overlay over the video */}
+                  {/* Subtle elegant stardust overlay over the image */}
                   <GlowingDustOverlay />
                 </div>
                 <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(212,175,55,0.6)] pointer-events-none z-10" />
