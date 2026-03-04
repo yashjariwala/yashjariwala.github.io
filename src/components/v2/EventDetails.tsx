@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { invitationData } from "@/lib/invitationData";
 import IndianCard from "./IndianCard";
-import { FireEmbersOverlay, GlowingDustOverlay, ShoweringFlowersOverlay } from "./VideoEffects";
+import { FireEmbersOverlay, GlowingDustOverlay } from "./VideoEffects";
 import { AmbientBackgroundEffects } from "./AmbientEffects";
 
 export default function EventDetails() {
@@ -112,8 +112,6 @@ function EventCard({
                   />
                   {/* Subtle pulsing CSS fire overlay over the image */}
                   <FireEmbersOverlay />
-                  {/* Specific Showering Flowers for Wedding Card */}
-                  <ShoweringFlowersOverlay />
                 </div>
                 {/* Inner gold shadow ring to blend the video border */}
                 <div className="absolute inset-0 rounded-full shadow-[inset_0_0_20px_rgba(212,175,55,0.6)] pointer-events-none z-10" />
