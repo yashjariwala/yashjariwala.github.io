@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { invitationData } from "@/lib/invitationData";
+import { FLOWER_PATHS, petalColors } from "@/lib/FlowerShapes";
 
 type Petal = {
   initialX: number;
@@ -11,6 +12,7 @@ type Petal = {
   duration: number;
   delay: number;
   color: string;
+  pathIndex: number;
 };
 
 export default function Hero() {
@@ -25,13 +27,16 @@ export default function Hero() {
 
     const petalColors = ["text-[#B31B1B]", "text-[#FF8C00]", "text-[#FFD700]", "text-[#8B0000]"];
 
-    setPetals([...Array(petalCount)].map(() => ({
-      initialX: Math.random() * window.innerWidth,
-      animateX: Math.random() * window.innerWidth,
-      duration: Math.random() * 8 + 9,
-      delay: Math.random() * 7,
-      color: petalColors[Math.floor(Math.random() * petalColors.length)],
-    })));
+    setTimeout(() => {
+      setPetals([...Array(petalCount)].map(() => ({
+        initialX: Math.random() * window.innerWidth,
+        animateX: Math.random() * window.innerWidth,
+        duration: Math.random() * 8 + 9,
+        delay: Math.random() * 7,
+        color: petalColors[Math.floor(Math.random() * petalColors.length)],
+        pathIndex: Math.floor(Math.random() * FLOWER_PATHS.length)
+      })));
+    }, 0);
   }, []);
 
   return (
@@ -135,10 +140,10 @@ export default function Hero() {
                 delay: p.delay,
                 ease: "linear",
               }}
-              className={`absolute w-3 h-3 sm:w-4 sm:h-4 opacity-70 transform-gpu ${p.color}`}
+              className={`absolute w-3 h-3 sm:w-4 sm:h-4 opacity-80 transform-gpu drop-shadow-sm ${p.color}`}
               style={{ willChange: "transform, opacity" }}
             >
-              <path d="M12,2 C10,2 8.5,3.5 8.5,5.5 C8.5,6.5 9,7.5 9.8,8.2 C8,8.5 6.5,10 6.5,12 C6.5,14 8,15.5 9.8,15.8 C9,16.5 8.5,17.5 8.5,18.5 C8.5,20.5 10,22 12,22 C14,22 15.5,20.5 15.5,18.5 C15.5,17.5 15,16.5 14.2,15.8 C16,15.5 17.5,14 17.5,12 C17.5,10 16,8.5 14.2,8.2 C15,7.5 15.5,6.5 15.5,5.5 C15.5,3.5 14,2 12,2 Z" />
+              <path d={FLOWER_PATHS[p.pathIndex]} />
             </motion.svg>
           ))}
         </div>

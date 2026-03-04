@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { invitationData } from "@/lib/invitationData";
 import IndianCard from "./IndianCard";
 import { FireEmbersOverlay, GlowingDustOverlay } from "./VideoEffects";

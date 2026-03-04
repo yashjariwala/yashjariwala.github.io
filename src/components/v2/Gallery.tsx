@@ -13,7 +13,11 @@ const photos = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-24 text-[#4C1215] overflow-hidden border-b border-[#e3dccf]">
+    <section id="gallery" className="py-24 text-[#4C1215] overflow-hidden border-b border-[#e3dccf] bg-[#fdf5ec] relative">
+      {/* Background Texture */}
+      <div className="absolute inset-0 z-0">
+        <Image src="/texture2.jpeg" alt="Background Texture" fill className="object-cover opacity-40 mix-blend-overlay" />
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,13 +47,22 @@ export default function Gallery() {
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: idx * 0.08 }}
-            className="snap-center relative w-[75vw] sm:w-[45vw] md:w-[32vw] lg:w-[25vw] aspect-[3/4] flex-shrink-0 rounded-sm overflow-hidden shadow-xl"
+            transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
+            // The Palace Portrait Frame Style
+            className="snap-center relative p-3 bg-[#4C1215] w-[75vw] sm:w-[45vw] md:w-[32vw] lg:w-[25vw] aspect-[3/4] flex-shrink-0 shadow-[0_20px_40px_rgba(76,18,21,0.5)] border border-[#4C1215]"
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105"
-              style={{ backgroundImage: `url(${photo})` }}
-            />
+            {/* Double Gold Inner Trim */}
+            <div className="absolute inset-1.5 border-[2px] border-[#D4AF37]/80 pointer-events-none z-20" />
+            <div className="absolute inset-3 border border-[#D4AF37]/40 pointer-events-none z-20" />
+
+            <div className="relative w-full h-full overflow-hidden bg-[#fdf5ec]">
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-[15s] ease-linear hover:scale-125"
+                style={{ backgroundImage: `url(${photo})` }}
+              />
+              {/* Inner vignette for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4C1215]/50 via-transparent to-transparent pointer-events-none" />
+            </div>
           </motion.div>
         ))}
 

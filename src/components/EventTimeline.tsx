@@ -102,7 +102,7 @@ export default function EventTimeline() {
     );
 }
 
-function EventCard({ event, isEven, mobile = false }: { event: any, isEven: boolean, mobile?: boolean }) {
+function EventCard({ event, isEven, mobile = false }: { event: { time: string; title: string; location?: string; description?: string }, isEven: boolean, mobile?: boolean }) {
     return (
         <div className={`
       relative bg-white p-6 md:p-8 shadow-md border border-[#e6dece] max-w-[340px] w-full 

@@ -1,9 +1,9 @@
 "use client";
 
 const navItems = [
+  { label: "Countdown", href: "#countdown" },
   { label: "Details", href: "#details" },
-  { label: "Story", href: "#story" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Itinerary", href: "#timeline" },
   { label: "Guide", href: "#guide" },
 ];
 

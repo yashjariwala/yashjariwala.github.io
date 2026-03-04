@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import Image from "next/image";
 
 export default function CardFrame({ children, className = "" }: { children: ReactNode, className?: string }) {
   return (

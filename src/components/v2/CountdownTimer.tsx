@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { invitationData } from "@/lib/invitationData";
 
 export default function CountdownTimer() {
@@ -39,11 +38,11 @@ export default function CountdownTimer() {
   }, []);
 
   if (!isClient) {
-    return <section className="py-24 px-4 h-[300px]" />;
+    return <section id="countdown" className="py-24 px-4 h-[300px]" />;
   }
 
   return (
-    <section className="py-24 px-4 text-center w-full border-y border-[#eee5d5]">
+    <section id="countdown" className="py-24 px-4 text-center w-full border-y border-[#eee5d5]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -54,15 +53,15 @@ export default function CountdownTimer() {
         <span className="font-sans text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6 block">The Big Day</span>
         <h2 className="font-script text-6xl md:text-[6rem] text-[#4C1215] mb-8 leading-none">Countdown</h2>
 
-        
-        
+
+
         <div className="flex items-center justify-center w-full my-6 opacity-75">
           <svg width="180" height="24" viewBox="0 0 180 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-32 md:w-48">
-            <path d="M0 12H65" stroke="#D4AF37" strokeWidth="0.75"/>
-            <path d="M115 12H180" stroke="#D4AF37" strokeWidth="0.75"/>
-            <path d="M75 12L90 4L105 12L90 20L75 12Z" stroke="#D4AF37" strokeWidth="1"/>
-            <path d="M82 12L90 7.5L98 12L90 16.5L82 12Z" fill="#D4AF37"/>
-            <circle cx="90" cy="12" r="1.5" fill="#fdf5ec"/>
+            <path d="M0 12H65" stroke="#D4AF37" strokeWidth="0.75" />
+            <path d="M115 12H180" stroke="#D4AF37" strokeWidth="0.75" />
+            <path d="M75 12L90 4L105 12L90 20L75 12Z" stroke="#D4AF37" strokeWidth="1" />
+            <path d="M82 12L90 7.5L98 12L90 16.5L82 12Z" fill="#D4AF37" />
+            <circle cx="90" cy="12" r="1.5" fill="#fdf5ec" />
           </svg>
         </div>
 

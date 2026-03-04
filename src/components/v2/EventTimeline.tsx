@@ -8,6 +8,10 @@ import IndianCard from "./IndianCard";
 export default function EventTimeline() {
     return (
         <section id="timeline" className="py-24 px-4 bg-[#fdf5ec] text-[#4C1215] relative overflow-hidden">
+            {/* Background Texture Layers */}
+            <div className="absolute inset-0 z-0 bg-[#f4ebd9]">
+                <Image src="/texture2.jpeg" alt="Background Texture" fill className="object-cover opacity-40 mix-blend-overlay" />
+            </div>
             <div className="max-w-4xl mx-auto relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -29,12 +33,11 @@ export default function EventTimeline() {
                         </svg>
                     </div>
                 </motion.div>
-
                 <div className="space-y-20 lg:space-y-32 relative">
-                    {/* Main vertical center line for desktop */}
-                    <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-[1px] bg-[#D4AF37]/30 -translate-x-1/2 rounded-full" />
-                    {/* Main vertical left line for mobile */}
-                    <div className="md:hidden absolute left-[15px] top-4 bottom-4 w-[1px] bg-[#D4AF37]/30 rounded-full" />
+                    {/* Glowing Gold Thread - Main vertical center line for desktop */}
+                    <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent -translate-x-1/2 rounded-full shadow-[0_0_12px_rgba(212,175,55,0.8)]" />
+                    {/* Glowing Gold Thread - Main vertical left line for mobile */}
+                    <div className="md:hidden absolute left-[15px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-transparent via-[#D4AF37] to-transparent rounded-full shadow-[0_0_12px_rgba(212,175,55,0.8)]" />
 
                     {invitationData.timelineDays.map((day) => (
                         <div key={day.date} className="relative z-10">
@@ -64,11 +67,17 @@ export default function EventTimeline() {
                                             transition={{ duration: 0.6, delay: eventIdx * 0.1 }}
                                             className="relative flex items-center group px-8 md:px-0 w-full"
                                         >
-                                            {/* Node dot on the timeline line */}
-                                            <div className="absolute left-[9px] md:left-1/2 -translate-y-1/2 md:-translate-x-1/2 top-1/2 w-4 h-4 bg-white border-[3px] border-[#D4AF37] rounded-full z-10 group-hover:bg-[#D4AF37] transition-colors duration-500 shadow-[0_0_0_6px_#fdf5ec]" />
+                                            {/* Ornate Mandala/Lotus Node on the timeline line */}
+                                            <div className="absolute left-[9px] md:left-1/2 -translate-y-1/2 md:-translate-x-1/2 top-1/2 w-8 h-8 md:w-10 md:h-10 text-[#D4AF37] z-10 group-hover:scale-125 transition-transform duration-500 shadow-[0_0_0_8px_#fdf5ec] rounded-full bg-[#fdf5ec] flex items-center justify-center">
+                                                <svg viewBox="0 0 24 24" fill="currentColor" className="w-[85%] h-[85%] drop-shadow-md">
+                                                    <path d="M12,2 C12,2 15,7 19.5,7 C19.5,7 15,9 15,14.5 C15,14.5 12,19.5 12,19.5 C12,19.5 9,14.5 9,14.5 C9,14.5 4.5,9 4.5,7 C9,7 12,2 12,2 Z" opacity="0.8" />
+                                                    <circle cx="12" cy="12" r="2.5" fill="#4C1215" />
+                                                    <path d="M12,4 L13,8 L17,9 L13,10 L12,14 L11,10 L7,9 L11,8 Z" fill="#fdf5ec" />
+                                                </svg>
+                                            </div>
 
                                             {/* Horizontal connecting line (Desktop only) */}
-                                            <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-12 h-[1px] bg-[#D4AF37]/20 z-0
+                                            <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-12 h-[2px] bg-gradient-to-r ${isEven ? 'from-transparent to-[#D4AF37]' : 'from-[#D4AF37] to-transparent'} z-0 shadow-[0_0_8px_rgba(212,175,55,0.5)]
                         ${isEven ? 'right-1/2 mr-3' : 'left-1/2 ml-3'}
                       `} />
 
@@ -76,13 +85,13 @@ export default function EventTimeline() {
                                             <div className="hidden md:flex w-full items-center">
                                                 {isEven ? (
                                                     <div className="w-1/2 flex justify-end pr-10 lg:pr-16">
-                                                        <EventCard event={event} isEven={true} />
+                                                        <EventCard event={event} />
                                                     </div>
                                                 ) : (
                                                     <>
                                                         <div className="w-1/2" />
                                                         <div className="w-1/2 flex justify-start pl-10 lg:pl-16">
-                                                            <EventCard event={event} isEven={false} />
+                                                            <EventCard event={event} />
                                                         </div>
                                                     </>
                                                 )}
@@ -90,7 +99,7 @@ export default function EventTimeline() {
 
                                             {/* Mobile layout: all cards push right of the line */}
                                             <div className="md:hidden w-full pl-6 pb-2">
-                                                <EventCard event={event} isEven={false} mobile />
+                                                <EventCard event={event} />
                                             </div>
                                         </motion.div>
                                     );
@@ -104,7 +113,7 @@ export default function EventTimeline() {
     );
 }
 
-function EventCard({ event, isEven, mobile = false }: { event: any, isEven: boolean, mobile?: boolean }) {
+function EventCard({ event }: { event: { time: string; title: string; location?: string; description?: string } }) {
     return (
         <div className="w-full">
             <IndianCard className="!max-w-[340px]">
