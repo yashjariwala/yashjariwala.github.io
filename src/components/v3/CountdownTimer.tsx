@@ -31,6 +31,7 @@ export default function CountdownTimer() {
 
   return (
     <section
+      id="countdown"
       className="relative py-24 sm:py-28 px-4 text-center overflow-hidden"
       style={{ background: "linear-gradient(180deg, #fffbf5 0%, #fef6e8 100%)" }}
     >

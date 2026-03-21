@@ -69,27 +69,45 @@ export default function Hero() {
     <section
       ref={heroRef}
       className="relative h-[100svh] min-h-[700px] flex flex-col items-center justify-center overflow-hidden"
-      style={{
-        background: "linear-gradient(160deg, #fffbf5 0%, #fef6e8 50%, #fdf3e0 100%)",
-      }}
     >
-      {/* Warm radial glow at center */}
-      <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[700px] h-[90vw] max-h-[700px] rounded-full pointer-events-none z-0"
+      {/* Full-bleed watercolor floral background */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/watercolor_floral.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          style={{ filter: "saturate(0.85) brightness(1.05)" }}
+          priority
+        />
+      </div>
+
+      {/* Warm parchment overlay — preserves floral but makes it invitational */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(212,175,55,0.18) 0%, rgba(249,115,22,0.08) 40%, transparent 70%)",
+            "linear-gradient(160deg, rgba(255,251,245,0.78) 0%, rgba(254,246,232,0.72) 50%, rgba(253,243,224,0.78) 100%)",
+        }}
+      />
+
+      {/* Warm radial glow at center */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-[700px] h-[90vw] max-h-[700px] rounded-full pointer-events-none z-[2]"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(212,175,55,0.22) 0%, rgba(249,115,22,0.1) 40%, transparent 70%)",
         }}
         animate={{ scale: [1, 1.07, 1], opacity: [0.6, 1, 0.6] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Parallax mandala */}
+      {/* Parallax mandala — subtler, sits above floral */}
       <motion.div
-        className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
+        className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none"
         style={{
           scale: shouldReduceMotion ? 1 : mandalaScale,
-          opacity: shouldReduceMotion ? 0.3 : mandalaOpacity,
+          opacity: shouldReduceMotion ? 0.12 : useTransform(mandalaOpacity, [0, 0.55], [0, 0.18]),
         }}
       >
         <Image
@@ -97,19 +115,19 @@ export default function Hero() {
           alt=""
           fill
           className="object-cover"
-          style={{ filter: "sepia(0.6) hue-rotate(5deg) saturate(1.2) brightness(0.9)" }}
+          style={{ filter: "sepia(1) hue-rotate(5deg) saturate(2) brightness(0.5)" }}
           priority
         />
       </motion.div>
 
       {/* Top border stripe */}
-      <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-[3px] z-[4] bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
 
       {/* Corner ornaments */}
       {["top-0 left-0", "top-0 right-0", "bottom-0 left-0", "bottom-0 right-0"].map((pos, i) => (
         <motion.div
           key={i}
-          className={`absolute ${pos} w-20 sm:w-28 h-20 sm:h-28 pointer-events-none z-10`}
+          className={`absolute ${pos} w-20 sm:w-28 h-20 sm:h-28 pointer-events-none z-[4]`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.2, duration: 1 }}
@@ -141,7 +159,7 @@ export default function Hero() {
       {/* Main content */}
       <motion.div
         style={{ y: shouldReduceMotion ? 0 : smoothY, opacity: shouldReduceMotion ? 1 : contentOpacity }}
-        className="relative z-10 text-center px-5 flex flex-col items-center select-none pt-16"
+        className="relative z-[5] text-center px-5 flex flex-col items-center select-none pt-16"
       >
         {/* Invocation */}
         <motion.p
@@ -234,7 +252,7 @@ export default function Hero() {
           delay: groomDelay + invitationData.couple.groom.length * 0.055 + 1.2,
           duration: 1,
         }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 cursor-pointer"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[6] flex flex-col items-center gap-2 cursor-pointer"
         onClick={() => document.getElementById("pheras")?.scrollIntoView({ behavior: "smooth" })}
       >
         <span className="font-sans text-[8px] uppercase tracking-[0.45em] text-[#D4AF37]/60">
@@ -249,7 +267,7 @@ export default function Hero() {
 
       {/* Falling marigold petals */}
       {!shouldReduceMotion && (
-        <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none z-[7] overflow-hidden">
           {petals.map((p, i) => (
             <motion.div
               key={i}

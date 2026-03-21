@@ -75,7 +75,7 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
       <motion.div
         className="absolute inset-[-12%] bg-cover bg-center"
         style={{
-          backgroundImage: `url('${isWedding ? "/v2/wedding_pheras_cinematic.png" : "/v2/reception_stage_cinematic.png"}')`,
+          backgroundImage: `url('${isWedding ? "/wedding.avif" : "/v2/reception_stage_cinematic.png"}')`,
           y: imgY,
           willChange: "transform",
         }}
@@ -91,7 +91,7 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
         className="absolute inset-0 z-20"
         style={{
           background: isWedding
-            ? "linear-gradient(to top, #1a0505 0%, rgba(26,5,5,0.7) 35%, rgba(26,5,5,0.15) 65%, transparent 100%)"
+            ? "linear-gradient(to top, #1a0505 0%, rgba(26,5,5,0.82) 35%, rgba(26,5,5,0.5) 65%, rgba(26,5,5,0.25) 100%)"
             : "linear-gradient(to top, #0d0c1a 0%, rgba(13,12,26,0.7) 35%, rgba(13,12,26,0.1) 65%, transparent 100%)",
         }}
       />
@@ -135,28 +135,31 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
           {event.title}
         </motion.h2>
 
-        {/* Details row */}
+        {/* Info blocks — prominent, readable */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
-          className="flex flex-wrap gap-x-8 gap-y-3"
+          className="grid grid-cols-3 gap-3 sm:gap-6 pt-5 border-t border-[#D4AF37]/25"
         >
-          <DetailPill icon={<CalIcon />} label={event.dateLabel} />
-          <DetailPill icon={<ClockIcon />} label={event.timeLabel} />
-          <DetailPill icon={<PinIcon />} label={event.venue} />
+          <InfoBlock icon={<CalIcon />} label="Date" value={event.dateLabel} />
+          <InfoBlock icon={<ClockIcon />} label="Time" value={event.timeLabel} />
+          <InfoBlock icon={<PinIcon />} label="Venue" value={event.venue} />
         </motion.div>
       </div>
     </motion.div>
   );
 }
 
-function DetailPill({ icon, label }: { icon: React.ReactNode; label: string }) {
+function InfoBlock({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="flex items-center gap-2.5">
-      <div className="w-5 h-5 flex-shrink-0 text-[#D4AF37] opacity-80">{icon}</div>
-      <span className="font-serif text-sm sm:text-base text-white/85 italic">{label}</span>
+    <div className="flex flex-col gap-1.5">
+      <div className="flex items-center gap-1.5">
+        <div className="w-3.5 h-3.5 flex-shrink-0 text-[#D4AF37]/70">{icon}</div>
+        <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.4em] text-[#D4AF37]/70">{label}</span>
+      </div>
+      <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug">{value}</span>
     </div>
   );
 }
