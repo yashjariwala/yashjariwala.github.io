@@ -163,15 +163,35 @@ export default function Hero() {
       >
         {/* Invocation */}
         <motion.p
-          initial={{ opacity: 0, letterSpacing: "0.1em" }}
-          animate={{ opacity: 1, letterSpacing: "0.35em" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1.2 }}
-          className="font-serif text-[#D4AF37] text-sm sm:text-base md:text-lg mb-8 md:mb-10 tracking-[0.35em] italic"
+          className="font-serif text-[#D4AF37] text-base sm:text-lg md:text-xl mb-5 tracking-normal"
+          style={{ fontFamily: "var(--font-devanagari), 'Noto Serif Devanagari', serif", letterSpacing: "0.05em" }}
         >
           {invitationData.invocation}
         </motion.p>
 
-        {/* Names */}
+        {/* Groom's family invite text */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.75, duration: 1.0 }}
+          className="text-center mb-7 px-4 max-w-[340px] sm:max-w-[440px]"
+        >
+          <p className="font-script text-[#4C1215] leading-snug"
+            style={{ fontSize: "clamp(1.15rem, 3.8vw, 1.9rem)" }}
+          >
+            {invitationData.groomFamily.fatherName}
+            <span className="inline font-sans font-extralight text-[#D4AF37] mx-2" style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.3rem)" }}>&amp;</span>
+            {invitationData.groomFamily.motherName}
+          </p>
+          <p className="font-sans text-[#4C1215]/50 text-[9px] sm:text-[11px] uppercase tracking-[0.2em] mt-3">
+            invite you to the wedding of their son
+          </p>
+        </motion.div>
+
+        {/* Names — Yash first (groom's side card) */}
         <h1
           className="font-script leading-[0.84] text-[#4C1215]"
           style={{
@@ -180,12 +200,12 @@ export default function Hero() {
               "0 0 60px rgba(212,175,55,0.3), 0 4px 24px rgba(212,175,55,0.12)",
           }}
         >
-          <AnimatedName name={invitationData.couple.bride} startDelay={brideDelay} />
+          <AnimatedName name={invitationData.couple.groom} startDelay={brideDelay} />
           <motion.span
             initial={{ opacity: 0, scale: 0.2, rotate: -20 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{
-              delay: brideDelay + invitationData.couple.bride.length * 0.055 + 0.2,
+              delay: brideDelay + invitationData.couple.groom.length * 0.055 + 0.2,
               duration: 0.7,
               ease: EASE,
             }}
@@ -194,8 +214,19 @@ export default function Hero() {
           >
             &amp;
           </motion.span>
-          <AnimatedName name={invitationData.couple.groom} startDelay={groomDelay} />
+          <AnimatedName name={invitationData.couple.bride} startDelay={groomDelay} />
         </h1>
+
+        {/* Bride's family */}
+        <motion.p
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: groomDelay + invitationData.couple.bride.length * 0.055 + 0.2, duration: 0.9 }}
+          className="font-serif text-[#4C1215]/60 text-[10px] sm:text-xs italic mt-3 tracking-wide"
+        >
+          Daughter of {invitationData.brideFamily.fatherName} &amp; {invitationData.brideFamily.motherName}
+        </motion.p>
+
 
         {/* Gold divider */}
         <motion.div

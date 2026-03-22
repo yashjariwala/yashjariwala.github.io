@@ -7,6 +7,7 @@ import EventDetails from "@/components/v3/EventDetails";
 import EventTimeline from "@/components/v3/EventTimeline";
 import GuideSection from "@/components/v3/GuideSection";
 import GlobalPetals from "@/components/v3/GlobalPetals";
+import WithLoveFrom from "@/components/v3/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
 export default function HomeV3() {
@@ -21,6 +22,7 @@ export default function HomeV3() {
             <EventDetails />
             <EventTimeline />
             <GuideSection />
+            <WithLoveFrom />
 
             <footer className="bg-[#2d0607] text-white py-20 text-center relative overflow-hidden">
                 {/* Ambient glow */}
@@ -42,9 +44,9 @@ export default function HomeV3() {
                 </div>
 
                 <p className="font-script text-5xl sm:text-7xl mb-3 text-[#D4AF37] relative z-10" style={{ textShadow: "0 0 40px rgba(212,175,55,0.3)" }}>
-                    {invitationData.couple.bride}{" "}
+                    {invitationData.couple.groom}{" "}
                     <span className="font-sans text-2xl font-light text-[#D4AF37]/50">&amp;</span>{" "}
-                    {invitationData.couple.groom}
+                    {invitationData.couple.bride}
                 </p>
 
                 <p className="font-serif text-sm text-[#D4AF37]/60 italic mb-6 relative z-10">

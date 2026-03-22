@@ -9,16 +9,30 @@ export type EventInfo = {
 
 export const invitationData = {
   couple: {
-    groom: "Dhruvi",
-    bride: "Yash",
+    bride: "Dhruvi",
+    groom: "Yash",
     shortMonogram: "Y & D",
     date: "July 4th & 5th, 2026",
     time: "10:30 AM",
   },
+  brideFamily: {
+    fatherName: "Mansukh Manani",
+    motherName: "Tina Manani",
+    surname: "Manani",
+  },
+  groomFamily: {
+    fatherName: "Ashish Jariwala",
+    motherName: "Rupa Jariwala",
+    surname: "Jariwala",
+  },
+  withLoveFrom: [
+    { name: "Amit Jariwala", relation: "Chachu" },
+    { name: "Ankita Jariwala", relation: "Chachi" },
+  ],
   weddingDateIso: "2026-07-04T00:00:00+05:30",
   weddingDateLabel: "Saturday, July 4, 2026",
   invocation: "॥ श्री गणेशाय नमः ॥",
-  heroSubtitle: "Together with our families, we invite you to celebrate our wedding.",
+  heroSubtitle: "With the blessings of the Almighty, Mr. Mansukh Manani & Mrs. Tina Manani joyfully invite you to the wedding of their beloved daughter",
   cityLabel: "Marriot Hotel, Navi Mumbai",
   events: [
     {

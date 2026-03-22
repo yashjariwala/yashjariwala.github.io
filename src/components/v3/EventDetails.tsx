@@ -72,7 +72,7 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
       <motion.div
         className="absolute inset-[-12%] bg-cover bg-center"
         style={{
-          backgroundImage: `url('${isWedding ? "/v2/wedding.png" : "/v2/reception.png"}')`,
+          backgroundImage: `url('${isWedding ? "/v2/Wedding.png" : "/v2/reception.png"}')`,
           y: imgY,
           willChange: "transform",
         }}
