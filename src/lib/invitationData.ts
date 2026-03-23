@@ -58,7 +58,7 @@ export const invitationData = {
       events: [
         { time: "1:00 PM", title: "Check-in", description: "Settle in and relax." },
         { time: "3:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin." },
-        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful moment we tie the knot, followed by dinner." },
+        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash & Dhruvi, followed by dinner." },
       ],
     },
     {
@@ -80,23 +80,23 @@ export const invitationData = {
   ],
   storyMoments: [
     {
-      title: "How We Met",
-      text: "Our paths first crossed in 2018 while we were studying together in engineering college.",
+      title: "How They Met",
+      text: "Their paths first crossed in 2018 while studying together in engineering college.",
       year: "2018",
     },
     {
       title: "Falling in Love",
-      text: "After years of friendship, we officially started dating and building a beautiful life together.",
+      text: "After years of friendship, Yash & Dhruvi officially started dating and building a beautiful life together.",
       year: "2022",
     },
     {
       title: "The Proposal",
-      text: "A magical moment as we got engaged and decided to spend the rest of our lives by each other's side.",
+      text: "A magical moment as they got engaged and decided to spend the rest of their lives by each other's side.",
       year: "Dec 2025",
     },
     {
       title: "Forever Begins",
-      text: "We are finally tying the knot and can't wait to celebrate our wedding with all of you.",
+      text: "They are finally tying the knot and we can't wait to celebrate this joyous occasion with all of you.",
       year: "July 2026",
     },
   ],
@@ -112,7 +112,7 @@ export const invitationData = {
     checkIn: "July 4th, 2026 (After 1:00 PM)",
     checkOut: "July 6th, 2026 (12:00 PM Morning)",
   },
-  gifts: "Please, no gifts. Your presence at our wedding and your loving blessings are the greatest gifts we could ask for.",
+  gifts: "Please, no gifts. Your presence at their wedding and your loving blessings are the greatest gifts the family could ask for.",
   faqs: [
     {
       q: "Are kids welcome?",

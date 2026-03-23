@@ -129,7 +129,7 @@ export default function CountdownTimer() {
           className="font-script text-5xl sm:text-6xl text-[#4C1215] mb-2 leading-none"
           style={{ textShadow: "0 0 30px rgba(212,175,55,0.2)" }}
         >
-          Our Wedding
+          Yash &amp; Dhruvi
         </h2>
 
         <p className="font-serif text-[#D4AF37] text-sm sm:text-base italic mb-8">

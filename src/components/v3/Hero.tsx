@@ -180,15 +180,6 @@ export default function Hero() {
           <AnimatedName name={brideName} startDelay={groomDelay} />
         </h1>
 
-        {/* Bride's parents */}
-        <motion.p
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: finalDelay + 0.15, duration: 1 }}
-          className="font-sans text-[#4C1215]/60 uppercase tracking-[0.14em] mt-2"
-          style={{ fontSize: "clamp(0.78rem, 2.2vw, 0.95rem)" }}
-        >
-          D/O Mansukh &amp; Tina Manani
-        </motion.p>
-
         {/* Divider */}
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }}
