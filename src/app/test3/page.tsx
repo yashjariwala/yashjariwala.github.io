@@ -1,25 +1,27 @@
 import EnvelopeReveal from "@/components/v2/EnvelopeReveal";
 import AudioPlayer from "@/components/v2/AudioPlayer";
-import QuickNav, { navWithoutItinerary } from "@/components/v2/QuickNav";
-import Hero from "@/components/v3b/Hero";
-import CountdownTimer from "@/components/v3b/CountdownTimer";
-import EventDetails from "@/components/v3b/EventDetails";
-import GuideSection from "@/components/v3b/GuideSection";
-import GlobalPetals from "@/components/v3b/GlobalPetals";
-import WithLoveFrom from "@/components/v3b/WithLoveFrom";
+import QuickNav from "@/components/v2/QuickNav";
+import Hero from "@/components/v3/Hero";
+import CountdownTimer from "@/components/v3/CountdownTimer";
+import EventDetails from "@/components/v3/EventDetails";
+import EventTimeline from "@/components/v3/EventTimeline";
+import GuideSection from "@/components/v3/GuideSection";
+import GlobalPetals from "@/components/v3/GlobalPetals";
+import WithLoveFrom from "@/components/v3/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
-export default function Home() {
+export default function Test3Page() {
   return (
     <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
       <GlobalPetals />
       <AudioPlayer />
-      <QuickNav items={navWithoutItinerary} />
+      <QuickNav />
       <EnvelopeReveal />
       <Hero />
       <CountdownTimer />
       <EventDetails />
-      <GuideSection showStay={false} />
+      <EventTimeline />
+      <GuideSection />
       <WithLoveFrom />
 
       <footer className="bg-[#2d0607] text-white py-20 text-center relative overflow-hidden">
@@ -44,7 +46,7 @@ export default function Home() {
         </p>
 
         <p className="font-serif text-sm text-[#D4AF37]/60 italic mb-6 relative z-10">
-          {invitationData.receptionDateDisplay}
+          {invitationData.couple.date}
         </p>
 
         <div className="flex items-center justify-center gap-3 mb-6 relative z-10">

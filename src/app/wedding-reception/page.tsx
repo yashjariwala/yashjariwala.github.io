@@ -9,7 +9,7 @@ import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
-export default function Home() {
+export default function WeddingReceptionPage() {
   return (
     <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
       <GlobalPetals />
@@ -18,7 +18,7 @@ export default function Home() {
       <EnvelopeReveal />
       <Hero />
       <CountdownTimer />
-      <EventDetails />
+      <EventDetails events={invitationData.events} />
       <GuideSection showStay={false} />
       <WithLoveFrom />
 
@@ -44,7 +44,7 @@ export default function Home() {
         </p>
 
         <p className="font-serif text-sm text-[#D4AF37]/60 italic mb-6 relative z-10">
-          {invitationData.receptionDateDisplay}
+          {invitationData.couple.date}
         </p>
 
         <div className="flex items-center justify-center gap-3 mb-6 relative z-10">
