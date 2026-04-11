@@ -29,7 +29,7 @@ export const invitationData = {
     { name: "Ankita", relation: "Chachi" },
     { name: "Amit Jariwala", relation: "Chachu" },
   ],
-  weddingDateIso: "2026-07-04T00:00:00+05:30",
+  weddingDateIso: "2026-07-04T16:30:00+05:30",
   weddingDateLabel: "Saturday, July 4, 2026",
   receptionDateIso: "2026-07-05T19:00:00+05:30",
   receptionDateLabel: "Sunday, July 5, 2026",
