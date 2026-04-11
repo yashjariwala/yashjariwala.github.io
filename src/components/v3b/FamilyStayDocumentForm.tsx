@@ -180,7 +180,7 @@ export default function FamilyStayDocumentForm() {
           body: JSON.stringify(payload),
         });
 
-        setSuccessMessage("Details submitted. If the hotel list does not update within a minute, check the Apps Script deployment URL.");
+        setSuccessMessage("Request sent. Please confirm that a new row appears in the sheet and the file appears in Drive within about a minute.");
         resetForm();
       } catch (error) {
         const message = error instanceof Error ? error.message : "Unable to submit the form right now.";
@@ -227,7 +227,7 @@ export default function FamilyStayDocumentForm() {
             Share Stay Details
           </h2>
           <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-[#4C1215]/72">
-            Please submit one response per hotel guest with a masked Aadhaar copy so the hotel team can prepare the check-in list.
+            Please submit one response per hotel guest with a masked Aadhaar copy so the hotel team can prepare the check-in list. After submitting, please verify that the row appears in the sheet.
           </p>
         </motion.div>
 
@@ -251,7 +251,7 @@ export default function FamilyStayDocumentForm() {
                   Document Checklist
                 </h3>
                 <p className="text-sm leading-relaxed text-[#4C1215]/72">
-                  Upload a masked Aadhaar in PDF or image format. The file will be saved to Google Drive and the sheet will receive the guest details plus the Drive link.
+                  Upload a masked Aadhaar in PDF or image format. The file should be saved to Google Drive and the sheet should receive the guest details plus the Drive link.
                 </p>
               </div>
 
