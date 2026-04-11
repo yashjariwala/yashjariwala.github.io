@@ -19,7 +19,7 @@ export default function HomeV3b() {
             <AudioPlayer />
             <QuickNav items={navWithoutItinerary} />
             <EnvelopeReveal />
-            <Hero />
+            <Hero dateDisplay={invitationData.receptionDateDisplay} />
             <CountdownTimer
               targetDateIso={invitationData.receptionDateIso}
               dateLabel={invitationData.receptionDateLabel}
@@ -50,7 +50,7 @@ export default function HomeV3b() {
                 </p>
 
                 <p className="font-serif text-sm text-[#D4AF37]/60 italic mb-6 relative z-10">
-                    {invitationData.couple.date}
+                    {invitationData.receptionDateDisplay}
                 </p>
 
                 <div className="flex items-center justify-center gap-3 mb-6 relative z-10">

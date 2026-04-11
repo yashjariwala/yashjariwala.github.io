@@ -27,7 +27,7 @@ function AnimatedName({ name, startDelay }: { name: string; startDelay: number }
 
 type Petal = { x: number; tx: number; dur: number; delay: number; size: number; hue: number };
 
-export default function Hero() {
+export default function Hero({ dateDisplay = invitationData.couple.date }: { dateDisplay?: string }) {
   const heroRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const [petals, setPetals] = useState<Petal[]>([]);
@@ -193,7 +193,7 @@ export default function Hero() {
               className="font-serif italic text-[#4C1215]/90"
               style={{ fontSize: "clamp(1.2rem, 3.8vw, 1.7rem)", letterSpacing: "0.04em" }}
             >
-              {invitationData.couple.date}
+              {dateDisplay}
             </motion.p>
 
             {/* Venue — hidden for now */}
