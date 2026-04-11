@@ -7,6 +7,12 @@ export type EventInfo = {
   mapUrl: string;
 };
 
+export type FamilyStayFormConfig = {
+  appsScriptUrl: string;
+  acceptedMimeTypes: readonly string[];
+  maxUploadMb: number;
+};
+
 export const invitationData = {
   couple: {
     bride: "Dhruvi",
@@ -115,6 +121,16 @@ export const invitationData = {
     checkIn: "July 4th, 2026 (After 1:00 PM)",
     checkOut: "July 6th, 2026 (12:00 PM Morning)",
   },
+  familyStayForm: {
+    appsScriptUrl: "",
+    acceptedMimeTypes: [
+      "application/pdf",
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+    ],
+    maxUploadMb: 10,
+  } as FamilyStayFormConfig,
   gifts: "Please, no gifts. Your presence at their wedding and your loving blessings are the greatest gifts the family could ask for.",
   faqs: [
     {

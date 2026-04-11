@@ -6,6 +6,7 @@ import Hero from "@/components/v3b/Hero";
 import CountdownTimer from "@/components/v3b/CountdownTimer";
 import EventDetails from "@/components/v3b/EventDetails";
 import EventTimeline from "@/components/v3b/EventTimeline";
+import FamilyStayDocumentForm from "@/components/v3b/FamilyStayDocumentForm";
 import GuideSection from "@/components/v3b/GuideSection";
 import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
@@ -50,6 +51,7 @@ export default function FamilyStayPage() {
       <EventDetails events={invitationData.events} />
       <EventTimeline />
       <GuideSection showStay={true} />
+      <FamilyStayDocumentForm />
       <WithLoveFrom />
 
       <footer className="bg-[#2d0607] text-white py-20 text-center relative overflow-hidden">

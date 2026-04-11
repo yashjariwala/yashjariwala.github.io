@@ -47,3 +47,22 @@ Update `src/lib/invitationData.ts` to change:
 
 - RSVP currently stores submissions in browser `localStorage` (`invite-rsvp`) for demo behavior.
 - For production guest management, replace this with a real backend/API.
+
+## Family Stay Hotel Form
+
+The `/family-stay` page now includes a hotel check-in form that can:
+
+- collect first name and last name
+- upload a masked Aadhaar copy
+- send the submission to Google Apps Script
+- save the file into Google Drive
+- append the guest row and Drive link into Google Sheets
+
+To enable it:
+
+1. Create a Google Sheet and a Drive folder.
+2. Create a Google Apps Script project and paste in [google-apps-script/family-stay-intake.gs](/Users/yashjariwala/Documents/GitHub/invite/google-apps-script/family-stay-intake.gs).
+3. Replace `SHEET_ID` and `DRIVE_FOLDER_ID` in that script.
+4. Deploy the script as a web app with access for anyone who has the link.
+5. Paste the deployed web app URL into `invitationData.familyStayForm.appsScriptUrl` in [src/lib/invitationData.ts](/Users/yashjariwala/Documents/GitHub/invite/src/lib/invitationData.ts).
+6. Rebuild and push the site.
