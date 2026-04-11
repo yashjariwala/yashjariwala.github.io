@@ -180,7 +180,7 @@ export default function FamilyStayDocumentForm() {
           body: JSON.stringify(payload),
         });
 
-        setSuccessMessage("Request sent. Please confirm that a new row appears in the sheet and the file appears in Drive within about a minute.");
+        setSuccessMessage("Request sent. We have successfully received your form submission.");
         resetForm();
       } catch (error) {
         const message = error instanceof Error ? error.message : "Unable to submit the form right now.";
@@ -227,7 +227,7 @@ export default function FamilyStayDocumentForm() {
             Share Stay Details
           </h2>
           <p className="max-w-2xl text-sm sm:text-base leading-relaxed text-[#4C1215]/72">
-            Please submit one response per hotel guest with a masked Aadhaar copy so the hotel team can prepare the check-in list. After submitting, please verify that the row appears in the sheet.
+            Please submit one response per hotel guest with a masked Aadhaar copy so the hotel team can prepare the check-in list.
           </p>
         </motion.div>
 
