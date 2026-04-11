@@ -251,7 +251,7 @@ export default function FamilyStayDocumentForm() {
                   Document Checklist
                 </h3>
                 <p className="text-sm leading-relaxed text-[#4C1215]/72">
-                  Upload a masked Aadhaar in PDF or image format. The file should be saved to Google Drive and the sheet should receive the guest details plus the Drive link.
+                  Please securely upload a masked Aadhaar in PDF or image format. This helps the hotel team coordinate the check-in list for your stay.
                 </p>
               </div>
 
@@ -349,7 +349,7 @@ export default function FamilyStayDocumentForm() {
                   className="mt-1 h-4 w-4 rounded border-[#D4AF37]/50 text-[#4C1215] focus:ring-[#D4AF37]/30"
                 />
                 <span>
-                  I confirm that this document can be stored in Google Drive and referenced in Google Sheets for hotel check-in coordination.
+                  I consent to sharing this document securely with the hosts and hotel management solely for check-in coordination purposes.
                 </span>
               </label>
 
