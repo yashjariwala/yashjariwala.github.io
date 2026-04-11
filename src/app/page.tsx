@@ -20,10 +20,20 @@ export const metadata: Metadata = {
     title: "Yash & Dhruvi - Reception Invitation",
     description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
     url: "/",
+    images: [
+      {
+        url: "/v2/reception.png",
+        width: 1377,
+        height: 768,
+        alt: "Yash & Dhruvi reception invitation",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Yash & Dhruvi - Reception Invitation",
     description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+    images: ["/v2/reception.png"],
   },
 };
 

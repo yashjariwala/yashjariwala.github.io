@@ -21,10 +21,20 @@ export const metadata: Metadata = {
     title: "Yash & Dhruvi - Family Stay Invitation",
     description: "Join us for the wedding celebrations and family stay of Yash and Dhruvi on July 4th & 5th, 2026.",
     url: "/family-stay",
+    images: [
+      {
+        url: "/v2/Wedding.png",
+        width: 1377,
+        height: 768,
+        alt: "Yash & Dhruvi family stay invitation",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Yash & Dhruvi - Family Stay Invitation",
     description: "Join us for the wedding celebrations and family stay of Yash and Dhruvi on July 4th & 5th, 2026.",
+    images: ["/v2/Wedding.png"],
   },
 };
 
