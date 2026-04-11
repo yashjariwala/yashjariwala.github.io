@@ -41,7 +41,7 @@ export const invitationData = {
       timeLabel: "4:30 PM onwards",
       venue: "Marriott Hotel",
       address: "Navi Mumbai, Maharashtra, India",
-      mapUrl: "https://maps.app.goo.gl/search/Marriott+Hotel+Navi+Mumbai",
+      mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
     {
       title: "Reception",
@@ -49,7 +49,7 @@ export const invitationData = {
       timeLabel: "7:00 PM onwards",
       venue: "Marriott Hotel",
       address: "Navi Mumbai, Maharashtra, India",
-      mapUrl: "https://maps.app.goo.gl/search/Marriott+Hotel+Navi+Mumbai",
+      mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
   ] as EventInfo[],
   timelineDays: [

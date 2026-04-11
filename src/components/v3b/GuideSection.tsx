@@ -4,6 +4,36 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { invitationData } from "@/lib/invitationData";
 
+function TravelIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#D4AF37" strokeWidth="1.1">
+      <path d="M2 15l4-8 3 4 4-6 3 5 3-3" strokeLinejoin="round" strokeLinecap="round"/>
+      <path d="M1 19h20" strokeOpacity="0.4"/>
+      <path d="M11 3v2M7 4l1 1M15 4l-1 1"/>
+    </svg>
+  );
+}
+
+function StayIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#D4AF37" strokeWidth="1.1">
+      <path d="M3 19V9l8-6 8 6v10" strokeLinejoin="round" strokeLinecap="round"/>
+      <rect x="8" y="13" width="3" height="6" rx="0.5"/>
+      <rect x="13" y="10" width="3" height="3" rx="0.5"/>
+      <path d="M1 19h20" strokeOpacity="0.4"/>
+    </svg>
+  );
+}
+
+function BlessingIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#D4AF37" strokeWidth="1.1">
+      <path d="M11 18C11 18 3 13 3 7.5A4 4 0 0 1 11 5.5a4 4 0 0 1 8 2C19 13 11 18 11 18Z" strokeLinejoin="round"/>
+      <path d="M11 5.5V3M8 4l1 1M14 4l-1 1" strokeLinecap="round"/>
+    </svg>
+  );
+}
+
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const cardVariants = {
@@ -21,7 +51,7 @@ export default function GuideSection() {
   return (
     <section
       id="guide"
-      className="py-24 sm:py-28 px-4 relative overflow-hidden"
+      className="py-16 sm:py-20 px-4 relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, #fef6e8 0%, #fffbf5 100%)" }}
     >
       {/* Top border */}
@@ -80,7 +110,7 @@ export default function GuideSection() {
           viewport={{ once: true, margin: "-60px" }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
         >
-          <InfoCard title="Travel" icon="✈" idx={0}>
+          <InfoCard title="Travel" icon={<TravelIcon />} idx={0}>
             <div className="space-y-2">
               <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-2">
                 Nearest Airports
@@ -102,7 +132,7 @@ export default function GuideSection() {
             </div>
           </InfoCard>
 
-          <InfoCard title="Stay" icon="🏨" idx={1}>
+          <InfoCard title="Stay" icon={<StayIcon />} idx={1}>
             <div className="space-y-3">
               <p className="font-serif text-base text-[#D4AF37] italic mb-3">
                 {accommodation.hotel}
@@ -122,7 +152,7 @@ export default function GuideSection() {
             </div>
           </InfoCard>
 
-          <InfoCard title="Gifts" icon="🎁" idx={2} className="sm:col-span-2 lg:col-span-1">
+          <InfoCard title="Gifts" icon={<BlessingIcon />} idx={2} className="sm:col-span-2 lg:col-span-1">
             <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
           </InfoCard>
         </motion.div>
@@ -139,7 +169,7 @@ function InfoCard({
   className = "",
 }: {
   title: string;
-  icon: string;
+  icon: ReactNode;
   idx: number;
   children: ReactNode;
   className?: string;
@@ -159,7 +189,7 @@ function InfoCard({
 
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-5">
-          <span className="text-xl">{icon}</span>
+          <span className="flex-shrink-0">{icon}</span>
           <div>
             <h3 className="font-serif text-xl sm:text-2xl text-[#4C1215] font-medium leading-tight">
               {title}

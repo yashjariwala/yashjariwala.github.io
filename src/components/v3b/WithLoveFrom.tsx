@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function WithLoveFrom() {
   return (
     <section
-      className="relative py-16 sm:py-20 flex flex-col items-center overflow-hidden"
+      className="relative py-10 sm:py-14 flex flex-col items-center overflow-hidden"
       style={{ background: "linear-gradient(160deg, #fffbf5, #fef6e8, #fdf3e0)" }}
     >
       {/* Top gold rule */}

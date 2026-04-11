@@ -34,9 +34,8 @@ export default function Hero() {
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">("mobile");
 
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const contentY       = useTransform(scrollYProgress, [0, 1], [0, -70]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
-  const smoothY        = useSpring(contentY, { stiffness: 70, damping: 18 });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const smoothY  = useSpring(contentY, { stiffness: 70, damping: 18 });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -90,7 +89,7 @@ export default function Hero() {
 
       {/* THE CARD — text over full-screen illustration */}
       <motion.div
-        style={{ y: shouldReduceMotion ? 0 : smoothY, opacity: shouldReduceMotion ? 1 : contentOpacity }}
+        style={{ y: shouldReduceMotion ? 0 : smoothY }}
         className="absolute inset-0 z-[4] flex items-start justify-center"
       >
         <div className="relative w-full h-full">
@@ -98,9 +97,9 @@ export default function Hero() {
           <div
             className="absolute inset-0 flex flex-col items-center justify-start text-center select-none"
             style={{
-              paddingTop:    screenSize === "mobile" ? "45%" : screenSize === "tablet" ? "22%" : "10%",
-              paddingLeft:   screenSize === "desktop" ? "12%" : "9%",
-              paddingRight:  screenSize === "desktop" ? "12%" : "9%",
+              paddingTop:    screenSize === "mobile" ? "calc(45% - 20px)" : screenSize === "tablet" ? "22%" : "10%",
+              paddingLeft:   screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
+              paddingRight:  screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
               paddingBottom: screenSize === "mobile" ? "32%" : screenSize === "tablet" ? "26%" : "16%",
             }}
           >
@@ -135,7 +134,8 @@ export default function Hero() {
               >
                 Rupa
                 <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
-                Ashish Jariwala
+                Ashish<br className="sm:hidden" />
+                {" "}Jariwala
               </p>
             </motion.div>
 
@@ -153,7 +153,7 @@ export default function Hero() {
               className="font-script leading-[0.88] text-[#4C1215]"
               style={{
                 fontSize: screenSize === "desktop" ? "clamp(3rem, 6vw, 5.5rem)" : "clamp(3.5rem, 10vw, 8rem)",
-                textShadow: "0 2px 16px rgba(212,175,55,0.15)",
+                textShadow: "0 0 40px rgba(255,255,255,0.7), 0 2px 20px rgba(212,175,55,0.3), 0 4px 12px rgba(0,0,0,0.08)",
                 marginTop: "0.55em",
                 lineHeight: 1.1,
               }}

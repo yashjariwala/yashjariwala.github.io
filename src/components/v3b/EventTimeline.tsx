@@ -73,7 +73,7 @@ export default function EventTimeline() {
 
         {/* Timeline */}
         <div ref={containerRef} className="relative">
-          {/* Self-drawing golden thread — mobile */}
+          {/* Self-drawing golden thread — mobile (left side) */}
           <div className="md:hidden absolute left-[19px] top-2 bottom-2 w-[2px]">
             <motion.div
               className="w-full origin-top"
@@ -178,6 +178,11 @@ function TimelineEvent({
         <div className="w-[5px] h-[5px] md:w-[6px] md:h-[6px] rounded-full bg-[#D4AF37]" />
       </motion.div>
 
+      {/* Mobile — full width single column */}
+      <div className="md:hidden w-full pl-9">
+        <EventCard ref={cardRef} event={event} variants={mobileVariants} align="left" />
+      </div>
+
       {/* Desktop alternating */}
       <div className="hidden md:flex w-full items-center">
         {isEven ? (
@@ -195,11 +200,6 @@ function TimelineEvent({
             </div>
           </>
         )}
-      </div>
-
-      {/* Mobile */}
-      <div className="md:hidden w-full pl-9">
-        <EventCard ref={cardRef} event={event} variants={mobileVariants} align="left" />
       </div>
     </div>
   );

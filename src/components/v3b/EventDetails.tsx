@@ -17,32 +17,79 @@ export default function EventDetails() {
         ))}
       </div>
 
-      {/* Map — contained, with breathing room */}
+      {/* Venue card */}
       <div className="px-4 py-16 sm:py-20" style={{ background: "linear-gradient(180deg, #1a0808 0%, #2d0f0a 100%)" }}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="max-w-2xl mx-auto"
+          className="max-w-xl mx-auto"
         >
-          <div className="flex flex-col items-center mb-8">
-            <p className="font-sans text-2xl sm:text-3xl uppercase tracking-[0.3em] text-[#D4AF37]">Venue</p>
-          </div>
-          <div className="overflow-hidden border border-[#D4AF37]/30 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
-            <div className="w-full h-[240px] sm:h-[320px]">
-              <iframe
-                src="https://maps.google.com/maps?q=Marriott%20Hotel%20Navi%20Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Event Location Map"
-                className="w-full h-full"
-              />
+          <div className="relative border border-[#D4AF37]/30 p-10 sm:p-14 text-center overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+            {/* Gold top accent */}
+            <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent" />
+            {/* Inner border */}
+            <div className="absolute inset-[7px] border border-[#D4AF37]/15 pointer-events-none" />
+            {/* Corner ornaments */}
+            <svg className="absolute top-3 left-3 opacity-40" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 1 L8 1 M1 1 L1 8" stroke="#D4AF37" strokeWidth="1.2"/><circle cx="1" cy="1" r="1" fill="#D4AF37"/></svg>
+            <svg className="absolute top-3 right-3 opacity-40" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M17 1 L10 1 M17 1 L17 8" stroke="#D4AF37" strokeWidth="1.2"/><circle cx="17" cy="1" r="1" fill="#D4AF37"/></svg>
+            <svg className="absolute bottom-3 left-3 opacity-40" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 17 L8 17 M1 17 L1 10" stroke="#D4AF37" strokeWidth="1.2"/><circle cx="1" cy="17" r="1" fill="#D4AF37"/></svg>
+            <svg className="absolute bottom-3 right-3 opacity-40" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M17 17 L10 17 M17 17 L17 10" stroke="#D4AF37" strokeWidth="1.2"/><circle cx="17" cy="17" r="1" fill="#D4AF37"/></svg>
+
+            <div className="relative z-10 flex flex-col items-center gap-5">
+              <svg width="28" height="14" viewBox="0 0 28 14" fill="none">
+                <path d="M14 1L17 7L14 13L11 7L14 1Z" stroke="#D4AF37" strokeWidth="0.8" fill="none"/>
+                <circle cx="14" cy="7" r="2" fill="#D4AF37" fillOpacity="0.6"/>
+                <path d="M0 7H9M19 7H28" stroke="#D4AF37" strokeWidth="0.6" strokeOpacity="0.5"/>
+              </svg>
+
+              <p className="font-sans text-[9px] uppercase tracking-[0.5em] text-[#D4AF37]/70">Venue</p>
+
+              <h3
+                className="font-script text-[#D4AF37] leading-none"
+                style={{ fontSize: "clamp(2.8rem, 9vw, 4.5rem)", textShadow: "0 0 30px rgba(212,175,55,0.4)" }}
+              >
+                {invitationData.events[0].venue}
+              </h3>
+
+              <p className="font-serif italic text-white/50 text-sm sm:text-base">
+                {invitationData.events[0].address}
+              </p>
+
+              <div className="flex items-center gap-2 w-28">
+                <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]/40" />
+                <div className="w-1 h-1 rotate-45 bg-[#D4AF37]/60" />
+                <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]/40" />
+              </div>
+
+              <a
+                href={invitationData.events[0].mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 border border-[#D4AF37]/50 px-7 py-2.5 text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] hover:bg-[#D4AF37]/10 transition-colors"
+              >
+                <svg width="10" height="14" viewBox="0 0 10 14" fill="none">
+                  <path d="M5 1C2.79 1 1 2.79 1 5c0 3.5 4 8 4 8s4-4.5 4-8c0-2.21-1.79-4-4-4z" stroke="#D4AF37" strokeWidth="1" fill="none"/>
+                  <circle cx="5" cy="5" r="1.4" fill="#D4AF37"/>
+                </svg>
+                Get Directions
+              </a>
             </div>
+          </div>
+
+          {/* Embedded Google Map */}
+          <div className="mt-5 overflow-hidden border border-[#D4AF37]/20 shadow-[0_8px_40px_rgba(0,0,0,0.4)] bg-white">
+            <iframe
+              src="https://maps.google.com/maps?q=Marriott+Hotel+Navi+Mumbai&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+              width="100%"
+              height="260"
+              style={{ border: 0, display: "block" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Marriott Hotel Navi Mumbai"
+            />
           </div>
         </motion.div>
       </div>

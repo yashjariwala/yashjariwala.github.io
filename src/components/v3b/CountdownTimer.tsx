@@ -183,11 +183,18 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center gap-2" style={{ perspective: "500px" }}>
       <div
-        className="relative bg-[#fef9f2]/88 backdrop-blur-sm border border-[#D4AF37]/40 px-3 sm:px-4 py-2.5 sm:py-3 min-w-[2.8rem] sm:min-w-[4.2rem] flex justify-center overflow-hidden shadow-[0_4px_24px_rgba(212,175,55,0.22),inset_0_1px_0_rgba(255,255,255,0.9)]"
+        className="relative bg-[#fef9f2]/88 backdrop-blur-sm border border-[#D4AF37]/55 px-3 sm:px-4 py-2.5 sm:py-3 min-w-[2.8rem] sm:min-w-[4.2rem] flex justify-center overflow-hidden shadow-[0_4px_24px_rgba(212,175,55,0.28),inset_0_1px_0_rgba(255,255,255,0.9)]"
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Gold top accent */}
         <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent" />
+        {/* Gold bottom accent */}
+        <div className="absolute bottom-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent" />
+        {/* Corner ornaments */}
+        <svg className="absolute top-1 left-1 opacity-35" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1 L4 1 M1 1 L1 4" stroke="#D4AF37" strokeWidth="0.8"/></svg>
+        <svg className="absolute top-1 right-1 opacity-35" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M7 1 L4 1 M7 1 L7 4" stroke="#D4AF37" strokeWidth="0.8"/></svg>
+        <svg className="absolute bottom-1 left-1 opacity-35" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 7 L4 7 M1 7 L1 4" stroke="#D4AF37" strokeWidth="0.8"/></svg>
+        <svg className="absolute bottom-1 right-1 opacity-35" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M7 7 L4 7 M7 7 L7 4" stroke="#D4AF37" strokeWidth="0.8"/></svg>
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
             key={display}
