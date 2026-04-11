@@ -2,14 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-const navItems = [
+type NavItem = { label: string; href: string };
+
+const allNavItems: NavItem[] = [
   { label: "Countdown", href: "#countdown" },
   { label: "Details", href: "#details" },
   { label: "Itinerary", href: "#timeline" },
   { label: "Guide", href: "#guide" },
 ];
 
-export default function QuickNav() {
+export const navWithoutItinerary: NavItem[] = allNavItems.filter((i) => i.href !== "#timeline");
+
+export default function QuickNav({ items = allNavItems }: { items?: NavItem[] }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -40,7 +44,7 @@ export default function QuickNav() {
         style={{ pointerEvents: visible ? "auto" : "none" }}
       >
         <ul className="flex items-center gap-1 sm:gap-2 overflow-x-auto hide-scrollbar">
-          {navItems.map((link) => (
+          {items.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}

@@ -31,6 +31,8 @@ export const invitationData = {
   ],
   weddingDateIso: "2026-07-04T00:00:00+05:30",
   weddingDateLabel: "Saturday, July 4, 2026",
+  receptionDateIso: "2026-07-05T19:00:00+05:30",
+  receptionDateLabel: "Sunday, July 5, 2026",
   invocation: "॥ श्री गणेशाय नमः ॥",
   heroSubtitle: "With the blessings of the Almighty, Mr. Mansukh Manani & Mrs. Tina Manani joyfully invite you to the wedding of their beloved daughter",
   cityLabel: "Marriot Hotel, Navi Mumbai",

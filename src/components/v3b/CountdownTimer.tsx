@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { invitationData } from "@/lib/invitationData";
 
-export default function CountdownTimer() {
+export default function CountdownTimer({
+  targetDateIso = invitationData.weddingDateIso,
+  dateLabel = invitationData.weddingDateLabel,
+}: {
+  targetDateIso?: string;
+  dateLabel?: string;
+}) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isClient, setIsClient] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -12,7 +18,7 @@ export default function CountdownTimer() {
   useEffect(() => {
     setIsMounted(true);
     setTimeout(() => setIsClient(true), 0);
-    const target = new Date(invitationData.weddingDateIso).getTime();
+    const target = new Date(targetDateIso).getTime();
     const id = setInterval(() => {
       const diff = target - Date.now();
       if (diff > 0) {
@@ -133,7 +139,7 @@ export default function CountdownTimer() {
         </h2>
 
         <p className="font-serif text-[#D4AF37] text-sm sm:text-base italic mb-8">
-          {invitationData.weddingDateLabel}
+          {dateLabel}
         </p>
 
         {/* Divider */}
