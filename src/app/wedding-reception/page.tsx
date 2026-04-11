@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import EnvelopeReveal from "@/components/v2/EnvelopeReveal";
 import AudioPlayer from "@/components/v2/AudioPlayer";
 import QuickNav, { navWithoutItinerary } from "@/components/v2/QuickNav";
@@ -8,6 +9,23 @@ import GuideSection from "@/components/v3b/GuideSection";
 import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
+
+export const metadata: Metadata = {
+  title: "Yash & Dhruvi - Wedding & Reception Invitation",
+  description: "Join us in celebrating the wedding and reception of Yash and Dhruvi on July 4th & 5th, 2026.",
+  alternates: {
+    canonical: "/wedding-reception",
+  },
+  openGraph: {
+    title: "Yash & Dhruvi - Wedding & Reception Invitation",
+    description: "Join us in celebrating the wedding and reception of Yash and Dhruvi on July 4th & 5th, 2026.",
+    url: "/wedding-reception",
+  },
+  twitter: {
+    title: "Yash & Dhruvi - Wedding & Reception Invitation",
+    description: "Join us in celebrating the wedding and reception of Yash and Dhruvi on July 4th & 5th, 2026.",
+  },
+};
 
 export default function WeddingReceptionPage() {
   return (

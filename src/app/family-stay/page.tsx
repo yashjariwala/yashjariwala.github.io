@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import EnvelopeReveal from "@/components/v2/EnvelopeReveal";
 import AudioPlayer from "@/components/v2/AudioPlayer";
 import QuickNav from "@/components/v2/QuickNav";
@@ -9,6 +10,23 @@ import GuideSection from "@/components/v3b/GuideSection";
 import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
+
+export const metadata: Metadata = {
+  title: "Yash & Dhruvi - Family Stay Invitation",
+  description: "Join us for the wedding celebrations and family stay of Yash and Dhruvi on July 4th & 5th, 2026.",
+  alternates: {
+    canonical: "/family-stay",
+  },
+  openGraph: {
+    title: "Yash & Dhruvi - Family Stay Invitation",
+    description: "Join us for the wedding celebrations and family stay of Yash and Dhruvi on July 4th & 5th, 2026.",
+    url: "/family-stay",
+  },
+  twitter: {
+    title: "Yash & Dhruvi - Family Stay Invitation",
+    description: "Join us for the wedding celebrations and family stay of Yash and Dhruvi on July 4th & 5th, 2026.",
+  },
+};
 
 export default function FamilyStayPage() {
   return (

@@ -13,9 +13,13 @@ import { invitationData } from "@/lib/invitationData";
 export const metadata: Metadata = {
   title: "Yash & Dhruvi - Reception Invitation",
   description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Yash & Dhruvi - Reception Invitation",
     description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+    url: "/",
   },
   twitter: {
     title: "Yash & Dhruvi - Reception Invitation",
