@@ -10,15 +10,20 @@ import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
 export default function Home() {
+  const receptionEvent = [invitationData.events[1]];
+
   return (
     <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
       <GlobalPetals />
       <AudioPlayer />
       <QuickNav items={navWithoutItinerary} />
       <EnvelopeReveal />
-      <Hero />
-      <CountdownTimer />
-      <EventDetails />
+      <Hero dateDisplay={invitationData.receptionDateDisplay} />
+      <CountdownTimer
+        targetDateIso={invitationData.receptionDateIso}
+        dateLabel={invitationData.receptionDateLabel}
+      />
+      <EventDetails events={receptionEvent} />
       <GuideSection showStay={false} />
       <WithLoveFrom />
 
