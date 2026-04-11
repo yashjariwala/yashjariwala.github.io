@@ -9,10 +9,8 @@ import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
-// Reception-only invite — for guests attending the reception
-export default function HomeV3b() {
-    const receptionEvent = [invitationData.events[1]]; // Reception only
-
+// Wedding + Reception invite — for day guests (not staying at hotel)
+export default function WeddingReception() {
     return (
         <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
             <GlobalPetals />
@@ -21,7 +19,7 @@ export default function HomeV3b() {
             <EnvelopeReveal />
             <Hero />
             <CountdownTimer />
-            <EventDetails events={receptionEvent} />
+            <EventDetails events={invitationData.events} />
             <GuideSection showStay={false} />
             <WithLoveFrom />
 

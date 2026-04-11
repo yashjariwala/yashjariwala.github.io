@@ -4,15 +4,14 @@ import QuickNav from "@/components/v2/QuickNav";
 import Hero from "@/components/v3b/Hero";
 import CountdownTimer from "@/components/v3b/CountdownTimer";
 import EventDetails from "@/components/v3b/EventDetails";
+import EventTimeline from "@/components/v3b/EventTimeline";
 import GuideSection from "@/components/v3b/GuideSection";
 import GlobalPetals from "@/components/v3b/GlobalPetals";
 import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
-// Reception-only invite — for guests attending the reception
-export default function HomeV3b() {
-    const receptionEvent = [invitationData.events[1]]; // Reception only
-
+// Family stay invite — full itinerary for guests staying at the hotel
+export default function FamilyStay() {
     return (
         <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
             <GlobalPetals />
@@ -21,8 +20,9 @@ export default function HomeV3b() {
             <EnvelopeReveal />
             <Hero />
             <CountdownTimer />
-            <EventDetails events={receptionEvent} />
-            <GuideSection showStay={false} />
+            <EventDetails events={invitationData.events} />
+            <EventTimeline />
+            <GuideSection showStay={true} />
             <WithLoveFrom />
 
             <footer className="bg-[#2d0607] text-white py-20 text-center relative overflow-hidden">

@@ -2,17 +2,19 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { invitationData } from "@/lib/invitationData";
+import { invitationData, type EventInfo } from "@/lib/invitationData";
 import { FireEmbersOverlay, GlowingDustOverlay } from "@/components/v2/VideoEffects";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function EventDetails() {
+export default function EventDetails({ events = invitationData.events }: { events?: readonly EventInfo[] }) {
+  const venueEvent = events[0];
+
   return (
     <section id="details" className="relative overflow-hidden">
       {/* Editorial full-bleed event cards — no padding, edge to edge */}
       <div className="flex flex-col">
-        {invitationData.events.map((event, idx) => (
+        {events.map((event, idx) => (
           <EventCard key={event.title} event={event} idx={idx} />
         ))}
       </div>
@@ -50,11 +52,11 @@ export default function EventDetails() {
                 className="font-script text-[#D4AF37] leading-none"
                 style={{ fontSize: "clamp(2.8rem, 9vw, 4.5rem)", textShadow: "0 0 30px rgba(212,175,55,0.4)" }}
               >
-                {invitationData.events[0].venue}
+                {venueEvent.venue}
               </h3>
 
               <p className="font-serif italic text-white/50 text-sm sm:text-base">
-                {invitationData.events[0].address}
+                {venueEvent.address}
               </p>
 
               <div className="flex items-center gap-2 w-28">
@@ -64,7 +66,7 @@ export default function EventDetails() {
               </div>
 
               <a
-                href={invitationData.events[0].mapUrl}
+                href={venueEvent.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 border border-[#D4AF37]/50 px-7 py-2.5 text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] hover:bg-[#D4AF37]/10 transition-colors"

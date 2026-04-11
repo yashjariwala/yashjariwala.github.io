@@ -45,7 +45,7 @@ const cardVariants = {
   }),
 };
 
-export default function GuideSection() {
+export default function GuideSection({ showStay = true }: { showStay?: boolean }) {
   const { travel, accommodation, gifts } = invitationData;
 
   return (
@@ -108,7 +108,7 @@ export default function GuideSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          className={`grid gap-5 sm:gap-6 ${showStay ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}
         >
           <InfoCard title="Travel" icon={<TravelIcon />} idx={0}>
             <div className="space-y-2">
@@ -132,27 +132,29 @@ export default function GuideSection() {
             </div>
           </InfoCard>
 
-          <InfoCard title="Stay" icon={<StayIcon />} idx={1}>
-            <div className="space-y-3">
-              <p className="font-serif text-base text-[#D4AF37] italic mb-3">
-                {accommodation.hotel}
-              </p>
-              <div>
-                <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
-                  Check-in
+          {showStay && (
+            <InfoCard title="Stay" icon={<StayIcon />} idx={1}>
+              <div className="space-y-3">
+                <p className="font-serif text-base text-[#D4AF37] italic mb-3">
+                  {accommodation.hotel}
                 </p>
-                <p className="text-[#4C1215]/70">{accommodation.checkIn}</p>
+                <div>
+                  <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
+                    Check-in
+                  </p>
+                  <p className="text-[#4C1215]/70">{accommodation.checkIn}</p>
+                </div>
+                <div>
+                  <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
+                    Check-out
+                  </p>
+                  <p className="text-[#4C1215]/70">{accommodation.checkOut}</p>
+                </div>
               </div>
-              <div>
-                <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
-                  Check-out
-                </p>
-                <p className="text-[#4C1215]/70">{accommodation.checkOut}</p>
-              </div>
-            </div>
-          </InfoCard>
+            </InfoCard>
+          )}
 
-          <InfoCard title="Gifts" icon={<BlessingIcon />} idx={2} className="sm:col-span-2 lg:col-span-1">
+          <InfoCard title="Gifts" icon={<BlessingIcon />} idx={showStay ? 2 : 1} className={showStay ? "sm:col-span-2 lg:col-span-1" : ""}>
             <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
           </InfoCard>
         </motion.div>
