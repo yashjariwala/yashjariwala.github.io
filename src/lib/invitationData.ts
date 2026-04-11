@@ -122,7 +122,7 @@ export const invitationData = {
     checkOut: "July 6th, 2026 (12:00 PM Morning)",
   },
   familyStayForm: {
-    appsScriptUrl: "",
+    appsScriptUrl: "https://script.google.com/macros/s/AKfycbyUlkCfWgmk5LodyoxXJZuwRVivQcnDfYIjkQj7uwLosQYch5FkSAxh0I8qzJtmMkY2pg/exec",
     acceptedMimeTypes: [
       "application/pdf",
       "image/jpeg",

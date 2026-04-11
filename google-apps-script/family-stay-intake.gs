@@ -1,6 +1,6 @@
-const SHEET_ID = "PASTE_YOUR_GOOGLE_SHEET_ID_HERE";
+const SHEET_ID = "1MUZpVAK14VM___35fBGm3DWUVn0TRIdvsB7SDGeOTvo";
 const SHEET_NAME = "FamilyStayGuests";
-const DRIVE_FOLDER_ID = "PASTE_YOUR_DRIVE_FOLDER_ID_HERE";
+const DRIVE_FOLDER_ID = "1AZeIQXcCCUCIegEE-eVi-cCUIU6YBXhl";
 
 function doGet() {
   return jsonResponse({
