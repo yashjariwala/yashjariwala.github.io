@@ -53,8 +53,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -67,8 +67,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -83,8 +83,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -99,8 +99,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -113,8 +113,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -127,8 +127,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
@@ -141,8 +141,8 @@ export default function WithLoveFrom() {
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
-              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-              fontFamily: "var(--font-script), cursive",
+              fontSize: "clamp(1.4rem, 3.2vw, 2.3rem)",
+              fontFamily: "var(--font-pinyon), cursive",
               lineHeight: "1.35",
             }}
           >
