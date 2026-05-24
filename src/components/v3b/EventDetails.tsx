@@ -181,7 +181,7 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.45, ease: EASE }}
-          className="grid grid-cols-2 gap-3 sm:gap-6 pt-5 border-t border-[#D4AF37]/25"
+          className="flex flex-col sm:flex-row sm:items-start justify-between gap-5 sm:gap-10 pt-5 border-t border-[#D4AF37]/25"
         >
           <InfoBlock icon={<CalIcon />} label="Date" value={event.dateLabel} />
           <InfoBlock icon={<ClockIcon />} label="Time" value={event.timeLabel} />
