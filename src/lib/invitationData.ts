@@ -65,25 +65,25 @@ export const invitationData = {
     {
       date: "Saturday, July 4",
       events: [
-        { time: "1:00 PM", title: "Check-in", description: "Settle in and relax." },
-        { time: "3:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin." },
-        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash & Dhruvi, followed by dinner." },
+        { time: "1:00 PM", title: "Check-in", description: "Settle in and relax.", venue: "Hotel Main Lobby" },
+        { time: "3:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazrana" },
+        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash & Dhruvi, followed by dinner.", venue: "Panaroma Grand Ballroom" },
       ],
     },
     {
       date: "Sunday, July 5",
       events: [
-        { time: "7:30 AM - 10:30 AM", title: "Breakfast", description: "Enjoy a relaxed morning breakfast." },
-        { time: "1:00 PM - 3:00 PM", title: "Lunch", description: "Join us for a delightful afternoon lunch." },
-        { time: "4:30 PM", title: "High Tea", description: "Enjoy light refreshments." },
-        { time: "7:00 PM", title: "Reception & Dinner", description: "An evening of celebration, dancing, and a grand feast." },
+        { time: "7:30 AM - 10:30 AM", title: "Breakfast", description: "Enjoy a relaxed morning breakfast.", venue: "Ground floor" },
+        { time: "1:00 PM - 3:00 PM", title: "Lunch", description: "Join us for a delightful afternoon lunch.", venue: "Nazrana" },
+        { time: "4:30 PM", title: "High Tea", description: "Enjoy light refreshments.", venue: "Nazrana" },
+        { time: "7:00 PM", title: "Reception & Dinner", description: "An evening of celebration, dancing, and a grand feast.", venue: "Panaroma Grand Ballroom" },
       ],
     },
     {
       date: "Monday, July 6",
       events: [
-        { time: "7:30 AM - 10:00 AM", title: "Breakfast", description: "Enjoy a relaxed morning breakfast." },
-        { time: "12:00 PM", title: "Check-out", description: "Bid farewell with beautiful memories." },
+        { time: "7:30 AM - 10:00 AM", title: "Breakfast", description: "Enjoy a relaxed morning breakfast.", venue: "Ground floor" },
+        { time: "12:00 PM", title: "Check-out", description: "Bid farewell with beautiful memories.", venue: "Lobby" },
       ],
     },
   ],

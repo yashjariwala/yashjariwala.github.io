@@ -150,7 +150,7 @@ function TimelineEvent({
   eventIdx,
   isEven,
 }: {
-  event: { time: string; title: string; description?: string };
+  event: { time: string; title: string; description?: string; venue?: string };
   eventIdx: number;
   isEven: boolean;
 }) {
@@ -208,7 +208,7 @@ function TimelineEvent({
 const EventCard = forwardRef<
   HTMLDivElement,
   {
-    event: { time: string; title: string; description?: string };
+    event: { time: string; title: string; description?: string; venue?: string };
     variants: import("framer-motion").Variants;
     align: "left" | "right";
   }
@@ -238,9 +238,20 @@ const EventCard = forwardRef<
         className={`w-8 h-[1px] bg-gradient-to-r from-[#D4AF37]/50 to-transparent mb-2.5 ${align === "right" ? "ml-auto rotate-180" : ""}`}
       />
       {event.description && (
-        <p className="font-sans text-xs sm:text-sm text-[#4C1215]/50 leading-relaxed">
+        <p className="font-sans text-xs sm:text-sm text-[#4C1215]/50 leading-relaxed mb-1">
           {event.description}
         </p>
+      )}
+      {event.venue && (
+        <div className={`flex items-center gap-1.5 mt-2 text-[#D4AF37]/90 ${align === "right" ? "justify-end" : "justify-start"}`}>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-3.5 h-3.5 flex-shrink-0">
+            <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z" />
+            <circle cx="10" cy="7" r="1.5" />
+          </svg>
+          <span className="font-serif italic text-xs tracking-wide">
+            {event.venue}
+          </span>
+        </div>
       )}
     </div>
   </motion.div>
