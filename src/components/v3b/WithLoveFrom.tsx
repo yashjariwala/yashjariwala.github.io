@@ -54,12 +54,9 @@ export default function WithLoveFrom() {
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
-                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
-                fontFamily: "var(--font-playfair), serif",
-                fontStyle: "italic",
-                fontWeight: 500,
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
                 lineHeight: "1.35",
-                letterSpacing: "0.02em"
               }}
             >
               Uma Mehta
@@ -69,15 +66,14 @@ export default function WithLoveFrom() {
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
-                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
-                fontFamily: "var(--font-playfair), serif",
-                fontStyle: "italic",
-                fontWeight: 500,
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
                 lineHeight: "1.35",
-                letterSpacing: "0.02em"
               }}
             >
-              Priti &amp; Rupesh Mehta
+              Priti{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Rupesh Mehta
             </p>
           </div>
         </div>
@@ -88,30 +84,28 @@ export default function WithLoveFrom() {
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
-                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
-                fontFamily: "var(--font-playfair), serif",
-                fontStyle: "italic",
-                fontWeight: 500,
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
                 lineHeight: "1.35",
-                letterSpacing: "0.02em"
               }}
             >
-              Rujuta &amp; Ishita Jariwala
+              Rujuta{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Ishita Jariwala
             </p>
           </div>
           <div>
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
-                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
-                fontFamily: "var(--font-playfair), serif",
-                fontStyle: "italic",
-                fontWeight: 500,
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
                 lineHeight: "1.35",
-                letterSpacing: "0.02em"
               }}
             >
-              Riya &amp; Harsh Mehta
+              Riya{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Harsh Mehta
             </p>
           </div>
         </div>
