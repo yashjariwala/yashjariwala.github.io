@@ -180,7 +180,12 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: brideDelay + groomName.length * 0.055 + 0.1, duration: 0.5 }}
-                    className="block font-sans text-[clamp(0.6rem, 1.8vw, 0.85rem)] text-[#4C1215]/70 tracking-[0.08em] mt-2 font-light italic"
+                    className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
+                    style={{
+                      fontFamily: "var(--font-sans), sans-serif",
+                      fontSize: "clamp(0.75rem, 1.4vw, 1rem)",
+                      textShadow: "none",
+                    }}
                   >
                     (S/o Rupa &amp; Ashish Jariwala)
                   </motion.span>
@@ -202,7 +207,12 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: groomDelay + brideName.length * 0.055 + 0.1, duration: 0.5 }}
-                    className="block font-sans text-[clamp(0.6rem, 1.8vw, 0.85rem)] text-[#4C1215]/70 tracking-[0.08em] mt-2 font-light italic"
+                    className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
+                    style={{
+                      fontFamily: "var(--font-sans), sans-serif",
+                      fontSize: "clamp(0.75rem, 1.4vw, 1rem)",
+                      textShadow: "none",
+                    }}
                   >
                     (D/o Tina &amp; Mansukh Manani)
                   </motion.span>
