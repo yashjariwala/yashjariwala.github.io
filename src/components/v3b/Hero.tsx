@@ -256,7 +256,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         transition={{ delay: finalDelay + 1.2, duration: 1 }}
-        className="absolute z-[6] cursor-pointer bottom-[2%] sm:bottom-[3.5%] left-0 right-0 sm:left-[5%] sm:right-auto flex flex-col items-center gap-1.5 sm:gap-2"
+        className="absolute z-[6] cursor-pointer bottom-[2%] sm:bottom-[5%] left-0 right-0 sm:left-[4%] sm:right-auto w-fit mx-auto sm:mx-0 flex flex-col items-center gap-1.5 sm:gap-2.5 sm:px-4 sm:py-6 sm:bg-[#fdf5ec]/90 sm:backdrop-blur-md sm:border sm:border-[#e6dece] sm:rounded-full sm:shadow-[0_10px_35px_rgba(45,6,7,0.08)]"
         onClick={() => document.getElementById("countdown")?.scrollIntoView({ behavior: "smooth" })}
       >
         <span className="font-sans text-[12px] sm:text-[14px] uppercase tracking-[0.35em] font-semibold text-[#4C1215]/90">Scroll</span>
