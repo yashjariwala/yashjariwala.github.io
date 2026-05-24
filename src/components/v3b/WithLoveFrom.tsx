@@ -52,20 +52,32 @@ export default function WithLoveFrom() {
         <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
           <div>
             <p
-              className="text-[#4C1215] py-1"
-              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
+                fontFamily: "var(--font-playfair), serif",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "1.35",
+                letterSpacing: "0.02em"
+              }}
             >
               Uma Mehta
             </p>
           </div>
           <div>
             <p
-              className="text-[#4C1215] py-1"
-              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
+                fontFamily: "var(--font-playfair), serif",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "1.35",
+                letterSpacing: "0.02em"
+              }}
             >
-              Priti{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
-              {" "}Rupesh Mehta
+              Priti &amp; Rupesh Mehta
             </p>
           </div>
         </div>
@@ -74,22 +86,32 @@ export default function WithLoveFrom() {
         <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
           <div>
             <p
-              className="text-[#4C1215] py-1"
-              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
+                fontFamily: "var(--font-playfair), serif",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "1.35",
+                letterSpacing: "0.02em"
+              }}
             >
-              Rujuta{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
-              {" "}Ishita Jariwala
+              Rujuta &amp; Ishita Jariwala
             </p>
           </div>
           <div>
             <p
-              className="text-[#4C1215] py-1"
-              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.25rem, 2.6vw, 1.95rem)",
+                fontFamily: "var(--font-playfair), serif",
+                fontStyle: "italic",
+                fontWeight: 500,
+                lineHeight: "1.35",
+                letterSpacing: "0.02em"
+              }}
             >
-              Riya{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
-              {" "}Harsh Mehta
+              Riya &amp; Harsh Mehta
             </p>
           </div>
         </div>
