@@ -48,7 +48,39 @@ export default function WithLoveFrom() {
         transition={{ delay: 0.25, duration: 0.8 }}
         className="max-w-4xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16 text-center relative z-10"
       >
-        {/* Left Column (Mehta Family) */}
+        {/* Left Column (Jariwala Family) */}
+        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
+          <div>
+            <p
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
+                lineHeight: "1.35",
+              }}
+            >
+              Ankita{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Amit Jariwala
+            </p>
+          </div>
+          <div>
+            <p
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
+                lineHeight: "1.35",
+              }}
+            >
+              Rujuta{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Ishita Jariwala
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column (Mehta Family) */}
         <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
           <div>
             <p
@@ -88,38 +120,6 @@ export default function WithLoveFrom() {
               Riya{" "}
               <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
               {" "}Harsh Mehta
-            </p>
-          </div>
-        </div>
-
-        {/* Right Column (Jariwala Family) */}
-        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
-          <div>
-            <p
-              className="text-[#4C1215] py-1 whitespace-nowrap"
-              style={{
-                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-                fontFamily: "var(--font-script), cursive",
-                lineHeight: "1.35",
-              }}
-            >
-              Ankita{" "}
-              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
-              {" "}Amit Jariwala
-            </p>
-          </div>
-          <div>
-            <p
-              className="text-[#4C1215] py-1 whitespace-nowrap"
-              style={{
-                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-                fontFamily: "var(--font-script), cursive",
-                lineHeight: "1.35",
-              }}
-            >
-              Rujuta{" "}
-              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
-              {" "}Ishita Jariwala
             </p>
           </div>
         </div>
