@@ -219,7 +219,7 @@ const EventCard = forwardRef<
     whileInView="visible"
     viewport={{ once: true, margin: "-60px" }}
     variants={variants}
-    className={`relative bg-[#fef9f2]/92 backdrop-blur-sm border border-[#D4AF37]/40 shadow-[0_8px_40px_rgba(212,175,55,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] p-5 sm:p-6 max-w-[300px] w-full overflow-hidden ${align === "right" ? "text-right" : "text-left"}`}
+    className={`relative bg-[#fef9f2]/92 backdrop-blur-sm border border-[#D4AF37]/40 shadow-[0_8px_40px_rgba(212,175,55,0.18),inset_0_1px_0_rgba(255,255,255,0.9)] p-6 sm:p-7 max-w-[340px] w-full overflow-hidden ${align === "right" ? "text-right" : "text-left"}`}
   >
     <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
     <div className="absolute inset-[5px] border border-[#D4AF37]/15 pointer-events-none" />
@@ -228,17 +228,17 @@ const EventCard = forwardRef<
     <svg className="absolute top-2 right-2 opacity-30" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M11 1 L7 1 M11 1 L11 5" stroke="#D4AF37" strokeWidth="1"/><circle cx="11" cy="1" r="0.8" fill="#D4AF37"/></svg>
 
     <div className={`flex flex-col ${align === "right" ? "items-end" : "items-start"}`}>
-      <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#8B6914] bg-[#D4AF37]/08 px-2.5 py-1 mb-3 inline-block">
+      <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-[#8B6914] bg-[#D4AF37]/08 px-2.5 py-1 mb-3 inline-block">
         {event.time}
       </span>
-      <h4 className="font-serif text-lg sm:text-xl text-[#4C1215]/90 mb-2 leading-snug font-medium">
+      <h4 className="font-serif text-xl sm:text-2xl text-[#4C1215]/90 mb-2 leading-snug font-medium">
         {event.title}
       </h4>
       <div
         className={`w-8 h-[1px] bg-gradient-to-r from-[#D4AF37]/50 to-transparent mb-2.5 ${align === "right" ? "ml-auto rotate-180" : ""}`}
       />
       {event.description && (
-        <p className="font-sans text-xs sm:text-sm text-[#4C1215]/50 leading-relaxed mb-1">
+        <p className="font-sans text-sm sm:text-base text-[#4C1215]/50 leading-relaxed mb-1">
           {event.description}
         </p>
       )}
@@ -248,7 +248,7 @@ const EventCard = forwardRef<
             <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z" />
             <circle cx="10" cy="7" r="1.5" />
           </svg>
-          <span className="font-serif italic text-xs tracking-wide">
+          <span className="font-serif italic text-sm tracking-wide">
             {event.venue}
           </span>
         </div>

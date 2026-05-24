@@ -10,28 +10,28 @@ import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
 export const metadata: Metadata = {
-  title: "Yash & Dhruvi - Reception Invitation",
-  description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+  title: "Yash with Dhruvi - Reception Invitation",
+  description: "Join us in celebrating the reception of Yash with Dhruvi on July 5th, 2026.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Yash & Dhruvi - Reception Invitation",
-    description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+    title: "Yash with Dhruvi - Reception Invitation",
+    description: "Join us in celebrating the reception of Yash with Dhruvi on July 5th, 2026.",
     url: "/",
     images: [
       {
         url: "/v2/reception.png",
         width: 1377,
         height: 768,
-        alt: "Yash & Dhruvi reception invitation",
+        alt: "Yash with Dhruvi reception invitation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash & Dhruvi - Reception Invitation",
-    description: "Join us in celebrating the reception of Yash and Dhruvi on July 5th, 2026.",
+    title: "Yash with Dhruvi - Reception Invitation",
+    description: "Join us in celebrating the reception of Yash with Dhruvi on July 5th, 2026.",
     images: ["/v2/reception.png"],
   },
 };
