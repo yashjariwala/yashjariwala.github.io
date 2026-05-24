@@ -130,19 +130,19 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1 }}>
               <p
                 className="text-[#4C1215] leading-snug"
-                style={{ fontFamily: "var(--font-pinyon), cursive", fontSize: "clamp(1.75rem, 3.8vw, 3.1rem)", letterSpacing: "0.01em" }}
+                style={{ fontFamily: "var(--font-pinyon), cursive", fontSize: "clamp(2.3rem, 5vw, 3.2rem)", letterSpacing: "0.01em" }}
               >
                 {pageType === "wedding" ? (
                   <>
                     Ankita
-                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
+                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(1.1rem, 2.4vw, 1.3rem)" }}>&amp;</span>
                     Amit<br className="sm:hidden" />
                     {" "}Jariwala
                   </>
                 ) : (
                   <>
                     Rupa
-                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
+                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(1.1rem, 2.4vw, 1.3rem)" }}>&amp;</span>
                     Ashish<br className="sm:hidden" />
                     {" "}Jariwala
                   </>
@@ -183,7 +183,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     className="block text-[#4C1215]/85 tracking-[0.01em] mt-3 font-normal"
                     style={{
                       fontFamily: "var(--font-pinyon), cursive",
-                      fontSize: "clamp(1.2rem, 3.2vw, 2.1rem)",
+                      fontSize: "clamp(1.55rem, 3.5vw, 2.2rem)",
                       textShadow: "none",
                       textTransform: "none",
                     }}
@@ -211,7 +211,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     className="block text-[#4C1215]/85 tracking-[0.01em] mt-3 font-normal"
                     style={{
                       fontFamily: "var(--font-pinyon), cursive",
-                      fontSize: "clamp(1.2rem, 3.2vw, 2.1rem)",
+                      fontSize: "clamp(1.55rem, 3.5vw, 2.2rem)",
                       textShadow: "none",
                       textTransform: "none",
                     }}
