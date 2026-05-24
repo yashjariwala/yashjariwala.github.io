@@ -97,7 +97,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
           <div
             className="absolute inset-0 flex flex-col items-center justify-start text-center select-none"
             style={{
-              paddingTop:    screenSize === "mobile" ? "calc(45% - 20px)" : screenSize === "tablet" ? "22%" : "10%",
+              paddingTop:    screenSize === "mobile" ? "calc(37% - 10px)" : screenSize === "tablet" ? "22%" : "10%",
               paddingLeft:   screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
               paddingRight:  screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
               paddingBottom: screenSize === "mobile" ? "32%" : screenSize === "tablet" ? "26%" : "16%",
@@ -256,14 +256,14 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
         transition={{ delay: finalDelay + 1.2, duration: 1 }}
-        className="absolute z-[6] cursor-pointer bottom-[3%] left-0 right-0 flex flex-col items-center gap-2"
+        className="absolute z-[6] cursor-pointer bottom-[2%] sm:bottom-[3%] left-0 right-0 flex flex-col items-center gap-1.5 sm:gap-2"
         onClick={() => document.getElementById("countdown")?.scrollIntoView({ behavior: "smooth" })}
       >
-        <span className="font-sans text-[14px] uppercase tracking-[0.35em] font-semibold text-[#4C1215]/90">Scroll</span>
+        <span className="font-sans text-[12px] sm:text-[14px] uppercase tracking-[0.35em] font-semibold text-[#4C1215]/90">Scroll</span>
         <motion.div
           className="w-[1.5px]"
           style={{ background: "linear-gradient(to bottom, #4C1215, transparent)" }}
-          animate={{ height: [16, 32, 16], opacity: [0.5, 1, 0.5] }}
+          animate={{ height: screenSize === "mobile" ? [12, 22, 12] : [16, 32, 16], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
