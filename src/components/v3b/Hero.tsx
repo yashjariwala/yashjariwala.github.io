@@ -27,7 +27,7 @@ function AnimatedName({ name, startDelay }: { name: string; startDelay: number }
 
 type Petal = { x: number; tx: number; dur: number; delay: number; size: number; hue: number };
 
-export default function Hero({ dateDisplay = invitationData.couple.date }: { dateDisplay?: string }) {
+export default function Hero({ dateDisplay = invitationData.couple.date, pageType = "wedding" }: { dateDisplay?: string; pageType?: "wedding" | "reception" }) {
   const heroRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const [petals, setPetals] = useState<Petal[]>([]);
@@ -126,16 +126,27 @@ export default function Hero({ dateDisplay = invitationData.couple.date }: { dat
               style={{ background: "linear-gradient(90deg, transparent, #C5973E 30%, #C5973E 70%, transparent)" }}
             />
 
-            {/* Parents */}
+            {/* Parents / Hosts */}
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 1 }}>
               <p
                 className="text-[#4C1215] leading-snug"
                 style={{ fontFamily: "var(--font-pinyon), cursive", fontSize: "clamp(1.75rem, 3.8vw, 3.1rem)", letterSpacing: "0.01em" }}
               >
-                Rupa
-                <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
-                Ashish<br className="sm:hidden" />
-                {" "}Jariwala
+                {pageType === "wedding" ? (
+                  <>
+                    Ankita
+                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
+                    Amit<br className="sm:hidden" />
+                    {" "}Jariwala
+                  </>
+                ) : (
+                  <>
+                    Rupa
+                    <span className="not-italic font-light text-[#4C1215]/60 mx-1" style={{ fontSize: "clamp(0.85rem, 2.4vw, 1.2rem)" }}>&amp;</span>
+                    Ashish<br className="sm:hidden" />
+                    {" "}Jariwala
+                  </>
+                )}
               </p>
             </motion.div>
 
@@ -143,9 +154,13 @@ export default function Hero({ dateDisplay = invitationData.couple.date }: { dat
             <motion.p
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85, duration: 1 }}
               className="font-sans text-[#4C1215]/75 uppercase tracking-[0.18em] mt-2 mb-0"
-              style={{ fontSize: "clamp(0.82rem, 2.5vw, 1rem)", lineHeight: 1.7 }}
+              style={{ fontSize: "clamp(0.78rem, 2.3vw, 0.95rem)", lineHeight: 1.7 }}
             >
-              invite you to the wedding<br />of their son
+              {pageType === "wedding" ? (
+                <>Have Pleasure in inviting you to celebrate<br />wedding of</>
+              ) : (
+                <>Request the Pleasure of your company to celebrate<br />wedding reception<br />of their son</>
+              )}
             </motion.p>
 
             {/* Names — extra top margin so Y ascender clears the invite line */}
@@ -158,7 +173,19 @@ export default function Hero({ dateDisplay = invitationData.couple.date }: { dat
                 lineHeight: 1.1,
               }}
             >
-              <AnimatedName name={groomName} startDelay={brideDelay} />
+              <div className="inline-block align-top">
+                <AnimatedName name={groomName} startDelay={brideDelay} />
+                {pageType === "wedding" && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: brideDelay + groomName.length * 0.055 + 0.1, duration: 0.5 }}
+                    className="block font-sans text-[clamp(0.6rem, 1.8vw, 0.85rem)] text-[#4C1215]/70 tracking-[0.08em] mt-2 font-light italic"
+                  >
+                    (S/o Rupa &amp; Ashish Jariwala)
+                  </motion.span>
+                )}
+              </div>
               <motion.span
                 initial={{ opacity: 0, scale: 0.2, rotate: -20 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -168,7 +195,19 @@ export default function Hero({ dateDisplay = invitationData.couple.date }: { dat
               >
                 &amp;
               </motion.span>
-              <AnimatedName name={brideName} startDelay={groomDelay} />
+              <div className="inline-block align-top">
+                <AnimatedName name={brideName} startDelay={groomDelay} />
+                {pageType === "wedding" && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: groomDelay + brideName.length * 0.055 + 0.1, duration: 0.5 }}
+                    className="block font-sans text-[clamp(0.6rem, 1.8vw, 0.85rem)] text-[#4C1215]/70 tracking-[0.08em] mt-2 font-light italic"
+                  >
+                    (D/o Tina &amp; Mansukh Manani)
+                  </motion.span>
+                )}
+              </div>
             </h1>
 
             {/* Divider */}

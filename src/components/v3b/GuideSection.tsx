@@ -154,7 +154,7 @@ export default function GuideSection({ showStay = true }: { showStay?: boolean }
             </InfoCard>
           )}
 
-          <InfoCard title="Gifts" icon={<BlessingIcon />} idx={showStay ? 2 : 1} className={showStay ? "sm:col-span-2 lg:col-span-1" : ""}>
+          <InfoCard title="Blessings Only" icon={<BlessingIcon />} idx={showStay ? 2 : 1} className={showStay ? "sm:col-span-2 lg:col-span-1" : ""}>
             <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
           </InfoCard>
         </motion.div>

@@ -46,7 +46,7 @@ export default function Home() {
       <AudioPlayer />
       <QuickNav items={navWithoutItinerary} />
       <EnvelopeReveal />
-      <Hero dateDisplay={invitationData.receptionDateDisplay} />
+      <Hero dateDisplay={invitationData.receptionDateDisplay} pageType="reception" />
       <CountdownTimer
         targetDateIso={invitationData.receptionDateIso}
         dateLabel={invitationData.receptionDateLabel}

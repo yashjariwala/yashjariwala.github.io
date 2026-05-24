@@ -42,22 +42,22 @@ export const invitationData = {
   receptionDateDisplay: "July 5th, 2026",
   invocation: "॥ श्री गणेशाय नमः ॥",
   heroSubtitle: "With the blessings of the Almighty, Mr. Mansukh Manani & Mrs. Tina Manani joyfully invite you to the wedding of their beloved daughter",
-  cityLabel: "Marriot Hotel, Navi Mumbai",
+  cityLabel: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
   events: [
     {
       title: "Wedding Ceremony",
       dateLabel: "Saturday, July 4, 2026",
-      timeLabel: "4:30 PM onwards",
-      venue: "Marriott Hotel",
-      address: "Navi Mumbai, Maharashtra, India",
+      timeLabel: "Jaan Aagman: 4.30 pm | Hast Melap: 5.00 pm | Dinner: 7.30 pm onwards",
+      venue: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
+      address: "D 264, TTC Estate, Thane Belapur Road, Turbhe, Navi Mumbai, Maharashtra - 400703",
       mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
     {
       title: "Reception",
       dateLabel: "Sunday, July 5, 2026",
-      timeLabel: "7:00 PM onwards",
-      venue: "Marriott Hotel",
-      address: "Navi Mumbai, Maharashtra, India",
+      timeLabel: "7.00 pm onwards followed by dinner",
+      venue: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
+      address: "D 264, TTC Estate, Thane Belapur Road, Turbhe, Navi Mumbai, Maharashtra - 400703",
       mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
   ] as EventInfo[],
@@ -117,7 +117,7 @@ export const invitationData = {
     nearestStation: "Turbhe Railway Station",
   },
   accommodation: {
-    hotel: "Marriott Hotel",
+    hotel: "Navi Mumbai Marriott Hotel",
     checkIn: "July 4th, 2026 (After 1:00 PM)",
     checkOut: "July 6th, 2026 (12:00 PM Morning)",
   },
@@ -131,7 +131,7 @@ export const invitationData = {
     ],
     maxUploadMb: 10,
   } as FamilyStayFormConfig,
-  gifts: "Please, no gifts. Your presence at their wedding and your loving blessings are the greatest gifts the family could ask for.",
+  gifts: "Your presence and blessings are all we request.",
   faqs: [
     {
       q: "Are kids welcome?",

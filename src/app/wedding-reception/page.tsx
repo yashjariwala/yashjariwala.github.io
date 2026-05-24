@@ -44,7 +44,7 @@ export default function WeddingReceptionPage() {
       <AudioPlayer />
       <QuickNav items={navWithoutItinerary} />
       <EnvelopeReveal />
-      <Hero />
+      <Hero pageType="wedding" />
       <CountdownTimer />
       <EventDetails events={invitationData.events} />
       <GuideSection showStay={false} />

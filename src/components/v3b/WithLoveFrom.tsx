@@ -40,25 +40,59 @@ export default function WithLoveFrom() {
         With Love From
       </motion.p>
 
-      {/* Names on one line */}
+      {/* Names Grid */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.25, duration: 0.8 }}
-        className="text-center"
+        className="max-w-2xl mx-auto px-4 grid grid-cols-2 gap-x-12 sm:gap-x-20 gap-y-8 text-center relative z-10"
       >
-        <p
-          className="text-[#4C1215] leading-tight"
-          style={{ fontSize: "clamp(2rem, 5vw, 2.8rem)", fontFamily: "var(--font-pinyon), cursive" }}
-        >
-          Ankita{" "}
-          <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(1.1rem, 3vw, 1.6rem)" }}>&amp;</span>
-          {" "}Amit Jariwala
-        </p>
-        <p className="font-sans text-[#D4AF37]/80 text-[10px] sm:text-xs uppercase tracking-[0.28em] mt-2">
-          Chachi &amp; Chachu
-        </p>
+        {/* Left Column */}
+        <div className="space-y-6 flex flex-col justify-start items-center">
+          <div>
+            <p
+              className="text-[#4C1215] leading-tight"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+            >
+              Uma Mehta
+            </p>
+          </div>
+          <div>
+            <p
+              className="text-[#4C1215] leading-tight"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+            >
+              Priti{" "}
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              {" "}Rupesh Mehta
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column */}
+        <div className="space-y-6 flex flex-col justify-start items-center">
+          <div>
+            <p
+              className="text-[#4C1215] leading-tight"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+            >
+              Rujuta{" "}
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              {" "}Ishita Jariwala
+            </p>
+          </div>
+          <div>
+            <p
+              className="text-[#4C1215] leading-tight"
+              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+            >
+              Riya{" "}
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              {" "}Harsh Mehta
+            </p>
+          </div>
+        </div>
       </motion.div>
 
       {/* Bottom gold rule */}
