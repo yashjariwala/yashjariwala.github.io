@@ -53,7 +53,7 @@ export default function EventDetails({ events = invitationData.events }: { event
                 style={{ fontSize: "clamp(2.5rem, 8vw, 3.8rem)", textShadow: "0 0 30px rgba(212,175,55,0.4)" }}
               >
                 Marriott Hotel<br />
-                <span className="block mt-1" style={{ fontSize: "clamp(2rem, 6.5vw, 3.1rem)" }}>Navi Mumbai</span>
+                <span className="block mt-1" style={{ fontSize: "clamp(1.5rem, 4.8vw, 2.25rem)" }}>Navi Mumbai</span>
               </h3>
 
               <p
