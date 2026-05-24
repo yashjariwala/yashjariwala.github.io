@@ -192,13 +192,30 @@ function EventCard({ event, idx }: { event: (typeof invitationData.events)[numbe
 }
 
 function InfoBlock({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  const isTimeWithDividers = value.includes(" | ");
+
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center gap-1.5">
         <div className="w-3.5 h-3.5 flex-shrink-0 text-[#D4AF37]/70">{icon}</div>
         <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.4em] text-[#D4AF37]/70">{label}</span>
       </div>
-      <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug">{value}</span>
+      {isTimeWithDividers ? (
+        <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug">
+          {/* Mobile view: Stacked 3 lines */}
+          <span className="block sm:hidden space-y-1">
+            {value.split(" | ").map((part, i) => (
+              <span key={i} className="block">{part}</span>
+            ))}
+          </span>
+          {/* Desktop view: Single line */}
+          <span className="hidden sm:inline whitespace-nowrap">{value}</span>
+        </span>
+      ) : (
+        <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug whitespace-nowrap">
+          {value}
+        </span>
+      )}
     </div>
   );
 }
