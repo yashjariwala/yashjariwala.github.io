@@ -46,23 +46,25 @@ export default function WithLoveFrom() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.25, duration: 0.8 }}
-        className="max-w-4xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16 text-center relative z-10"
+        className="max-w-4xl mx-auto px-6 flex flex-col gap-12 sm:gap-16 text-center relative z-10"
       >
-        {/* Left Column */}
-        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
-          <div>
-            <p
-              className="text-[#4C1215] py-1 whitespace-nowrap"
-              style={{
-                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
-                fontFamily: "var(--font-script), cursive",
-                lineHeight: "1.35",
-              }}
-            >
-              Uma Mehta
-            </p>
-          </div>
-          <div>
+        {/* Row 1: Nani (Centered) */}
+        <div className="flex justify-center">
+          <p
+            className="text-[#4C1215] py-1 whitespace-nowrap"
+            style={{
+              fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+              fontFamily: "var(--font-script), cursive",
+              lineHeight: "1.35",
+            }}
+          >
+            Uma Mehta
+          </p>
+        </div>
+
+        {/* Row 2: Parents & Uncle/Aunt (2 Columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16">
+          <div className="flex justify-center">
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
@@ -76,11 +78,25 @@ export default function WithLoveFrom() {
               {" "}Rupesh Mehta
             </p>
           </div>
+          <div className="flex justify-center">
+            <p
+              className="text-[#4C1215] py-1 whitespace-nowrap"
+              style={{
+                fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
+                fontFamily: "var(--font-script), cursive",
+                lineHeight: "1.35",
+              }}
+            >
+              Ankita{" "}
+              <span className="font-sans font-light text-[#4C1215]/70" style={{ fontSize: "clamp(0.95rem, 2vw, 1.3rem)" }}>&amp;</span>
+              {" "}Amit Jariwala
+            </p>
+          </div>
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
-          <div>
+        {/* Row 3: Cousins (2 Columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16">
+          <div className="flex justify-center">
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
@@ -94,7 +110,7 @@ export default function WithLoveFrom() {
               {" "}Ishita Jariwala
             </p>
           </div>
-          <div>
+          <div className="flex justify-center">
             <p
               className="text-[#4C1215] py-1 whitespace-nowrap"
               style={{
