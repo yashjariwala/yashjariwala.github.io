@@ -66,7 +66,7 @@ export const invitationData = {
       date: "Saturday, July 4",
       events: [
         { time: "1:00 PM", title: "Check-in", description: "Settle in and relax.", venue: "Hotel Main Lobby" },
-        { time: "3:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazrana" },
+        { time: "2:00 PM - 4:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazrana" },
         { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash & Dhruvi, followed by dinner.", venue: "Panaroma Grand Ballroom" },
       ],
     },
