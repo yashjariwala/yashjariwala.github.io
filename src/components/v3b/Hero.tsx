@@ -97,7 +97,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
           <div
             className="absolute inset-0 flex flex-col items-center justify-start text-center select-none"
             style={{
-              paddingTop:    screenSize === "mobile" ? "calc(37% - 10px)" : screenSize === "tablet" ? "22%" : "10%",
+              paddingTop:    screenSize === "mobile" ? "calc(31% - 10px)" : screenSize === "tablet" ? "22%" : "10%",
               paddingLeft:   screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
               paddingRight:  screenSize === "desktop" ? "12%" : screenSize === "tablet" ? "11%" : "20%",
               paddingBottom: screenSize === "mobile" ? "32%" : screenSize === "tablet" ? "26%" : "16%",
