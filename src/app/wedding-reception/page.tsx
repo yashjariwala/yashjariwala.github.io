@@ -11,8 +11,8 @@ import WithLoveFrom from "@/components/v3b/WithLoveFrom";
 import { invitationData } from "@/lib/invitationData";
 
 export const metadata: Metadata = {
-  title: "Yash & Dhruvi - Wedding & Reception Invitation",
-  description: "Join us in celebrating the wedding and reception of Yash and Dhruvi on July 4th & 5th, 2026.",
+  title: "Yash weds Dhruvi - Wedding & Reception Invitation",
+  description: "Join us in celebrating the wedding and reception of Yash weds Dhruvi on July 4th & 5th, 2026.",
   alternates: {
     canonical: "/wedding-reception",
   },
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     url: "/wedding-reception",
     images: [
       {
-        url: "/v2/Wedding.png",
+        url: "https://yashjariwala.github.io/v2/Wedding.png",
         width: 1377,
         height: 768,
-        alt: "Yash & Dhruvi wedding and reception invitation",
+        alt: "Yash weds Dhruvi wedding and reception invitation",
       },
     ],
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yash & Dhruvi - Wedding & Reception Invitation",
     description: "Join us in celebrating the wedding and reception of Yash and Dhruvi on July 4th & 5th, 2026.",
-    images: ["/v2/Wedding.png"],
+    images: ["https://yashjariwala.github.io/v2/Wedding.png"],
   },
 };
 
