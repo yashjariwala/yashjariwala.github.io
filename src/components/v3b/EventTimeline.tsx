@@ -228,7 +228,7 @@ const EventCard = forwardRef<
     <svg className="absolute top-2 right-2 opacity-30" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M11 1 L7 1 M11 1 L11 5" stroke="#D4AF37" strokeWidth="1"/><circle cx="11" cy="1" r="0.8" fill="#D4AF37"/></svg>
 
     <div className={`flex flex-col ${align === "right" ? "items-end" : "items-start"}`}>
-      <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#D4AF37] bg-[#D4AF37]/08 px-2.5 py-1 mb-3 inline-block">
+      <span className="font-sans text-[9px] uppercase tracking-[0.3em] text-[#8B6914] bg-[#D4AF37]/08 px-2.5 py-1 mb-3 inline-block">
         {event.time}
       </span>
       <h4 className="font-serif text-lg sm:text-xl text-[#4C1215]/90 mb-2 leading-snug font-medium">
@@ -243,7 +243,7 @@ const EventCard = forwardRef<
         </p>
       )}
       {event.venue && (
-        <div className={`flex items-center gap-1.5 mt-2 text-[#D4AF37]/90 ${align === "right" ? "justify-end" : "justify-start"}`}>
+        <div className={`flex items-center gap-1.5 mt-2 text-[#8B6914] ${align === "right" ? "justify-end" : "justify-start"}`}>
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-3.5 h-3.5 flex-shrink-0">
             <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5z" />
             <circle cx="10" cy="7" r="1.5" />

@@ -201,7 +201,7 @@ function InfoBlock({ icon, label, value }: { icon: React.ReactNode; label: strin
         <span className="font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.4em] text-[#D4AF37]/70">{label}</span>
       </div>
       {isTimeWithDividers ? (
-        <span className="font-serif text-base sm:text-xl md:text-2xl text-[#C5973E] italic leading-snug">
+        <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug">
           {/* Mobile view: Stacked 3 lines */}
           <span className="block sm:hidden space-y-1">
             {value.split(" | ").map((part, i) => (
@@ -212,7 +212,7 @@ function InfoBlock({ icon, label, value }: { icon: React.ReactNode; label: strin
           <span className="hidden sm:inline whitespace-nowrap">{value}</span>
         </span>
       ) : (
-        <span className="font-serif text-base sm:text-xl md:text-2xl text-[#C5973E] italic leading-snug whitespace-nowrap">
+        <span className="font-serif text-base sm:text-xl md:text-2xl text-white italic leading-snug whitespace-nowrap">
           {value}
         </span>
       )}
