@@ -151,8 +151,8 @@ export default function WithLoveFrom() {
         </div>
       </motion.div>
 
-      {/* Bottom gold rule */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mt-16 sm:mt-24" />
+
+    
     </section>
   );
 }
