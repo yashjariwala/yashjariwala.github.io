@@ -183,7 +183,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
                     style={{
                       fontFamily: "var(--font-sans), sans-serif",
-                      fontSize: "clamp(0.75rem, 1.4vw, 1rem)",
+                      fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
                       textShadow: "none",
                     }}
                   >
@@ -210,7 +210,7 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
                     style={{
                       fontFamily: "var(--font-sans), sans-serif",
-                      fontSize: "clamp(0.75rem, 1.4vw, 1rem)",
+                      fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
                       textShadow: "none",
                     }}
                   >
