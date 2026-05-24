@@ -180,11 +180,12 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: brideDelay + groomName.length * 0.055 + 0.1, duration: 0.5 }}
-                    className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
+                    className="block text-[#4C1215]/85 tracking-[0.01em] mt-3 font-normal"
                     style={{
-                      fontFamily: "var(--font-sans), sans-serif",
-                      fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
+                      fontFamily: "var(--font-pinyon), cursive",
+                      fontSize: "clamp(1.2rem, 3.2vw, 2.1rem)",
                       textShadow: "none",
+                      textTransform: "none",
                     }}
                   >
                     (S/o Rupa &amp; Ashish Jariwala)
@@ -207,11 +208,12 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: groomDelay + brideName.length * 0.055 + 0.1, duration: 0.5 }}
-                    className="block font-sans text-[#4C1215]/75 tracking-[0.06em] mt-3 font-normal"
+                    className="block text-[#4C1215]/85 tracking-[0.01em] mt-3 font-normal"
                     style={{
-                      fontFamily: "var(--font-sans), sans-serif",
-                      fontSize: "clamp(1rem, 2.2vw, 1.5rem)",
+                      fontFamily: "var(--font-pinyon), cursive",
+                      fontSize: "clamp(1.2rem, 3.2vw, 2.1rem)",
                       textShadow: "none",
+                      textTransform: "none",
                     }}
                   >
                     (D/o Tina &amp; Mansukh Manani)
