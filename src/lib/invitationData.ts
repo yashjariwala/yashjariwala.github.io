@@ -67,7 +67,7 @@ export const invitationData = {
       events: [
         { time: "1:00 PM", title: "Check-in", description: "Settle in and relax.", venue: "Hotel Main Lobby" },
         { time: "2:00 PM - 4:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazrana" },
-        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash & Dhruvi, followed by dinner.", venue: "Panaroma Grand Ballroom" },
+        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash with Dhruvi, followed by dinner.", venue: "Panaroma Grand Ballroom" },
       ],
     },
     {
@@ -95,7 +95,7 @@ export const invitationData = {
     },
     {
       title: "Falling in Love",
-      text: "After years of friendship, Yash & Dhruvi officially started dating and building a beautiful life together.",
+      text: "After years of friendship, Yash with Dhruvi officially started dating and building a beautiful life together.",
       year: "2022",
     },
     {

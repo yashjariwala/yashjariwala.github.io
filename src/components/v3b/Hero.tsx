@@ -196,10 +196,10 @@ export default function Hero({ dateDisplay = invitationData.couple.date, pageTyp
                 initial={{ opacity: 0, scale: 0.2, rotate: -20 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 transition={{ delay: brideDelay + groomName.length * 0.055 + 0.2, duration: 0.7, ease: EASE }}
-                className="block font-sans font-extralight text-[#4C1215]"
-                style={{ fontSize: "clamp(1.2rem, 3vw, 2rem)", margin: "0.3em 0", letterSpacing: "0.3em" }}
+                className="block font-serif italic font-light text-[#4C1215]/85"
+                style={{ fontSize: "clamp(1.15rem, 2.7vw, 1.85rem)", margin: "0.3em 0", letterSpacing: "0.04em" }}
               >
-                &amp;
+                with
               </motion.span>
               <div className="inline-block align-top">
                 <AnimatedName name={brideName} startDelay={groomDelay} />

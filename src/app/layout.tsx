@@ -35,18 +35,18 @@ const notoDevanagari = Noto_Serif_Devanagari({
 
 export const metadata: Metadata = {
   title: "Yash with Dhruvi - Wedding Invitation",
-  description: "Join us in celebrating the wedding of Yash and Dhruvi on July 4th & 5th, 2026.",
+  description: "Join us in celebrating the wedding of Yash with Dhruvi on July 4th & 5th, 2026.",
   metadataBase: new URL("https://yashjariwala.github.io"),
   openGraph: {
     title: "Yash with Dhruvi - Wedding Invitation",
-    description: "Join us in celebrating the wedding of Yash and Dhruvi on July 4th & 5th, 2026.",
-    images: [{ url: "/v2/Wedding.png", width: 1200, height: 630, alt: "Yash & Dhruvi Wedding" }],
+    description: "Join us in celebrating the wedding of Yash with Dhruvi on July 4th & 5th, 2026.",
+    images: [{ url: "/v2/Wedding.png", width: 1200, height: 630, alt: "Yash with Dhruvi Wedding" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Yash with Dhruvi - Wedding Invitation",
-    description: "Join us in celebrating the wedding of Yash and Dhruvi on July 4th & 5th, 2026.",
+    description: "Join us in celebrating the wedding of Yash with Dhruvi on July 4th & 5th, 2026.",
     images: ["/v2/Wedding.png"],
   },
 };
