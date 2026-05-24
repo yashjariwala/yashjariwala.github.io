@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 export default function WithLoveFrom() {
   return (
     <section
-      className="relative py-10 sm:py-14 flex flex-col items-center overflow-hidden"
+      className="relative py-14 sm:py-20 flex flex-col items-center overflow-hidden"
       style={{ background: "linear-gradient(160deg, #fffbf5, #fef6e8, #fdf3e0)" }}
     >
       {/* Top gold rule */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mb-10" />
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mb-12 sm:mb-16" />
 
       {/* Heart */}
       <motion.div
@@ -35,7 +35,7 @@ export default function WithLoveFrom() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.15, duration: 0.7 }}
-        className="font-sans text-[#D4AF37] text-[10px] sm:text-xs uppercase tracking-[0.35em] mb-6"
+        className="font-sans text-[#D4AF37] text-[10px] sm:text-xs uppercase tracking-[0.35em] mb-8 sm:mb-12"
       >
         With Love From
       </motion.p>
@@ -46,49 +46,49 @@ export default function WithLoveFrom() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.25, duration: 0.8 }}
-        className="max-w-2xl mx-auto px-4 grid grid-cols-2 gap-x-12 sm:gap-x-20 gap-y-8 text-center relative z-10"
+        className="max-w-4xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16 text-center relative z-10"
       >
         {/* Left Column */}
-        <div className="space-y-6 flex flex-col justify-start items-center">
+        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
           <div>
             <p
-              className="text-[#4C1215] leading-tight"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+              className="text-[#4C1215] py-1"
+              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
             >
               Uma Mehta
             </p>
           </div>
           <div>
             <p
-              className="text-[#4C1215] leading-tight"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+              className="text-[#4C1215] py-1"
+              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
             >
               Priti{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
               {" "}Rupesh Mehta
             </p>
           </div>
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6 flex flex-col justify-start items-center">
+        <div className="space-y-12 sm:space-y-16 flex flex-col justify-start items-center">
           <div>
             <p
-              className="text-[#4C1215] leading-tight"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+              className="text-[#4C1215] py-1"
+              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
             >
               Rujuta{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
               {" "}Ishita Jariwala
             </p>
           </div>
           <div>
             <p
-              className="text-[#4C1215] leading-tight"
-              style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.3rem)", fontFamily: "var(--font-pinyon), cursive" }}
+              className="text-[#4C1215] py-1"
+              style={{ fontSize: "clamp(1.7rem, 4vw, 2.6rem)", fontFamily: "var(--font-pinyon), cursive", lineHeight: "1.35" }}
             >
               Riya{" "}
-              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.9rem, 2vw, 1.2rem)" }}>&amp;</span>
+              <span className="font-sans font-light text-[#4C1215]" style={{ fontSize: "clamp(0.95rem, 2vw, 1.25rem)" }}>&amp;</span>
               {" "}Harsh Mehta
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function WithLoveFrom() {
       </motion.div>
 
       {/* Bottom gold rule */}
-      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mt-10" />
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mt-16 sm:mt-24" />
     </section>
   );
 }
