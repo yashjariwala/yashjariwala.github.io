@@ -49,17 +49,18 @@ export default function EventDetails({ events = invitationData.events }: { event
               <p className="font-sans text-[9px] uppercase tracking-[0.5em] text-[#D4AF37]/70">Venue</p>
 
               <h3
-                className="font-script text-[#D4AF37] leading-none"
+                className="font-script text-[#D4AF37] leading-tight"
                 style={{ fontSize: "clamp(2.5rem, 8vw, 3.8rem)", textShadow: "0 0 30px rgba(212,175,55,0.4)" }}
               >
-                Navi Mumbai Marriott Hotel
+                Marriott Hotel<br />
+                <span className="block mt-1" style={{ fontSize: "clamp(2rem, 6.5vw, 3.1rem)" }}>Navi Mumbai</span>
               </h3>
 
               <p
-                className="font-sans text-[#D4AF37]/90 uppercase tracking-[0.25em] font-light mt-1"
+                className="font-sans text-[#D4AF37]/90 uppercase tracking-[0.25em] font-light mt-4"
                 style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)" }}
               >
-                Panaroma Grand Ballroom
+                PANAROMA GRAND BALLROOM
               </p>
 
               <p className="font-serif italic text-white/50 text-sm sm:text-base">
