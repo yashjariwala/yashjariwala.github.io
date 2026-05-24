@@ -45,7 +45,7 @@ const cardVariants = {
   }),
 };
 
-export default function GuideSection({ showStay = true }: { showStay?: boolean }) {
+export default function GuideSection({ showStay = true, onlyBlessings = false }: { showStay?: boolean; onlyBlessings?: boolean }) {
   const { travel, accommodation, gifts } = invitationData;
 
   return (
@@ -72,92 +72,113 @@ export default function GuideSection({ showStay = true }: { showStay?: boolean }
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: EASE }}
-          className="text-center mb-16 sm:mb-20 flex flex-col items-center"
-        >
-          <svg width="40" height="20" viewBox="0 0 40 20" fill="none" className="mb-4 opacity-70">
-            <path d="M20 2 C14 2, 6 8, 2 10 C6 12, 14 18, 20 18 C26 18, 34 12, 38 10 C34 8, 26 2, 20 2Z" stroke="#D4AF37" strokeWidth="0.7" fill="none"/>
-            <circle cx="20" cy="10" r="2.5" fill="#D4AF37" fillOpacity="0.5"/>
-            <path d="M2 10H0 M38 10H40" stroke="#D4AF37" strokeWidth="0.6" strokeOpacity="0.5"/>
-          </svg>
-          <p className="font-sans text-[9px] uppercase tracking-[0.5em] text-[#D4AF37] mb-4">
-            Everything You Need
-          </p>
-          <h2
-            className="font-script text-[#4C1215] leading-none mb-6"
-            style={{
-              fontSize: "clamp(3rem, 12vw, 5.5rem)",
-              textShadow: "0 0 40px rgba(212,175,55,0.15)",
-            }}
+        {!onlyBlessings && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: EASE }}
+            className="text-center mb-16 sm:mb-20 flex flex-col items-center"
           >
-            Guest Guide
-          </h2>
-          <div className="flex items-center gap-2 w-36">
-            <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]/60" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]" />
-            <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]/60" />
-          </div>
-        </motion.div>
+            <svg width="40" height="20" viewBox="0 0 40 20" fill="none" className="mb-4 opacity-70">
+              <path d="M20 2 C14 2, 6 8, 2 10 C6 12, 14 18, 20 18 C26 18, 34 12, 38 10 C34 8, 26 2, 20 2Z" stroke="#D4AF37" strokeWidth="0.7" fill="none"/>
+              <circle cx="20" cy="10" r="2.5" fill="#D4AF37" fillOpacity="0.5"/>
+              <path d="M2 10H0 M38 10H40" stroke="#D4AF37" strokeWidth="0.6" strokeOpacity="0.5"/>
+            </svg>
+            <p className="font-sans text-[9px] uppercase tracking-[0.5em] text-[#D4AF37] mb-4">
+              Everything You Need
+            </p>
+            <h2
+              className="font-script text-[#4C1215] leading-none mb-6"
+              style={{
+                fontSize: "clamp(3rem, 12vw, 5.5rem)",
+                textShadow: "0 0 40px rgba(212,175,55,0.15)",
+              }}
+            >
+              Guest Guide
+            </h2>
+            <div className="flex items-center gap-2 w-36">
+              <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]/60" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-[#D4AF37]" />
+              <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]/60" />
+            </div>
+          </motion.div>
+        )}
 
         {/* Cards */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className={`grid gap-5 sm:gap-6 ${showStay ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}
-        >
-          <InfoCard title="Travel" icon={<TravelIcon />} idx={0}>
-            <div className="space-y-2">
-              <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-2">
-                Nearest Airports
-              </p>
-              {travel.airports.map((a) => (
-                <p key={a.name} className="leading-snug text-[#4C1215]/70">
-                  {a.name}
-                  {a.note && (
-                    <span className="text-[#F97316]/80 italic"> ({a.note})</span>
-                  )}
-                </p>
-              ))}
-              <div className="pt-2 border-t border-[#D4AF37]/15 mt-3">
-                <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-1">
-                  Nearest Station
-                </p>
-                <p className="text-[#4C1215]/70">{travel.nearestStation}</p>
-              </div>
-            </div>
-          </InfoCard>
-
-          {showStay && (
-            <InfoCard title="Stay" icon={<StayIcon />} idx={1}>
-              <div className="space-y-3">
-                <p className="font-serif text-base text-[#D4AF37] italic mb-3">
-                  {accommodation.hotel}
-                </p>
-                <div>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
-                    Check-in
-                  </p>
-                  <p className="text-[#4C1215]/70">{accommodation.checkIn}</p>
-                </div>
-                <div>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
-                    Check-out
-                  </p>
-                  <p className="text-[#4C1215]/70">{accommodation.checkOut}</p>
-                </div>
-              </div>
+        {onlyBlessings ? (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="flex justify-center"
+          >
+            <InfoCard title="Blessings Only" icon={<BlessingIcon />} idx={0} className="max-w-md w-full">
+              <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
             </InfoCard>
-          )}
+          </motion.div>
+        ) : (
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className={`grid gap-5 sm:gap-6 ${showStay ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}
+          >
+            <div className="flex flex-col">
+              <InfoCard title="Travel" icon={<TravelIcon />} idx={0} className="flex-1">
+                <div className="space-y-2">
+                  <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-2">
+                    Nearest Airports
+                  </p>
+                  {travel.airports.map((a) => (
+                    <p key={a.name} className="leading-snug text-[#4C1215]/70">
+                      {a.name}
+                      {a.note && (
+                        <span className="text-[#F97316]/80 italic"> ({a.note})</span>
+                      )}
+                    </p>
+                  ))}
+                  <div className="pt-2 border-t border-[#D4AF37]/15 mt-3">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-1">
+                      Nearest Station
+                    </p>
+                    <p className="text-[#4C1215]/70">{travel.nearestStation}</p>
+                  </div>
+                </div>
+              </InfoCard>
+            </div>
 
-          <InfoCard title="Blessings Only" icon={<BlessingIcon />} idx={showStay ? 2 : 1} className={showStay ? "sm:col-span-2 lg:col-span-1" : ""}>
-            <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
-          </InfoCard>
-        </motion.div>
+            {showStay && (
+              <div className="flex flex-col">
+                <InfoCard title="Stay" icon={<StayIcon />} idx={1} className="flex-1">
+                  <div className="space-y-3">
+                    <p className="font-serif text-base text-[#D4AF37] italic mb-3">
+                      {accommodation.hotel}
+                    </p>
+                    <div>
+                      <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
+                        Check-in
+                      </p>
+                      <p className="text-[#4C1215]/70">{accommodation.checkIn}</p>
+                    </div>
+                    <div>
+                      <p className="font-sans text-[10px] uppercase tracking-[0.25em] text-[#D4AF37] mb-0.5">
+                        Check-out
+                      </p>
+                      <p className="text-[#4C1215]/70">{accommodation.checkOut}</p>
+                    </div>
+                  </div>
+                </InfoCard>
+              </div>
+            )}
+
+            <div className={`flex flex-col ${showStay ? "sm:col-span-2 lg:col-span-1" : ""}`}>
+              <InfoCard title="Blessings Only" icon={<BlessingIcon />} idx={showStay ? 2 : 1} className="flex-1">
+                <p className="leading-relaxed text-[#4C1215]/70">{gifts}</p>
+              </InfoCard>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );

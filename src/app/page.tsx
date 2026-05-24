@@ -47,7 +47,7 @@ export default function Home() {
       <EnvelopeReveal />
       <Hero dateDisplay={invitationData.receptionDateDisplay} pageType="reception" />
       <EventDetails events={receptionEvent} />
-      <GuideSection showStay={false} />
+      <GuideSection showStay={false} onlyBlessings={true} />
       <WithLoveFrom />
 
       <footer className="bg-[#2d0607] text-white py-20 text-center relative overflow-hidden">
