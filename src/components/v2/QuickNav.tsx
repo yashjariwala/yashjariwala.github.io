@@ -12,6 +12,7 @@ const allNavItems: NavItem[] = [
 ];
 
 export const navWithoutItinerary: NavItem[] = allNavItems.filter((i) => i.href !== "#timeline");
+export const navWithoutItineraryAndCountdown: NavItem[] = allNavItems.filter((i) => i.href !== "#timeline" && i.href !== "#countdown");
 
 export default function QuickNav({ items = allNavItems }: { items?: NavItem[] }) {
   const [visible, setVisible] = useState(false);

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import EnvelopeReveal from "@/components/v2/EnvelopeReveal";
 import AudioPlayer from "@/components/v2/AudioPlayer";
-import QuickNav, { navWithoutItinerary } from "@/components/v2/QuickNav";
+import QuickNav, { navWithoutItineraryAndCountdown } from "@/components/v2/QuickNav";
 import Hero from "@/components/v3b/Hero";
-import CountdownTimer from "@/components/v3b/CountdownTimer";
 import EventDetails from "@/components/v3b/EventDetails";
 import GuideSection from "@/components/v3b/GuideSection";
 import GlobalPetals from "@/components/v3b/GlobalPetals";
@@ -44,13 +43,9 @@ export default function Home() {
     <main className="min-h-screen bg-[#fffbf5] text-[#4C1215] font-sans selection:bg-[#D4AF37]/30 selection:text-[#4C1215] pb-0 [overflow-x:clip]">
       <GlobalPetals />
       <AudioPlayer />
-      <QuickNav items={navWithoutItinerary} />
+      <QuickNav items={navWithoutItineraryAndCountdown} />
       <EnvelopeReveal />
       <Hero dateDisplay={invitationData.receptionDateDisplay} pageType="reception" />
-      <CountdownTimer
-        targetDateIso={invitationData.receptionDateIso}
-        dateLabel={invitationData.receptionDateLabel}
-      />
       <EventDetails events={receptionEvent} />
       <GuideSection showStay={false} />
       <WithLoveFrom />
