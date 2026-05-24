@@ -40,16 +40,16 @@ export default function WithLoveFrom() {
         With Love From
       </motion.p>
 
-      {/* Names Grid */}
+      {/* Names Grid — Single Centered Column for Perfect Vertical Alignment */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.25, duration: 0.8 }}
-        className="max-w-4xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-x-20 md:gap-x-32 gap-y-12 sm:gap-y-16 text-center relative z-10"
+        className="max-w-xl mx-auto px-6 flex flex-col items-center gap-y-7 sm:gap-y-9 text-center relative z-10"
       >
         {/* 1. Uma Mehta */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -63,7 +63,7 @@ export default function WithLoveFrom() {
         </div>
 
         {/* 2. Priti & Rupesh Mehta */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -79,7 +79,7 @@ export default function WithLoveFrom() {
         </div>
 
         {/* 3. Ankita & Amit Jariwala */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -95,7 +95,7 @@ export default function WithLoveFrom() {
         </div>
 
         {/* 4. Riya Mehta */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -109,7 +109,7 @@ export default function WithLoveFrom() {
         </div>
 
         {/* 5. Rujuta Jariwala */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -123,7 +123,7 @@ export default function WithLoveFrom() {
         </div>
 
         {/* 6. Harsh Mehta */}
-        <div className="flex justify-center items-center">
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
@@ -136,8 +136,8 @@ export default function WithLoveFrom() {
           </p>
         </div>
 
-        {/* 7. Ishita Jariwala (Centered on desktop across both columns) */}
-        <div className="sm:col-span-2 flex justify-center items-center">
+        {/* 7. Ishita Jariwala */}
+        <div>
           <p
             className="text-[#4C1215] py-1 whitespace-nowrap"
             style={{
