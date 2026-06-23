@@ -40,14 +40,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Yash with Dhruvi - Wedding Invitation",
     description: "Join us in celebrating the wedding of Yash with Dhruvi on July 4th & 5th, 2026.",
-    images: [{ url: "/v2/wedding.png", width: 1200, height: 630, alt: "Yash with Dhruvi Wedding" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Yash with Dhruvi - Wedding Invitation",
     description: "Join us in celebrating the wedding of Yash with Dhruvi on July 4th & 5th, 2026.",
-    images: ["/v2/wedding.png"],
   },
 };
 
@@ -60,17 +58,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta property="og:title" content="Yash with Dhruvi - Wedding Invitation" />
-        <meta property="og:description" content="Join us in celebrating the wedding of Yash and Dhruvi on July 4th &amp; 5th, 2026." />
-        <meta property="og:image" content="https://yashjariwala.github.io/v2/wedding.png" />
-        <meta property="og:image:width" content="1377" />
-        <meta property="og:image:height" content="768" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Yash with Dhruvi - Wedding Invitation" />
-        <meta name="twitter:image" content="https://yashjariwala.github.io/v2/wedding.png" />
-      </head>
       <body
         className={`${greatVibes.variable} ${cormorant.variable} ${lato.variable} ${notoDevanagari.variable} ${pinyonScript.variable} antialiased bg-background text-foreground font-sans relative min-h-screen paper-texture`}
       >
