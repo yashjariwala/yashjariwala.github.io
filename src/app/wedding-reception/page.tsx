@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     url: "/wedding-reception",
     images: [
       {
-        url: "https://yashjariwala.github.io/v2/Wedding.png",
+        url: "https://yashjariwala.github.io/v2/wedding.png",
         width: 1377,
         height: 768,
         alt: "Yash with Dhruvi wedding and reception invitation",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Yash with Dhruvi - Wedding & Reception Invitation",
     description: "Join us in celebrating the wedding and reception of Yash with Dhruvi on July 4th & 5th, 2026.",
-    images: ["https://yashjariwala.github.io/v2/Wedding.png"],
+    images: ["https://yashjariwala.github.io/v2/wedding.png"],
   },
 };
 
