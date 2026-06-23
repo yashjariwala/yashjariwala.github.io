@@ -60,6 +60,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta property="og:title" content="Yash with Dhruvi - Wedding Invitation" />
+        <meta property="og:description" content="Join us in celebrating the wedding of Yash and Dhruvi on July 4th &amp; 5th, 2026." />
+        <meta property="og:image" content="https://yashjariwala.github.io/v2/Wedding.png" />
+        <meta property="og:image:width" content="1377" />
+        <meta property="og:image:height" content="768" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Yash with Dhruvi - Wedding Invitation" />
+        <meta name="twitter:image" content="https://yashjariwala.github.io/v2/Wedding.png" />
+      </head>
       <body
         className={`${greatVibes.variable} ${cormorant.variable} ${lato.variable} ${notoDevanagari.variable} ${pinyonScript.variable} antialiased bg-background text-foreground font-sans relative min-h-screen paper-texture`}
       >
