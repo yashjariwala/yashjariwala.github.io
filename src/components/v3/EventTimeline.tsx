@@ -62,7 +62,7 @@ export default function EventTimeline() {
               textShadow: "0 0 40px rgba(212,175,55,0.15)",
             }}
           >
-            Weekend Itinerary
+            Celebration Itinerary
           </h2>
           <div className="flex items-center gap-2 w-36">
             <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#D4AF37]/60" />

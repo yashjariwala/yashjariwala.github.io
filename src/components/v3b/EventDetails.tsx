@@ -60,7 +60,7 @@ export default function EventDetails({ events = invitationData.events }: { event
                 className="font-sans text-[#D4AF37]/90 uppercase tracking-[0.25em] font-light mt-4"
                 style={{ fontSize: "clamp(0.85rem, 2.2vw, 1.15rem)" }}
               >
-                PANAROMA GRAND BALLROOM
+                PANORAMA GRAND BALLROOM
               </p>
 
               <p className="font-serif italic text-white/50 text-sm sm:text-base">

@@ -22,7 +22,7 @@ export default function EventTimeline() {
                     className="text-center mb-16 md:mb-24 flex flex-col items-center"
                 >
                     <span className="font-sans text-xs uppercase tracking-[0.4em] text-[#D4AF37] mb-6 block">Order of Events</span>
-                    <h2 className="font-script text-5xl md:text-[5rem] mb-6 text-[#4C1215] leading-tight">Weekend Itinerary</h2>
+                    <h2 className="font-script text-5xl md:text-[5rem] mb-6 text-[#4C1215] leading-tight">Celebration Itinerary</h2>
 
                     <div className="flex items-center justify-center w-full my-6 opacity-75">
                         <svg width="180" height="24" viewBox="0 0 180 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-32 md:w-48">

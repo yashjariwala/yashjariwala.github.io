@@ -42,13 +42,13 @@ export const invitationData = {
   receptionDateDisplay: "July 5th, 2026",
   invocation: "॥ श्री गणेशाय नमः ॥",
   heroSubtitle: "With the blessings of the Almighty, Mr. Mansukh Manani & Mrs. Tina Manani joyfully invite you to the wedding of their beloved daughter",
-  cityLabel: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
+  cityLabel: "Panorama Grand Ballroom, Navi Mumbai Marriott Hotel",
   events: [
     {
       title: "Wedding Ceremony",
       dateLabel: "Saturday, July 4, 2026",
       timeLabel: "Jaan Aagman: 4.30 pm | Hast Melap: 5.00 pm | Dinner: 7.30 pm onwards",
-      venue: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
+      venue: "Panorama Grand Ballroom, Navi Mumbai Marriott Hotel",
       address: "D 264, TTC Estate, Thane Belapur Road, Turbhe, Navi Mumbai, Maharashtra - 400703",
       mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
@@ -56,7 +56,7 @@ export const invitationData = {
       title: "Reception",
       dateLabel: "Sunday, July 5, 2026",
       timeLabel: "7.00 pm onwards followed by dinner",
-      venue: "Panaroma Grand Ballroom, Navi Mumbai Marriott Hotel",
+      venue: "Panorama Grand Ballroom, Navi Mumbai Marriott Hotel",
       address: "D 264, TTC Estate, Thane Belapur Road, Turbhe, Navi Mumbai, Maharashtra - 400703",
       mapUrl: "https://www.google.com/maps/search/Marriott+Hotel+Navi+Mumbai/@19.0433,73.0297,15z",
     },
@@ -66,17 +66,17 @@ export const invitationData = {
       date: "Saturday, July 4",
       events: [
         { time: "1:00 PM", title: "Check-in", description: "Settle in and relax.", venue: "Hotel Main Lobby" },
-        { time: "2:00 PM - 4:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazrana" },
-        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash with Dhruvi, followed by dinner.", venue: "Panaroma Grand Ballroom" },
+        { time: "2:00 PM - 4:00 PM", title: "High Tea", description: "Enjoy light refreshments before the festivities begin.", venue: "Nazaara" },
+        { time: "4:30 PM", title: "Wedding Ceremony", description: "The beautiful wedding ceremony of Yash with Dhruvi, followed by dinner.", venue: "Panorama Grand Ballroom" },
       ],
     },
     {
       date: "Sunday, July 5",
       events: [
         { time: "7:30 AM - 10:30 AM", title: "Breakfast", description: "Enjoy a relaxed morning breakfast.", venue: "Ground floor" },
-        { time: "1:00 PM - 3:00 PM", title: "Lunch", description: "Join us for a delightful afternoon lunch.", venue: "Nazrana" },
-        { time: "4:30 PM", title: "High Tea", description: "Enjoy light refreshments.", venue: "Nazrana" },
-        { time: "7:00 PM", title: "Reception & Dinner", description: "An evening of celebration, dancing, and a grand feast.", venue: "Panaroma Grand Ballroom" },
+        { time: "1:00 PM - 3:00 PM", title: "Lunch", description: "Join us for a delightful afternoon lunch.", venue: "Nazaara" },
+        { time: "4:30 PM", title: "High Tea", description: "Enjoy light refreshments.", venue: "Panorama Grand Ballroom" },
+        { time: "7:00 PM", title: "Reception & Dinner", description: "An evening of celebration, dancing, and a grand feast.", venue: "Panorama Grand Ballroom" },
       ],
     },
     {
