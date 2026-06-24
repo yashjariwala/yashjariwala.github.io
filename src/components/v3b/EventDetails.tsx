@@ -77,7 +77,7 @@ export default function EventDetails({ events = invitationData.events }: { event
                 href={venueEvent.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 border border-[#D4AF37]/50 px-7 py-2.5 text-[#D4AF37] text-[10px] uppercase tracking-[0.3em] hover:bg-[#D4AF37]/10 transition-colors"
+                className="inline-flex items-center gap-2.5 border border-[#D4AF37]/50 px-7 py-2.5 text-[#D4AF37] text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#D4AF37]/10 transition-colors"
               >
                 <svg width="10" height="14" viewBox="0 0 10 14" fill="none">
                   <path d="M5 1C2.79 1 1 2.79 1 5c0 3.5 4 8 4 8s4-4.5 4-8c0-2.21-1.79-4-4-4z" stroke="#D4AF37" strokeWidth="1" fill="none"/>

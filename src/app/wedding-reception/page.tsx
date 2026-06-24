@@ -81,7 +81,7 @@ export default function WeddingReceptionPage() {
           <div className="w-20 h-[1px] bg-gradient-to-l from-transparent to-[#D4AF37]/30" />
         </div>
 
-        <p className="font-sans text-[10px] tracking-[0.45em] uppercase text-white/25 relative z-10">
+        <p className="font-sans text-[10px] tracking-[0.45em] uppercase text-white/70 relative z-10">
           Can&apos;t wait to celebrate with you
         </p>
       </footer>
