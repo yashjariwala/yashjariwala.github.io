@@ -349,7 +349,7 @@ input.cct{accent-color:#facc15}
   <a class="pill cvlink" href="cv.html" data-track="recruiter-view-top">⚡ Recruiter view</a>
 
   <section class="intro">
-    <div class="eyebrow">iOS · Android · watchOS · Wear OS · UI/UX</div>
+    <div class="eyebrow">iOS · iPadOS · Android · watchOS · Wear OS · UI/UX</div>
     <h1 id="h-name"></h1>
     <p id="h-pitch"></p>
     <div class="cta">
@@ -384,7 +384,7 @@ input.cct{accent-color:#facc15}
             <div class="date" id="date"></div>
             <div class="big clock"></div>
             <div class="notif"><div class="ni" style="background:linear-gradient(135deg,#4651ff,#1fb6ff)">✓</div>
-              <div><b>Build succeeded · now</b>iOS · Android · watchOS · Wear OS</div></div>
+              <div><b>Build succeeded · now</b>iOS · iPadOS · Android · watchOS · Wear OS</div></div>
             <div class="notif"><div class="ni" style="background:#34d399;color:#03251a">✓</div>
               <div><b>Hiring? · now</b>Tap anywhere to unlock my portfolio.</div></div>
             <div class="swipe">Tap or swipe up to open</div>
@@ -419,7 +419,7 @@ const ME = {
   name: "Yash Jariwala",
   initials: "YJ",
   role: "iOS & Android Developer · Team Lead",
-  pitch: "I build native apps for iPhone, Android and the wrist, from the first Figma frame to the store release. I like taking complicated products apart and rebuilding them so simple they just work.",
+  pitch: "I build native apps for iPhone, iPad, Android and the wrist, from the first Figma frame to the store release. I like taking complicated products apart and rebuilding them so simple they just work.",
   status: "Team Lead at Lumens · Mumbai · Open to talk",
   email: "yashjariwala@gmail.com",
   linkedin: "https://www.linkedin.com/in/yashjariwala",
@@ -429,7 +429,7 @@ const ME = {
   openTo: "Remote · Hybrid · On-site",          // confirm before publishing
   goatcounter: "yashjariwala",
   site: "https://yashjariwala.github.io/",
-  stats: [["5","years"],["10+","apps shipped"],["4","platforms"]],
+  stats: [["5","years"],["10+","apps shipped"],["5","platforms"]],
 };
 /* ============================================== */
 
@@ -498,11 +498,14 @@ const PAGES = {
     ${go("eng","See the engineering →")}`,
   eng:()=>`<h2>Engineering</h2>
     <p style="color:#b7bccb;margin:-6px 0 14px">Problems every app team has, and how I solved them.</p>
-    ${card("One codebase → 10+ apps",`<p>Built a modular app framework with brand-level configuration that ships 10+ white-label apps on iOS and Android. Development cycle cut by 40% with reusable architecture and automated builds.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
+    ${card("One codebase → 10+ apps",`<p>Built a modular app framework with brand-level configuration that ships 10+ white-label apps on iOS and Android. Development cycle cut by 40% with reusable architecture and automated builds. Later merged the separate white-label apps into one structure, so one update ships to every brand faster.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
     ${card("Real-time sync without accounts",`<p>Kept BLE Mesh networks in sync across every user's phone through the cloud, removing sequence-number errors, with no sign-up: you join by scanning a QR code.</p>${tags(["Firebase RTDB","QR onboarding"])}`)}
     ${card("Custom camera library",`<p>Wrote a Java scanning library on Google's Camera2 API that improved QR scanning speed and reliability by 20%.</p>${tags(["Android","Camera2","Performance"])}`)}
     ${card("Objective-C ↔ Swift",`<p>Bridged a mixed iOS codebase and built reusable UI component libraries shared across screens and brands.</p>${tags(["iOS","Swift","Objective-C","UI libraries"])}`)}
-    ${card("Serverless backend",`<p>Replaced always-on servers with Cloud Functions and a Realtime Database: lower cost, less to maintain.</p>${tags(["Cloud Functions","Firebase"])}`)}
+    ${card("Serverless gateway",`<p>Built a gateway that needs no MQTT broker or always-on server: Cloud Functions plus a Realtime Database. Almost free to run for a few users and cost-effective as users grow. I wrote the Cloud Functions for the whole project and connected them to every app.</p>${tags(["Cloud Functions","Firebase","Gateway"])}`)}
+    ${card("Smart-home integrations",`<p>The gateway connects to Google Home, SmartThings and Alexa. On iOS, Siri Shortcuts integration lets the Shortcuts app run automations.</p>${tags(["Google Home","SmartThings","Alexa","Siri Shortcuts"])}`)}
+    ${card("Two BLE stacks, one app",`<p>Merged BLE Mesh and beacon, two separate BLE stacks, into one app on shared sync infrastructure.</p>${tags(["BLE Mesh","Beacons","Architecture"])}`)}
+    ${card("Every screen size",`<p>iPad app with a proper tablet experience, the same on Android tablets, plus home-screen widgets and watch apps for more granular control.</p>${tags(["iPadOS","Android tablets","Widgets","watchOS","Wear OS"])}`)}
     ${card("Full redesign",`<p>Led the complete UI redesign of a production app to modern standards, from Figma to release.</p>${tags(["UI/UX","Figma","Lottie"])}`)}
     ${card("Concept to launch",`<p>Researched communication protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>${tags(["Product","BLE Mesh","Prototyping"])}`)}
     ${card("Websites & security",`<p>Ran design, upkeep and security for 6+ company websites, incl. plexilent.com, colossusworld.com and evertstar.in. Stopped DDoS and WordPress attacks and kept them at 99.9% uptime.</p>${tags(["Web","WordPress","Security"])}`)}
@@ -580,7 +583,7 @@ const PAGES = {
     ${card("Product teardown",`<p>Study what's already on the market, find where it's complicated, and build the simpler version.</p>`)}
     ${feat("Where it's used","Circadian lighting for healthcare, agriculture, homes and hospitality.")}`,
   projects:()=>`<h2>Projects</h2>
-    ${card("Plexilent app",`<p>Production smart-home app on iOS, Android, Apple Watch and Wear OS. Led design and development.</p>${tags(["iOS","Android","watchOS","Wear OS"])}<a class="btn ghost" href="https://www.youtube.com/@plexilent/videos" target="_blank" rel="noopener">▶ Watch on YouTube</a>`)}
+    ${card("Plexilent app",`<p>Production smart-home app on iPhone, iPad, Android phones and tablets, Apple Watch and Wear OS, with widgets and Siri Shortcuts. Led design and development.</p>${tags(["iOS","iPadOS","Android","watchOS","Wear OS"])}<a class="btn ghost" href="https://www.youtube.com/@plexilent/videos" target="_blank" rel="noopener">▶ Watch on YouTube</a>`)}
     ${card("White-label app framework",`<p>One codebase behind 10+ branded apps, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.</p>${tags(["Architecture","CI/CD"])}`)}
     <div class="label">Client apps</div>
     ${card("Bajaj Illumiga",`<p>Branded smart-lighting app.</p>${tags(["iOS","Android","White-label"])}`)}
@@ -589,12 +592,13 @@ const PAGES = {
     <div class="label">Other</div>
     ${card("Smart Street Pole EV Charger",`<p>Android app with live tracking, registration and push notifications, plus charger firmware.</p>${tags(["Android","Firebase","Firmware"])}<a class="btn ghost" href="https://youtu.be/FDqGDD8X_7s" target="_blank" rel="noopener">▶ Watch the demo</a>`)}`,
   stack:()=>`<h2>Stack</h2>${Object.entries({
-    "iOS":["Swift","Objective-C","Programmatic UI","Xcode","CocoaPods"],
-    "Android":["Kotlin","Java","XML","Camera2","Android Studio"],
+    "iOS":["Swift","Objective-C","Programmatic UI","iPad","Widgets","Siri Shortcuts","Xcode","CocoaPods"],
+    "Android":["Kotlin","Java","XML","Camera2","Tablets","Widgets","Android Studio"],
     "Wearables":["watchOS","Wear OS"],
     "Architecture":["MVVM","MVP","Modular / white-label","CI/CD","SDKs"],
     "Backend":["Firebase RTDB","Cloud Functions","Auth","Crashlytics","REST","MySQL","ObjectBox"],
     "Design":["Figma","Adobe XD","Lottie"],
+    "Smart home":["Google Home","SmartThings","Alexa"],
     "IoT & firmware":["BLE / BLE Mesh","Wi-Fi","Matter","MQTT","Gateway firmware","Beacons","C / C++","Arduino","Lighting control systems"],
     "Web":["HTML","CSS","JavaScript","WordPress","SEO","Analytics","Social media"],
     "Tools":["Git / GitHub","Xcode","Android Studio","Firebase Console"],
@@ -602,7 +606,7 @@ const PAGES = {
     "Leadership":["Team lead","Mentoring","Agile / Scrum","Project planning","Client & vendor negotiation"]
   }).map(([k,v])=>`<div class="label">${k}</div><div class="chips">${v.map(x=>`<span class="chip">${x}</span>`).join("")}</div>`).join("")}`,
   resume:()=>`<h2>Résumé</h2>
-    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>`)}
+    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Built a gateway without MQTT, on Cloud Functions: almost free for a few users and cost-effective as users grow. Works with Google Home, SmartThings and Alexa.","Wrote the Cloud Functions behind the whole gateway project and connected them to every app.","Siri Shortcuts integration, so the iOS Shortcuts app can run automations.","iPad app, plus the same tablet experience on Android.","Merged two separate BLE stacks (BLE Mesh and beacon) into one app, on shared sync infrastructure.","Widgets and watch apps for more granular control.","Merged multiple white-label apps into one structure: easier codebase management, faster releases."])}`)}
     ${card("Senior Application Engineer",`<p>Lumens Technologies · Apr 2023 – Aug 2025</p>`)}
     ${card("Executive, New Product Development",`<p>Lumens Technologies · Apr 2022 – May 2023</p>`)}
     ${card("Graduate Trainee",`<p>Lumens Technologies · Aug 2021 – Apr 2022</p>`)}
