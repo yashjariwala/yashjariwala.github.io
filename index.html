@@ -504,6 +504,8 @@ const PAGES = {
     ${card("Objective-C ↔ Swift",`<p>Bridged a mixed iOS codebase and built reusable UI component libraries shared across screens and brands.</p>${tags(["iOS","Swift","Objective-C","UI libraries"])}`)}
     ${card("Serverless backend",`<p>Replaced always-on servers with Cloud Functions and a Realtime Database: lower cost, less to maintain.</p>${tags(["Cloud Functions","Firebase"])}`)}
     ${card("Full redesign",`<p>Led the complete UI redesign of a production app to modern standards, from Figma to release.</p>${tags(["UI/UX","Figma","Lottie"])}`)}
+    ${card("Concept to launch",`<p>Researched communication protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>${tags(["Product","BLE Mesh","Prototyping"])}`)}
+    ${card("Websites & security",`<p>Ran design, upkeep and security for 6+ company websites, incl. plexilent.com, colossusworld.com and evertstar.in. Stopped DDoS and WordPress attacks and kept them at 99.9% uptime.</p>${tags(["Web","WordPress","Security"])}`)}
     ${card("Reliability & team",`<p>30% better reliability and 20% less downtime at scale. Mentored three engineers, and the team now resolves issues 40% faster.</p>`)}
     ${go("plexilent","See it in a real product →")}`,
   plexilent:()=>`<h2><span class="grad">Plexilent</span></h2>
@@ -593,15 +595,23 @@ const PAGES = {
     "Architecture":["MVVM","MVP","Modular / white-label","CI/CD","SDKs"],
     "Backend":["Firebase RTDB","Cloud Functions","Auth","Crashlytics","REST","MySQL","ObjectBox"],
     "Design":["Figma","Adobe XD","Lottie"],
-    "Also":["BLE / BLE Mesh","Wi-Fi","Matter","Web (HTML/CSS/JS)","Agile / Scrum"]
+    "IoT & firmware":["BLE / BLE Mesh","Wi-Fi","Matter","MQTT","Gateway firmware","Beacons","C / C++","Arduino","Lighting control systems"],
+    "Web":["HTML","CSS","JavaScript","WordPress","SEO","Analytics","Social media"],
+    "Tools":["Git / GitHub","Xcode","Android Studio","Firebase Console"],
+    "Security":["Cybersecurity","Threat mitigation","DDoS protection"],
+    "Leadership":["Team lead","Mentoring","Agile / Scrum","Project planning","Client & vendor negotiation"]
   }).map(([k,v])=>`<div class="label">${k}</div><div class="chips">${v.map(x=>`<span class="chip">${x}</span>`).join("")}</div>`).join("")}`,
   resume:()=>`<h2>Résumé</h2>
     ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>`)}
     ${card("Senior Application Engineer",`<p>Lumens Technologies · Apr 2023 – Aug 2025</p>`)}
     ${card("Executive, New Product Development",`<p>Lumens Technologies · Apr 2022 – May 2023</p>`)}
     ${card("Graduate Trainee",`<p>Lumens Technologies · Aug 2021 – Apr 2022</p>`)}
-    ${card("Intern",`<p>Magenta ChargeGrid (EV charging) · 2019</p>`)}
-    ${card("B.E. Electrical",`<p>SIGCE, Navi Mumbai · 2021</p>`)}
+    ${card("Intern",`<p>Magenta ChargeGrid (EV charging) · Sep – Nov 2019</p><p style="margin-top:6px">Designed EV charging circuits, built a database of chargers across India, and negotiated parts and technology with suppliers in China.</p>`)}
+    <div class="label">Education</div>
+    ${card("B.E. Electrical Engineering",`<p>SIGCE, Navi Mumbai · 2021</p>`)}
+    ${card("Diploma, Electrical Engineering",`<p>K.J. Somaiya Polytechnic · 2018</p>`)}
+    <div class="label">Certifications</div>
+    ${card("Courses",list(["ANIIT in Cloud & Mobile Software Engineering · NIIT (CGPA 9.0)","Digital Transformation: Java Enterprise Apps with DevOps · NIIT","PG Diploma in Industrial Automation · Prolific","Arduino Programming & Hardware Fundamentals · Udemy"]))}
     <a class="btn" href="${ME.resume}" target="_blank">Download full résumé (PDF)</a>`,
   contact:()=>`<h2>Messages</h2>
     <div class="bubble them" style="animation-delay:.1s">Hi Yash! We need someone for our iOS & Android apps. Open to it?</div>
