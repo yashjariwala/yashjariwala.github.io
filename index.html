@@ -194,14 +194,13 @@ input.cct{accent-color:#facc15}
 .scan{animation:scan .8s ease-in-out infinite alternate}
 @keyframes scan{from{opacity:.4;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
 /* maps */
-.map{height:230px;border-radius:18px;position:relative;overflow:hidden;margin-bottom:12px;background:
-  linear-gradient(110deg,#0c2c52 0 34%,transparent 34.2%),
-  repeating-linear-gradient(8deg,transparent 0 26px,rgba(255,255,255,.07) 26px 28px),
-  repeating-linear-gradient(98deg,transparent 0 38px,rgba(255,255,255,.07) 38px 40px),#171c29}
-.map .pin{position:absolute;left:56%;top:46%;width:18px;height:18px;margin:-9px;border-radius:50%;background:#ff5b4a;border:3px solid #fff;animation:ping2 1.8s infinite}
+.map{height:230px;border-radius:18px;overflow:hidden;margin-bottom:12px;background:#171c29}
+.map .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}   /* dark map from standard OSM tiles */
+.map .leaflet-control-attribution{background:rgba(0,0,0,.5);color:#8b91a1;font-size:9px}
+.map .leaflet-control-attribution a{color:#a5b4fc}
+.mpin{position:relative;width:18px;height:18px;border-radius:50%;background:#ff5b4a;border:3px solid #fff;animation:ping2 1.8s infinite}
 @keyframes ping2{0%{box-shadow:0 0 0 0 rgba(255,91,74,.7)}100%{box-shadow:0 0 0 22px rgba(255,91,74,0)}}
-.map .ml{position:absolute;left:56%;top:46%;transform:translate(16px,-50%);font-size:13px;font-weight:700;background:rgba(0,0,0,.55);padding:4px 9px;border-radius:8px}
-.map .sea{position:absolute;left:12px;bottom:10px;font-size:11px;color:#7aa7d6;letter-spacing:.2em}
+.mpin span{position:absolute;left:22px;top:50%;transform:translateY(-50%);font:700 13px/1 -apple-system,system-ui,sans-serif;color:#fff;background:rgba(0,0,0,.6);padding:5px 9px;border-radius:8px;white-space:nowrap}
 #qr svg{display:block;width:200px;height:200px}
 
 /* ---------- immersive app screens (recreated from the Plexilent app) ---------- */
@@ -574,6 +573,67 @@ const PAGES = {
     <div class="bubble me" style="animation-delay:1.6s">Tap below 👇</div>
     <a class="btn" style="margin-top:20px" href="mailto:${ME.email}">Email ${ME.email}</a>
     <a class="btn ghost" href="${ME.linkedin}" target="_blank">LinkedIn</a>`,
+  lights:()=>{ const tc=L.tab==="c", km=!tc&&L.mode==="k";
+    const P=(x,y,w,h)=>`left:${x}px;top:${y}px;width:${w}px;height:${h}px`;
+    const whites=`
+      <div class="pl-cone" id="pl-cone" style="${P(-87.7,223.1,394.7,414.4)};clip-path:polygon(34.79% 0,63.24% 0,100% 100%,0 100%)"></div>
+      <img class="pl-lamp" src="img/app/lamp.webp" alt="" style="${P(-88.7,16,398.5,621.5)}">
+      <div class="pl-off" id="pl-off"></div>
+      <div class="pl-val" id="pl-val" style="left:277px;width:72px;top:0"></div>
+      <div class="vs" id="pl-vs" data-drag="vs" style="${P(277,32,72,286)}"><i id="pl-th"></i></div>
+      <button class="pl-btn" data-act="lmode" style="${P(277,346,72,72)}" aria-label="Switch brightness / temperature"><img src="img/app/${km?"lightness":"cct"}.webp" alt=""></button>
+      <button class="pl-btn" data-act="lpower" style="${P(277,437,72,72)}" aria-label="Power"><img id="pl-pw" alt=""></button>
+      <div class="pl-dots" style="left:19px;top:546px">${[2700,3000,4500,5700,6500].map(k=>`<button data-act="k:${k}" style="background:${k2rgb(k)}" aria-label="${k}K"></button>`).join("")}</div>`;
+    const colors=`
+      <div class="pl-cone" id="pl-cone" style="${P(59.7,95.9,158,150.3)};clip-path:polygon(26.95% 0,68.98% 0,100% 100%,0.17% 100%)"></div>
+      <img class="pl-lamp" src="img/app/lamp_rgb.webp" alt="" style="${P(59.5,1.8,158.3,244.3)}">
+      <div class="pl-off" id="pl-off"></div>
+      <div class="pl-wheel" data-drag="wheel" style="${P(35,246.2,207.5,207.5)}"></div>
+      <button class="pl-pill" style="${P(55.7,467.5,166,27.7)}">Advanced</button>
+      <div class="pl-val" id="pl-val" style="left:264.6px;width:80.7px;top:90px"></div>
+      <div class="vs" id="pl-vs" data-drag="vs" style="${P(264.6,136,80.7,254.5)}"><i id="pl-th"></i></div>
+      <button class="pl-btn" style="${P(276,418,57.6,57.6)}" aria-label="Music mode"><img src="img/app/music.webp" alt=""></button>
+      <button class="pl-btn" data-act="lpower" style="${P(276,493.7,57.6,57.6)}" aria-label="Power"><img id="pl-pw" alt=""></button>
+      <div class="pl-sw" style="${P(20.2,583,336.5,34.6)}">${RGB_PRESETS.map(c=>`<button data-act="rgb:${c}" style="background:${c}" aria-label="${c}"></button>`).join("")}</div>`;
+    return `<div class="imm pl">
+      <div class="pl-nav"><button data-home aria-label="Back">‹</button><span style="width:auto;opacity:1;font-size:17px">Light 1</span><span>⚙︎</span></div>
+      <div class="pl-c">${tc?colors:whites}</div>
+      <div class="pl-tabs"><button data-act="ltab:w" class="${tc?"":"on"}"><span>Whites</span></button><button data-act="ltab:c" class="${tc?"on":""}"><span>Colors</span></button></div>
+    </div>` },
+  curtains:()=>`<div class="imm cu"><button class="imm-back" data-home aria-label="Back">‹</button><div class="imm-title" style="color:#222">Curtain</div>
+    <div class="cu-win"><div class="cu-sky"></div><div class="cu-mull"></div></div><div class="cu-sill"></div>
+    <div class="cu-p l" id="cu-l"></div><div class="cu-p r" id="cu-r"></div><div class="cu-rod"></div>
+    <div class="cu-sheet">
+      <div class="cu-row"><span id="cu-s"></span><span class="cu-pill"><i id="cu-dot"></i><span id="cu-st">Travel set</span></span></div>
+      <input type="range" min="0" max="100" id="cu-in" data-cu aria-label="Curtain position">
+      <div class="cu-lbl"><span>Open</span><span>Closed</span></div>
+      <div class="cu-btns"><button data-act="cu:0" id="cu-b0"><b>‹</b>Open</button><button data-act="cu:stop" id="cu-bs"><b>■</b>Stop</button><button data-act="cu:100" id="cu-b100"><b>›</b>Close</button></div>
+      <div class="cu-foot">⇄ Direction: Forward</div>
+    </div></div>`,
+  fan:()=>`<div class="imm fan" id="fan"><button class="imm-back" data-home aria-label="Back">‹</button>
+    <div class="fan-win"><div class="fan-sky"><div class="moon"></div>${[[20,30],[60,18],[44,70],[120,52],[90,96],[30,120]].map(([x,y])=>`<i class="st" style="left:${x}px;top:${y}px"></i>`).join("")}<div class="mul"></div><div class="dim" id="fan-dim"></div></div></div>
+    <div class="fan-air">${[18,48,80,112,146].map((y,i)=>`<i style="top:${y}px;animation-delay:-${i*.37}s"></i>`).join("")}</div>
+    <div class="fan-card">
+      <div class="fan-head"><div><small>FAN SPEED</small><b id="fan-l"></b><span id="fan-s"></span></div>
+        <button data-act="fan:power" aria-label="Power"><img id="fan-pw" alt=""></button></div>
+      <div class="fan-dial" data-act="fan:speed" title="Tap to change speed"><svg viewBox="0 0 150 150" id="fan-svg"></svg><div class="dome"><div><b id="fan-n"></b><small>OF 5</small></div></div></div>
+      <div class="fan-modes">
+        <button data-act="fan:natural" id="fm-natural"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>Natural</button>
+        <button data-act="fan:reverse" id="fm-reverse"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 4v5h-5M4 20v-5h5"/></svg>Reverse</button>
+        <button data-act="fan:sleep" id="fm-sleep"><svg viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a7 7 0 0 0 10 10z"/></svg>Sleep</button>
+        <button data-act="fan:timer" id="fm-timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><span id="fm-tl">Timer</span></button>
+      </div>
+    </div></div>`,
+  camera:()=>`<h2>Camera</h2>
+    <div class="card" style="text-align:center"><div id="qr" style="background:#fff;padding:14px;border-radius:16px;display:inline-block"></div>
+      <p style="margin-top:12px">Scan to open this portfolio on your phone</p></div>
+    <a class="btn" href="${vcard()}" download="Yash-Jariwala.vcf">Save my contact</a>`,
+  maps:()=>`<h2>Maps</h2>
+    <div class="map" id="map"></div>
+    ${card("Based in",`<p>${ME.location}</p>`)}
+    ${card("Open to",`<p>${ME.openTo}</p>`)}
+    <a class="btn ghost" href="https://maps.google.com/?q=${encodeURIComponent(ME.location)}" target="_blank" rel="noopener">Open in Maps</a>
+    <a class="btn" href="#" data-open="contact">Get in touch</a>`,
   settings:()=>`<h2>Settings</h2><div class="label">Platform</div>
     <div class="toggle"><button data-plat="ios" class="${isDroid()?"":"on"}">iOS</button><button data-plat="android" class="${isDroid()?"on":""}">Android</button></div>
     <p style="color:var(--muted);font-size:13px;margin:10px 4px">I ship on both. Switch the whole phone over.</p>`
@@ -694,6 +754,19 @@ const siteURL = () => ME.site || location.href.split("#")[0].split("?")[0];
 const vcard = () => "data:text/vcard;charset=utf-8,"+encodeURIComponent(["BEGIN:VCARD","VERSION:3.0",`FN:${ME.name}`,`TITLE:${ME.role}`,`EMAIL:${ME.email}`,`URL:${siteURL()}`,`URL:${ME.linkedin}`,"END:VCARD"].join("\n"));
 function drawQR(){ const el=$("#qr"); if(!el) return; if(!window.qrcode){ el.textContent="QR loading…"; return setTimeout(drawQR,300) }
   const q=qrcode(0,"M"); q.addData(siteURL()); q.make(); el.innerHTML=q.createSvgTag({cellSize:4,margin:0,scalable:true}) }
+let leaflet;
+function drawMap(){
+  leaflet = leaflet || new Promise((ok,err)=>{
+    const l=document.createElement("link"); l.rel="stylesheet"; l.href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"; document.head.appendChild(l);
+    const s=document.createElement("script"); s.src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"; s.onload=ok; s.onerror=err; document.head.appendChild(s) });
+  leaflet.then(()=>{ const el=$("#map"), LF=window.L; if(!el || el._leaflet_id) return;   // window.L: our light state is also named L
+    const at=[19.076,72.8777];   // Mumbai city centre
+    const m=LF.map(el,{center:at,zoom:10,zoomControl:false,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,touchZoom:false,boxZoom:false,keyboard:false});
+    LF.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,
+      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(m);
+    LF.marker(at,{icon:LF.divIcon({className:"",html:`<div class="mpin"><span>${ME.location.split(",")[0]}</span></div>`,iconSize:[18,18],iconAnchor:[9,9]})}).addTo(m);
+  }).catch(()=>{});
+}
 const buzz = ms => { try{ navigator.vibrate && navigator.vibrate(ms) }catch(e){} };
 const FACE='<svg class="scan" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M4 18V10a6 6 0 0 1 6-6h8M46 4h8a6 6 0 0 1 6 6v8M60 46v8a6 6 0 0 1-6 6h-8M18 60h-8a6 6 0 0 1-6-6v-8M22 24v5M42 24v5M32 24v12h-3M24 44c4 4 12 4 16 0"/></svg>';
 const CHECK='<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="27"/><path d="M20 33l8 8 16-17"/></svg>';
@@ -737,7 +810,7 @@ function openApp(id){
   $("#appbody").innerHTML = (full?"":`<button class="backbtn" data-home>‹ Home</button>`) + PAGES[id]();
   $("#appbody").scrollTop = 0;
   $("#app").classList.add("open"); $("#home").classList.add("behind"); buzz(8);
-  if (id==="camera") drawQR();
+  if (id==="camera") drawQR(); if (id==="maps") drawMap();
   if ((id==="lights"||id==="watch") && !L.touched){ L.on=true; L.touched=true }
   tick();
   if (id==="lights"||id==="watch") applyLight(); if (id==="curtains") renderCurtain(); if (id==="fan") renderFan();
