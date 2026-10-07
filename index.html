@@ -170,18 +170,6 @@ svg.arch{width:100%;height:auto;display:block}
 .android .btn{border-radius:999px}
 .android .status{padding:4px 26px 0 28px;font-weight:500;font-size:14px}
 
-.feat{padding:0;overflow:hidden}
-.feat img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;cursor:zoom-in}
-.feat>div{padding:12px 14px 14px}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.photos img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;cursor:zoom-in;display:block}
-.note{color:var(--muted);font-size:11px;margin:-4px 4px 12px}
-#lb{position:fixed;inset:0;z-index:100;background:rgba(3,4,12,.94);backdrop-filter:blur(8px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-#lb.on{display:flex}
-#lb img{max-width:92vw;max-height:80vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-#lb .cap{font-size:14px;color:#c9cdd8}
-#lb button{position:absolute;color:#fff;font-size:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1)}
-#lb .x{top:18px;right:18px} #lb .p{left:18px;top:50%} #lb .n{right:18px;top:50%}
 
 /* room light (Lights app) */
 .roomlight{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0;transition:opacity .5s,background .5s;
@@ -403,7 +391,6 @@ input.cct{accent-color:#facc15}
 </div>
 
 <noscript><p style="position:fixed;inset:auto 0 0;padding:16px;text-align:center;background:#000;z-index:200">This portfolio needs JavaScript. <a href="cv.html">Open the plain résumé</a>.</p></noscript>
-<div id="lb"><img alt=""><div class="cap"></div>
   <button class="x" aria-label="Close">×</button><button class="p" aria-label="Previous">‹</button><button class="n" aria-label="Next">›</button></div>
 
 <script>
@@ -465,10 +452,9 @@ const APPS = [
   {id:"resume", name:"Résumé", bg:"linear-gradient(135deg,#f59e0b,#fbbf24)", glyph:svg("file")},
   {id:"market", name:"Beyond Code", bg:"linear-gradient(135deg,#10b981,#84cc16)", glyph:svg("chart")},
   {id:"maps", name:"Maps", bg:"linear-gradient(135deg,#22c55e,#0ea5e9)", glyph:svg("pin")},
-  {id:"li", name:"LinkedIn", bg:"#0a66c2", glyph:'<span class="tx">in</span>', href:()=>ME.linkedin},
 ];
 const DOCK = [
-  {id:"photos", bg:"conic-gradient(from 200deg,#ff5b4a,#facc15,#34d399,#1fb6ff,#4651ff,#ff5b4a)", glyph:svg("photo")},
+  {id:"li", name:"LinkedIn", bg:"#0a66c2", glyph:'<span class="tx">in</span>', href:()=>ME.linkedin},
   {id:"contact", bg:"linear-gradient(135deg,#34d399,#22c55e)", glyph:svg("chat")},
   {id:"mail", bg:"linear-gradient(135deg,#3b82f6,#60a5fa)", glyph:svg("mail"), href:()=>"mailto:"+ME.email},
   {id:"settings", bg:"linear-gradient(135deg,#6b7280,#9ca3af)", glyph:svg("gear")},
@@ -478,9 +464,7 @@ const card = (t,b) => `<div class="card"><h4>${t}</h4>${b}</div>`;
 const list = a => `<ul>${a.map(x=>`<li>${x}</li>`).join("")}</ul>`;
 const tags = a => a.map(t=>`<span class="tag">${t}</span>`).join("");
 const stats = a => `<div class="stats">${a.map(([v,l])=>`<div class="stat"><b>${v}</b><small>${l}</small></div>`).join("")}</div>`;
-const SLIDES = ["The Plexilent App","Plexilent ecosystem","Refreshed interface","Smart modules & protocols","Master every luminaire","Real-time awareness","Command every switch","Curtains on cue","Mastering airflow","Explore effects","Circadian rhythm: standards","Human-Centric Lighting curve","Circadian applications","Scenes & scheduling","Bulk OTA updates","Music Mode","Transition · Trim · Tune","Plexilent on your wrist","Auto device recovery","White-label solutions","Enterprise gateway & dashboard","One system, every control","Everyday experience"];
-const pad = n => String(n).padStart(2,"0");
-const feat = (n,t,p) => `<div class="card feat"><img src="img/t/s${pad(n)}.webp" data-img="${n}" loading="lazy" alt="${SLIDES[n-1]}"><div><h4>${t}</h4><p>${p}</p></div></div>`;
+const feat = (t,p) => card(t,`<p>${p}</p>`);
 const go = (id,t) => `<a class="btn" href="#" data-open="${id}">${t}</a>`;
 const PAGES = {
   about:()=>`<h2>About</h2>
@@ -504,32 +488,32 @@ const PAGES = {
     ${go("plexilent","See it in a real product →")}`,
   plexilent:()=>`<h2><span class="grad">Plexilent</span></h2>
     <p style="color:#b7bccb;margin:-6px 0 14px">Smart lighting & automation platform by Lumens Technologies. I've worked on it since the first prototypes in 2021 and now lead its IoT applications team.</p>
-    ${feat(1,"The Plexilent App","Smarter. Sharper. More connected. On iOS, Android, Apple Watch and Wear OS.")}
+    ${feat("The Plexilent App","Smarter. Sharper. More connected. On iOS, Android, Apple Watch and Wear OS.")}
     ${stats([["1.4L+","products shipped"],["2,400+","installations"],["13+","manufacturing partners"]])}
     <p class="note">Platform numbers from plexilent.com</p>
     ${card("What I built",list(["Full app redesign to modern UI standards","Scalable architecture for 6,000+ node networks: 30% more reliable, 20% less downtime","Login-free Cloud Mesh Sync with QR sharing","Serverless gateway infrastructure","Silicon Labs → Telink migration: 30% lower hardware cost","Watch apps with full lighting control"]))}
     <div class="label">Feature tour · tap to enlarge</div>
-    ${feat(5,"Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
-    ${feat(12,"Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
-    ${feat(10,"Effects","Jump, Flash, Breathing and Gradient, with speed, brightness and colour control.")}
-    ${feat(16,"Music Mode","Rhythmic Radiance: lights react to music, processed locally from the phone's mic.")}
-    ${feat(14,"Scenes & scheduling","By time, day, date or week, with fade times and group control.")}
-    ${feat(6,"Sensors","Motion, occupancy and environment sensors that trigger routines automatically.")}
-    ${feat(7,"Switches & sockets","Per-gang control, appliances and fans, with daily and weekly routines.")}
-    ${feat(8,"Curtains","Precision slider, open/close/pause, motor direction and scene sync.")}
-    ${feat(9,"Fans","Speed control, quick modes and scheduled comfort.")}
-    ${feat(17,"Transition · Trim · Tune","Fade times, lightness trim and CCT range per device.")}
-    ${feat(15,"Bulk OTA","Update every device on the network in one tap.")}
-    ${feat(19,"Auto device recovery","Mesh fallback: a reset device returns to its owner within 2 minutes, automatically.")}
-    ${feat(20,"White-label","Your brand, your app: the framework behind 10+ rebrands, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.")}
-    ${feat(21,"Enterprise","Gateways scale one network from device → group → room → area → floor → building, with a web dashboard.")}
+    ${feat("Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
+    ${feat("Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
+    ${feat("Effects","Jump, Flash, Breathing and Gradient, with speed, brightness and colour control.")}
+    ${feat("Music Mode","Rhythmic Radiance: lights react to music, processed locally from the phone's mic.")}
+    ${feat("Scenes & scheduling","By time, day, date or week, with fade times and group control.")}
+    ${feat("Sensors","Motion, occupancy and environment sensors that trigger routines automatically.")}
+    ${feat("Switches & sockets","Per-gang control, appliances and fans, with daily and weekly routines.")}
+    ${feat("Curtains","Precision slider, open/close/pause, motor direction and scene sync.")}
+    ${feat("Fans","Speed control, quick modes and scheduled comfort.")}
+    ${feat("Transition · Trim · Tune","Fade times, lightness trim and CCT range per device.")}
+    ${feat("Bulk OTA","Update every device on the network in one tap.")}
+    ${feat("Auto device recovery","Mesh fallback: a reset device returns to its owner within 2 minutes, automatically.")}
+    ${feat("White-label","Your brand, your app: the framework behind 10+ rebrands, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.")}
+    ${feat("Enterprise","Gateways scale one network from device → group → room → area → floor → building, with a web dashboard.")}
     ${go("arch","How it all connects →")}`,
   arch:()=>`<h2>Architecture</h2>
     <div class="card" style="padding:10px">${archSVG()}</div>
     ${card("App architecture",`<p>One modular core, a brand configuration layer on top, and automated builds that produce each branded iOS and Android app. MVVM/MVP inside each app.</p>`)}
     ${card("System: how it fits together",`<p>Phones and watches talk to the mesh directly over BLE. Network state, keyed by mesh UUID, lives in the Realtime Database so every device stays in sync. The gateway reaches the mesh remotely through Cloud Functions. No logins, no servers.</p>`)}
-    ${feat(19,"Self-healing mesh","Reset devices find their way back to their owner automatically.")}
-    ${feat(21,"Scales to buildings","Six layers: device, group, room, area, floor, building.")}`,
+    ${feat("Self-healing mesh","Reset devices find their way back to their owner automatically.")}
+    ${feat("Scales to buildings","Six layers: device, group, room, area, floor, building.")}`,
   watch:()=>`<h2>Watch</h2><p style="color:#b7bccb;margin:-6px 0 4px">The Plexilent Apple Watch app. Try it: it controls the same room light.</p>
     <div class="wt-wrap"><div class="wt-case"><div class="wt-crown"></div><div class="wt-btn"></div>
       <div class="wt-scr" id="wt-scr">
@@ -544,14 +528,11 @@ const PAGES = {
         </div>
       </div></div></div>
     <p class="wt-hint">Scroll on the watch (the Digital Crown) or drag the dial.</p>
-    ${feat(18,"Plexilent, now a wrist away","Live on Apple Watch and Wear OS.")}
     ${card("Full control, not shortcuts",`<p>watchOS and Wear OS apps that run the whole lighting system from your wrist: spaces, brightness, colour temperature and power. Not just a couple of quick toggles.</p>${tags(["watchOS","Wear OS","SwiftUI"])}`)}`,
   design:()=>`<h2>Design</h2>
-    <p style="color:#b7bccb;margin:-6px 0 14px">Life-like 3D UI and product concepts for Plexilent, so clients see the product before it exists.</p>
-    ${feat(3,"Refreshed interface","The redesigned app, shown in context.")}
-    ${feat(2,"Ecosystem","One platform connecting every device.")}
-    ${feat(21,"Building-scale","An isometric view of the enterprise gateway layers.")}
-    ${feat(4,"Smart modules","The module family and the protocols it supports.")}
+    ${card("Full app redesign",`<p>Led the complete redesign of the Plexilent app UI to modern standards, from Figma to release.</p>`)}
+    ${card("3D & life-like concepts",`<p>3D UI designs and realistic product concepts for Plexilent, so clients can see the product before it exists.</p>`)}
+    ${card("Interaction & motion",`<p>Lottie animations and custom controls: the Lights, Curtains and Fan screens on this phone are rebuilt from my app designs.</p>`)}
     ${tags(["Figma","Adobe XD","3D","Lottie"])}`,
   market:()=>`<h2>Beyond Code</h2>
     <p style="color:#b7bccb;margin:-6px 0 14px">Great products need more than great engineers.</p>
@@ -559,7 +540,7 @@ const PAGES = {
     ${card("Exhibitions & demos",`<p>Managed 10+ industry exhibitions end to end and demoed the product to clients myself.</p>`)}
     ${card("Partnerships",`<p>Helped secure 8 B2B partnerships, and worked with clients on their white-label rollouts.</p>`)}
     ${card("Product teardown",`<p>Study what's already on the market, find where it's complicated, and build the simpler version.</p>`)}
-    ${feat(13,"Where it's used","Circadian lighting for healthcare, agriculture, homes and hospitality.")}`,
+    ${feat("Where it's used","Circadian lighting for healthcare, agriculture, homes and hospitality.")}`,
   projects:()=>`<h2>Projects</h2>
     ${card("Plexilent app",`<p>Production smart-home app on iOS, Android, Apple Watch and Wear OS. Led design and development.</p>${tags(["iOS","Android","watchOS","Wear OS"])}<a class="btn ghost" href="https://www.youtube.com/@plexilent/videos" target="_blank" rel="noopener">▶ Watch on YouTube</a>`)}
     ${card("White-label app framework",`<p>One codebase behind 10+ branded apps, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.</p>${tags(["Architecture","CI/CD"])}`)}
@@ -593,68 +574,6 @@ const PAGES = {
     <div class="bubble me" style="animation-delay:1.6s">Tap below 👇</div>
     <a class="btn" style="margin-top:20px" href="mailto:${ME.email}">Email ${ME.email}</a>
     <a class="btn ghost" href="${ME.linkedin}" target="_blank">LinkedIn</a>`,
-  photos:()=>`<h2>Photos</h2><p class="note" style="margin:-8px 4px 12px">Plexilent · ${SLIDES.length} items · tap to enlarge</p>
-    <div class="photos">${SLIDES.map((t,i)=>`<img src="img/t/s${pad(i+1)}.webp" data-img="${i+1}" loading="lazy" alt="${t}">`).join("")}</div>`,
-  lights:()=>{ const tc=L.tab==="c", km=!tc&&L.mode==="k";
-    const P=(x,y,w,h)=>`left:${x}px;top:${y}px;width:${w}px;height:${h}px`;
-    const whites=`
-      <div class="pl-cone" id="pl-cone" style="${P(-87.7,223.1,394.7,414.4)};clip-path:polygon(34.79% 0,63.24% 0,100% 100%,0 100%)"></div>
-      <img class="pl-lamp" src="img/app/lamp.webp" alt="" style="${P(-88.7,16,398.5,621.5)}">
-      <div class="pl-off" id="pl-off"></div>
-      <div class="pl-val" id="pl-val" style="left:277px;width:72px;top:0"></div>
-      <div class="vs" id="pl-vs" data-drag="vs" style="${P(277,32,72,286)}"><i id="pl-th"></i></div>
-      <button class="pl-btn" data-act="lmode" style="${P(277,346,72,72)}" aria-label="Switch brightness / temperature"><img src="img/app/${km?"lightness":"cct"}.webp" alt=""></button>
-      <button class="pl-btn" data-act="lpower" style="${P(277,437,72,72)}" aria-label="Power"><img id="pl-pw" alt=""></button>
-      <div class="pl-dots" style="left:19px;top:546px">${[2700,3000,4500,5700,6500].map(k=>`<button data-act="k:${k}" style="background:${k2rgb(k)}" aria-label="${k}K"></button>`).join("")}</div>`;
-    const colors=`
-      <div class="pl-cone" id="pl-cone" style="${P(59.7,95.9,158,150.3)};clip-path:polygon(26.95% 0,68.98% 0,100% 100%,0.17% 100%)"></div>
-      <img class="pl-lamp" src="img/app/lamp_rgb.webp" alt="" style="${P(59.5,1.8,158.3,244.3)}">
-      <div class="pl-off" id="pl-off"></div>
-      <div class="pl-wheel" data-drag="wheel" style="${P(35,246.2,207.5,207.5)}"></div>
-      <button class="pl-pill" style="${P(55.7,467.5,166,27.7)}">Advanced</button>
-      <div class="pl-val" id="pl-val" style="left:264.6px;width:80.7px;top:90px"></div>
-      <div class="vs" id="pl-vs" data-drag="vs" style="${P(264.6,136,80.7,254.5)}"><i id="pl-th"></i></div>
-      <button class="pl-btn" style="${P(276,418,57.6,57.6)}" aria-label="Music mode"><img src="img/app/music.webp" alt=""></button>
-      <button class="pl-btn" data-act="lpower" style="${P(276,493.7,57.6,57.6)}" aria-label="Power"><img id="pl-pw" alt=""></button>
-      <div class="pl-sw" style="${P(20.2,583,336.5,34.6)}">${RGB_PRESETS.map(c=>`<button data-act="rgb:${c}" style="background:${c}" aria-label="${c}"></button>`).join("")}</div>`;
-    return `<div class="imm pl">
-      <div class="pl-nav"><button data-home aria-label="Back">‹</button><span style="width:auto;opacity:1;font-size:17px">Light 1</span><span>⚙︎</span></div>
-      <div class="pl-c">${tc?colors:whites}</div>
-      <div class="pl-tabs"><button data-act="ltab:w" class="${tc?"":"on"}"><span>Whites</span></button><button data-act="ltab:c" class="${tc?"on":""}"><span>Colors</span></button></div>
-    </div>` },
-  curtains:()=>`<div class="imm cu"><button class="imm-back" data-home aria-label="Back">‹</button><div class="imm-title" style="color:#222">Curtain</div>
-    <div class="cu-win"><div class="cu-sky"></div><div class="cu-mull"></div></div><div class="cu-sill"></div>
-    <div class="cu-p l" id="cu-l"></div><div class="cu-p r" id="cu-r"></div><div class="cu-rod"></div>
-    <div class="cu-sheet">
-      <div class="cu-row"><span id="cu-s"></span><span class="cu-pill"><i id="cu-dot"></i><span id="cu-st">Travel set</span></span></div>
-      <input type="range" min="0" max="100" id="cu-in" data-cu aria-label="Curtain position">
-      <div class="cu-lbl"><span>Open</span><span>Closed</span></div>
-      <div class="cu-btns"><button data-act="cu:0" id="cu-b0"><b>‹</b>Open</button><button data-act="cu:stop" id="cu-bs"><b>■</b>Stop</button><button data-act="cu:100" id="cu-b100"><b>›</b>Close</button></div>
-      <div class="cu-foot">⇄ Direction: Forward</div>
-    </div></div>`,
-  fan:()=>`<div class="imm fan" id="fan"><button class="imm-back" data-home aria-label="Back">‹</button>
-    <div class="fan-win"><div class="fan-sky"><div class="moon"></div>${[[20,30],[60,18],[44,70],[120,52],[90,96],[30,120]].map(([x,y])=>`<i class="st" style="left:${x}px;top:${y}px"></i>`).join("")}<div class="mul"></div><div class="dim" id="fan-dim"></div></div></div>
-    <div class="fan-air">${[18,48,80,112,146].map((y,i)=>`<i style="top:${y}px;animation-delay:-${i*.37}s"></i>`).join("")}</div>
-    <div class="fan-card">
-      <div class="fan-head"><div><small>FAN SPEED</small><b id="fan-l"></b><span id="fan-s"></span></div>
-        <button data-act="fan:power" aria-label="Power"><img id="fan-pw" alt=""></button></div>
-      <div class="fan-dial" data-act="fan:speed" title="Tap to change speed"><svg viewBox="0 0 150 150" id="fan-svg"></svg><div class="dome"><div><b id="fan-n"></b><small>OF 5</small></div></div></div>
-      <div class="fan-modes">
-        <button data-act="fan:natural" id="fm-natural"><svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg>Natural</button>
-        <button data-act="fan:reverse" id="fm-reverse"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 4v5h-5M4 20v-5h5"/></svg>Reverse</button>
-        <button data-act="fan:sleep" id="fm-sleep"><svg viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a7 7 0 0 0 10 10z"/></svg>Sleep</button>
-        <button data-act="fan:timer" id="fm-timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg><span id="fm-tl">Timer</span></button>
-      </div>
-    </div></div>`,
-  camera:()=>`<h2>Camera</h2>
-    <div class="card" style="text-align:center"><div id="qr" style="background:#fff;padding:14px;border-radius:16px;display:inline-block"></div>
-      <p style="margin-top:12px">Scan to open this portfolio on your phone</p></div>
-    <a class="btn" href="${vcard()}" download="Yash-Jariwala.vcf">Save my contact</a>`,
-  maps:()=>`<h2>Maps</h2>
-    <div class="map"><span class="sea">ARABIAN SEA</span><div class="pin"></div><span class="ml">${ME.location.split(",")[0]}</span></div>
-    ${card("Based in",`<p>${ME.location}</p>`)}
-    ${card("Open to",`<p>${ME.openTo}</p>`)}
-    <a class="btn" href="#" data-open="contact">Get in touch</a>`,
   settings:()=>`<h2>Settings</h2><div class="label">Platform</div>
     <div class="toggle"><button data-plat="ios" class="${isDroid()?"":"on"}">iOS</button><button data-plat="android" class="${isDroid()?"on":""}">Android</button></div>
     <p style="color:var(--muted);font-size:13px;margin:10px 4px">I ship on both. Switch the whole phone over.</p>`
@@ -829,11 +748,10 @@ $("#screen").addEventListener("click", e => {
   if (!zoomed) return;
   const a=e.target.closest("[data-act]");
   if (a){ e.preventDefault(); const [n,v]=a.dataset.act.split(/:(.*)/); ACT[n](v); buzz(8); return }
-  const t=e.target.closest("#island,[data-img],[data-open],[data-home],[data-plat],#lock,#nav");
+  const t=e.target.closest("#island,[data-open],[data-home],[data-plat],#lock,#nav");
   if (!t) return;
   e.preventDefault();
   if (t.id==="island") toggleIsland();
-  else if (t.dataset.img) lb(+t.dataset.img);
   else if (t.id==="lock") unlock();
   else if (t.id==="nav" || t.dataset.home!==undefined) goHome();
   else if (t.dataset.plat){ document.body.classList.toggle("android", t.dataset.plat==="android"); openApp("settings") }
@@ -870,13 +788,7 @@ function zoom(on){
 }
 $("#wrap").addEventListener("click",()=>{ if(!zoomed) zoom(true) });
 $("#scene").addEventListener("click",e=>{ if (zoomed && !e.target.closest("#wrap") && !e.target.closest(".cta")) zoom(false) });
-let cur=0;
-function lb(n){ cur=(n+SLIDES.length-1)%SLIDES.length+1; $("#lb img").src=`img/s${pad(cur)}.webp`; $("#lb .cap").textContent=`${SLIDES[cur-1]} · ${cur}/${SLIDES.length}`; $("#lb").classList.add("on") }
-const lbOpen = () => $("#lb").classList.contains("on");
-$("#lb").addEventListener("click",e=>{ if(e.target.matches(".p")) lb(cur-1); else if(e.target.matches(".n")) lb(cur+1); else if(!e.target.matches("img")) $("#lb").classList.remove("on") });
-addEventListener("keydown",e=>{
-  if (lbOpen()){ if(e.key==="Escape") $("#lb").classList.remove("on"); if(e.key==="ArrowLeft") lb(cur-1); if(e.key==="ArrowRight") lb(cur+1); return }
-  if(e.key==="Escape") zoom(false) });
+addEventListener("keydown",e=>{ if(e.key==="Escape") zoom(false) });
 addEventListener("mousemove",e=>{ mx=e.clientX/innerWidth-.5; my=e.clientY/innerHeight-.5; if(!zoomed) place() });
 addEventListener("resize",()=>{ if (small()) zoom(true); place() });
 if (small()) zoom(true); else place();
