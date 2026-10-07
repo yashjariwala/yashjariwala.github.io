@@ -315,6 +315,27 @@ input.cct{accent-color:#facc15}
 .wt-row button.on{color:#000;border-color:transparent}
 .wt-hint{font-size:12px;color:var(--muted);text-align:center;margin-top:26px}
 
+/* design board */
+.dz-try{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.dz-try button{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#c3c7d3}
+.dz-try .tile{width:52px;height:52px;border-radius:14px;display:grid;place-items:center}
+.dz-try .tile svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dz-sw{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.dz-sw div{border-radius:12px;overflow:hidden;background:#1d2030;font-size:10.5px;line-height:1.35}
+.dz-sw i{display:block;height:40px}
+.dz-sw span{display:block;padding:6px 8px;color:#c3c7d3}
+.dz-sw b{display:block;color:#fff;font-size:11px}
+.dz-type div{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.dz-type div:last-child{border:0}
+.dz-type small{color:var(--muted);font-size:11px;white-space:nowrap;margin-left:8px}
+.dz-comp{display:flex;align-items:center;justify-content:space-around;gap:10px;flex-wrap:wrap}
+.dz-comp img{width:52px;height:52px}
+.dz-mini{width:30px;height:90px;border-radius:15px;position:relative;background:linear-gradient(0deg,#1A1A1A,#fff)}
+.dz-mini.k{background:linear-gradient(0deg,#FFA657,#fff)}
+.dz-mini i{position:absolute;left:50%;top:30%;width:36px;height:36px;transform:translate(-50%,-50%);border-radius:50%;background:#fff;border:1px solid #000}
+.dz-chip{height:46px;width:58px;border-radius:14px;font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.34);color:rgba(255,255,255,.72)}
+.dz-chip.on{background:rgba(51,214,193,.15);border-color:#33D6C1;color:#fff;box-shadow:0 0 12px rgba(51,214,193,.45)}
+
 /* ---------- small screens: no 3D, just the phone ---------- */
 @media (max-width:760px){
   .intro,.back-hint,.glow{display:none}
@@ -528,11 +549,27 @@ const PAGES = {
       </div></div></div>
     <p class="wt-hint">Scroll on the watch (the Digital Crown) or drag the dial.</p>
     ${card("Full control, not shortcuts",`<p>watchOS and Wear OS apps that run the whole lighting system from your wrist: spaces, brightness, colour temperature and power. Not just a couple of quick toggles.</p>${tags(["watchOS","Wear OS","SwiftUI"])}`)}`,
-  design:()=>`<h2>Design</h2>
-    ${card("Full app redesign",`<p>Led the complete redesign of the Plexilent app UI to modern standards, from Figma to release.</p>`)}
+  design:()=>{
+    const sw=(n,hex,note)=>`<div><i style="background:${hex}"></i><span><b>${n}</b>${hex}${note?`<br>${note}`:""}</span></div>`;
+    const tr=(t,px,w,role)=>`<div><span style="font-size:${px}px;font-weight:${w};line-height:1.1">${t}</span><small>${role} · ${px}</small></div>`;
+    const go=(id,n,bg,ic)=>`<button data-open="${id}"><span class="tile" style="background:${bg}">${svg(ic)}</span>${n}</button>`;
+    return `<h2>Design</h2>
+    <p style="color:#b7bccb;margin:-6px 0 12px">I led the Plexilent app redesign from Figma to release. These screens on this phone are rebuilt from those designs. Try them:</p>
+    <div class="dz-try">${go("lights","Lights","linear-gradient(135deg,#f59e0b,#fde68a)","bulb")}${go("curtains","Curtains","linear-gradient(135deg,#a16207,#d6b38a)","curtain")}${go("fan","Fan","linear-gradient(135deg,#1f3d33,#3C5046)","fan")}${go("watch","Watch","linear-gradient(135deg,#111,#3f3f46)","watch")}</div>
+    <div class="label">Colour tokens</div>
+    <div class="dz-sw">${sw("Brand","#1E88E5")}${sw("Accent","#4A87EE","tabs")}${sw("Background","#000000","dark · #F5F6FC light")}
+      ${sw("On","#09E600","stroke_on")}${sw("Off","#FF0909","stroke_off")}${sw("CCT","#FFAB5D","stroke_ctl")}
+      ${sw("Brightness","#0049D6","stroke_lightness")}${sw("RGB","#7B6FFB","stroke_rgb")}${sw("Fan","#907ACF","stroke_fan")}</div>
+    <div class="label">Type scale · SF Pro</div>
+    <div class="card dz-type">${tr("Level 3",34,600,"Display")}${tr("Good Afternoon!",28,700,"Greeting")}${tr("Living Room",22,600,"Heading")}${tr("80% Closed",18,500,"Title")}${tr("Body text",16,400,"Body")}${tr("Natural",14,500,"Label")}${tr("FAN SPEED",12,500,"Caption")}</div>
+    <div class="label">Components</div>
+    <div class="card dz-comp">
+      <img src="img/app/power_on.webp" alt="Power on"><img src="img/app/power_off.webp" alt="Power off"><img src="img/app/cct.webp" alt="CCT mode"><img src="img/app/music.webp" alt="Music mode">
+      <div class="dz-mini"><i></i></div><div class="dz-mini k"><i style="top:60%"></i></div>
+      <div class="dz-chip on">Natural</div><div class="dz-chip">Sleep</div>
+    </div>
     ${card("3D & life-like concepts",`<p>3D UI designs and realistic product concepts for Plexilent, so clients can see the product before it exists.</p>`)}
-    ${card("Interaction & motion",`<p>Lottie animations and custom controls: the Lights, Curtains and Fan screens on this phone are rebuilt from my app designs.</p>`)}
-    ${tags(["Figma","Adobe XD","3D","Lottie"])}`,
+    ${tags(["Figma","Adobe XD","Lottie","3D"])}` },
   market:()=>`<h2>Beyond Code</h2>
     <p style="color:#b7bccb;margin:-6px 0 14px">Great products need more than great engineers.</p>
     ${stats([["10+","exhibitions"],["8","B2B partnerships"],["10+","white-label apps"]])}
