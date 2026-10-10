@@ -130,7 +130,7 @@ a{color:inherit}
 .hint{margin-top:34px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px}
 .hint i{width:8px;height:8px;border-radius:50%;background:var(--a2);box-shadow:0 0 0 0 rgba(34,211,238,.7);animation:ping 1.8s infinite}
 @keyframes ping{to{box-shadow:0 0 0 14px rgba(34,211,238,0)}}
-.back-hint{position:absolute;top:22px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);opacity:0;transition:.5s;z-index:2}
+.back-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:12px;color:var(--muted);opacity:0;transition:.5s;z-index:2}
 .zoomed .back-hint{opacity:1}
 
 /* ---------- phone ---------- */
@@ -842,12 +842,11 @@ const PAGES = {
       ${NOTES.map(x=>`<button class="card nlist" data-act="note:${x.id}"><h4>${x.title}</h4><p>${x.date} · ${x.sub}</p></button>`).join("")}`;
     return `<button class="backbtn" data-act="note:">‹ Notes</button><article class="nart"><h2>${n.title}</h2><p class="note">${n.date} · ${n.read}</p>${n.body}</article>` },
   tour:()=>{ const st=(n,t,p,b)=>`<div class="card tour-step"><i>${n}</i><div style="flex:1"><h4>${t}</h4><p>${p}</p>${b}</div></div>`;
-    return `<h2>Start here</h2><p style="color:#b7bccb;margin:-6px 0 14px">A 60-second route through my work.</p>
-    ${st(1,"Who I am","iOS & Android developer and Team Lead. 5 years, 10+ apps shipped.",`<a class="btn ghost" href="#" data-open="about">About me</a>`)}
-    ${st(2,"What I've shipped","Plexilent and client apps for Bajaj and Crompton, live on the App Store and Google Play.",`<a class="btn ghost" href="#" data-open="projects">See the apps</a>`)}
-    ${st(3,"A hard problem I solved","Keeping many phones in sync with one Bluetooth mesh, without accounts.",`<button class="btn ghost" data-act="note:mesh">Read the case study</button>`)}
-    ${st(4,"Try my work","The Lights screen is rebuilt from my app design. It lights up this page.",`<a class="btn ghost" href="#" data-open="lights">Open Lights</a>`)}
-    ${st(5,"Let's talk","Open to new roles.",`<a class="btn wa" href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp-tour">WhatsApp me</a><a class="btn ghost" href="mailto:${ME.email}" data-track="email-tour">Email</a>`)}` },
+    return `<h2>Start here</h2><p style="color:#b7bccb;margin:-6px 0 14px">Three stops, about a minute.</p>
+    ${st(1,"Apps I've shipped","Plexilent plus client apps for Bajaj and Crompton, live on the App Store and Google Play.",`<a class="btn ghost" href="#" data-open="projects">See the apps</a>`)}
+    ${st(2,"The hardest problem","Keeping many phones in sync with one Bluetooth mesh, without accounts.",`<button class="btn ghost" data-act="note:mesh">Read the case study</button>`)}
+    ${st(3,"Try my work","The Lights screen is rebuilt from my app design. It lights up this page.",`<a class="btn ghost" href="#" data-open="lights">Open Lights</a>`)}
+    <div class="stores" style="margin-top:4px"><a href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp-tour" style="background:#25D366;color:#04210f;border:0">WhatsApp me</a><a href="mailto:${ME.email}" data-track="email-tour">Email</a></div>` },
   settings:()=>`<h2>Settings</h2><div class="label">Platform</div>
     <div class="toggle"><button data-plat="ios" class="${isDroid()?"":"on"}">iOS</button><button data-plat="android" class="${isDroid()?"on":""}">Android</button></div>
     <p style="color:var(--muted);font-size:13px;margin:10px 4px">I ship on both. Switch the whole phone over.</p>`
@@ -1167,7 +1166,7 @@ $("#lock").addEventListener("touchend",e=>{ if (sy-e.changedTouches[0].clientY>4
 let zoomed=false, mx=0, my=0;
 const small = () => innerWidth<=760;
 function place(){
-  const fit=Math.min(innerHeight*.92/820, innerWidth*.96/390);
+  const fit=Math.min(innerHeight*.88/820, innerWidth*.96/390);
   let t;
   if (zoomed || small()) t=`translate3d(0,0,0) scale(${fit})`;
   else {
