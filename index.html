@@ -166,6 +166,10 @@ a{color:inherit}
   transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s}
 .lock.gone{transform:translateY(-100%);opacity:0;pointer-events:none}
 .lock .date{font-size:19px;font-weight:600;opacity:.85}
+.lw{margin-top:14px;padding:10px 18px;border-radius:18px;background:rgba(20,22,34,.45);backdrop-filter:blur(16px);text-align:center;line-height:1.35}
+.lw b{display:block;font-size:17px}
+.lw span{display:block;font-size:12.5px;color:#d9dce5}
+.android .lw{text-align:left}
 .lock .big{font-size:94px;font-weight:700;letter-spacing:-.03em;line-height:1;margin-top:2px}
 .notif{width:calc(100% - 28px);margin-top:auto;margin-bottom:12px;padding:13px 15px;border-radius:22px;background:rgba(30,32,45,.55);backdrop-filter:blur(20px);
   display:flex;gap:12px;align-items:center;font-size:14px;line-height:1.3;animation:slide .8s .4s both}
@@ -184,6 +188,10 @@ a{color:inherit}
 .avatar{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--a1),var(--a2));flex:none}
 .widget h3{margin:0;font-size:18px;letter-spacing:-.01em}
 .widget small{color:#c3c7d3;font-size:13px}
+.widget .start{margin-top:12px;padding:9px 12px;border-radius:12px;background:var(--ink);color:#000;font-size:13px;font-weight:700;text-align:center}
+.tour-step{display:flex;gap:12px;align-items:flex-start}
+.tour-step i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px;background:linear-gradient(135deg,var(--a1),var(--a2))}
+.tour-step .btn{margin-top:8px;padding:9px;font-size:13px}
 .widget .now{margin-top:14px;font-size:13px;display:flex;align-items:center;gap:8px;color:#d9dce5}
 .dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 10px #34d399}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 8px}
@@ -193,7 +201,7 @@ a{color:inherit}
 .tile svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .tile .tx{font-weight:800;font-size:24px;letter-spacing:-.02em}
 .dock{position:absolute;left:12px;right:12px;bottom:28px;padding:14px 10px;border-radius:32px;background:rgba(255,255,255,.14);backdrop-filter:blur(24px);display:flex;justify-content:space-around}
-.dock .app-ic span{display:none}
+.dock .app-ic > span{display:none}
 
 /* app view */
 .app{position:absolute;inset:0;z-index:30;background:#0b0c12;transform:scale(.6) translateY(30%);opacity:0;pointer-events:none;border-radius:50px;
@@ -506,6 +514,7 @@ input.cct{accent-color:#facc15}
           <div class="lock" id="lock">
             <div class="date" id="date"></div>
             <div class="big clock"></div>
+            <div class="lw" id="lw"></div>
             <div class="notif"><div class="ni" style="background:linear-gradient(135deg,#4651ff,#1fb6ff)">✓</div>
               <div><b>Build succeeded · now</b>iOS · iPadOS · Android · watchOS · Wear OS</div></div>
             <div class="notif"><div class="ni" style="background:#34d399;color:#03251a">✓</div>
@@ -514,9 +523,9 @@ input.cct{accent-color:#facc15}
           </div>
 
           <div class="home behind" id="home">
-            <div class="widget" data-open="about">
+            <div class="widget" data-open="tour">
               <div class="who"><div class="avatar" id="w-init"></div><div><h3 id="w-name"></h3><small id="w-role"></small></div></div>
-              <div class="now"><span class="dot"></span><span id="w-status"></span></div>
+              <div class="start">▶ Start here · 60-second tour</div>
             </div>
             <div class="grid" id="grid"></div>
             <div class="dock" id="dock"></div>
@@ -840,6 +849,13 @@ const PAGES = {
     if(!n) return `<h2>Notes</h2><p class="note" style="margin:-8px 4px 12px">${NOTES.length} notes · engineering write-ups</p>
       ${NOTES.map(x=>`<button class="card nlist" data-act="note:${x.id}"><h4>${x.title}</h4><p>${x.date} · ${x.sub}</p></button>`).join("")}`;
     return `<button class="backbtn" data-act="note:">‹ Notes</button><article class="nart"><h2>${n.title}</h2><p class="note">${n.date} · ${n.read}</p>${n.body}</article>` },
+  tour:()=>{ const st=(n,t,p,b)=>`<div class="card tour-step"><i>${n}</i><div style="flex:1"><h4>${t}</h4><p>${p}</p>${b}</div></div>`;
+    return `<h2>Start here</h2><p style="color:#b7bccb;margin:-6px 0 14px">A 60-second route through my work.</p>
+    ${st(1,"Who I am","iOS & Android developer and Team Lead. 5 years, 10+ apps shipped.",`<a class="btn ghost" href="#" data-open="about">About me</a>`)}
+    ${st(2,"What I've shipped","Plexilent and client apps for Bajaj and Crompton, live on the App Store and Google Play.",`<a class="btn ghost" href="#" data-open="projects">See the apps</a>`)}
+    ${st(3,"A hard problem I solved","Keeping many phones in sync with one Bluetooth mesh, without accounts.",`<button class="btn ghost" data-act="note:mesh">Read the case study</button>`)}
+    ${st(4,"Try my work","The Lights screen is rebuilt from my app design. It lights up this page.",`<a class="btn ghost" href="#" data-open="lights">Open Lights</a>`)}
+    ${st(5,"Let's talk","Open to new roles.",`<a class="btn wa" href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp-tour">WhatsApp me</a><a class="btn ghost" href="mailto:${ME.email}" data-track="email-tour">Email</a>`)}` },
   settings:()=>`<h2>Settings</h2><div class="label">Platform</div>
     <div class="toggle"><button data-plat="ios" class="${isDroid()?"":"on"}">iOS</button><button data-plat="android" class="${isDroid()?"on":""}">Android</button></div>
     <p style="color:var(--muted);font-size:13px;margin:10px 4px">I ship on both. Switch the whole phone over.</p>`
@@ -1098,8 +1114,9 @@ $("#dock").innerHTML = DOCK.map(tile).join("");
 $("#h-name").innerHTML = ME.name.replace(" ","<br>") + `<br><span class="grad" style="font-size:.5em">${ME.role.replace(" · ","<br>")}</span>`;
 $("#h-pitch").textContent = ME.pitch;
 $("#h-mail").href = "mailto:"+ME.email; $("#h-wa").href = waLink();
+$("#lw").innerHTML = `<b>${ME.name}</b><span>${ME.role}</span><span>${ME.stats.map(([v,l])=>v+" "+l).join(" · ")}</span>`;
 $("#w-init").textContent = ME.initials; $("#w-name").textContent = ME.name;
-$("#w-role").textContent = ME.role; $("#w-status").textContent = ME.status;
+$("#w-role").textContent = ME.role; 
 for (let i=1;i<=14;i++){const d=document.createElement("div");d.className="layer";d.style.transform=`translateZ(${-i}px)`;d.style.background=i===14?"#111216":"#2b2d34";$("#layers").appendChild(d)}
 
 function tick(){const d=new Date();document.querySelectorAll(".clock").forEach(e=>e.textContent=d.toLocaleTimeString([], {hour:"numeric",minute:"2-digit",hour12:true}).replace(/\s*[ap]\.?m\.?/i,""));
