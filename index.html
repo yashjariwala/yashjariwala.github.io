@@ -464,6 +464,14 @@ input.cct{accent-color:#facc15}
 .nlist{display:block;width:100%;text-align:left}
 .nart p{color:#c9cdd8;font-size:14.5px;line-height:1.6;margin:0 0 12px}
 .nart p.note{color:var(--muted);font-size:12px;margin:-8px 0 14px}
+.ndiag{width:100%;height:auto;margin:6px 0 14px;background:#141725;border-radius:14px;padding:6px}
+.ndiag text{text-anchor:middle;font-family:inherit}
+.nd-h{fill:#eef0f5;font-size:10px;font-weight:700}.nd-s{fill:#8b91a1;font-size:8px}.nd-t{fill:#fff;font-size:10px;font-weight:700}
+.nd-p{fill:#2b3050;stroke:#5b8cff;stroke-width:1.5}.nd-bad{stroke:#ff5b4a}.nd-bad-t{fill:#ff8a7d;font-size:8.5px}
+.nd-c{fill:#14243a;stroke:var(--a2);stroke-width:1.5}.nd-l{stroke:rgba(255,255,255,.35);stroke-width:1.4;fill:none;stroke-dasharray:3 4}
+.nd-on{stroke:var(--a2);animation:flow 1s linear infinite}.nd-div{stroke:rgba(255,255,255,.1)}
+.nart ul,.nart ol{color:#c9cdd8;font-size:14.5px;line-height:1.55;padding-left:20px;margin:0 0 12px}
+.nart li{margin:6px 0}
 .nart h3{font-size:16px;margin:18px 0 6px}
 
 /* ---------- small screens: no 3D, just the phone ---------- */
@@ -844,7 +852,7 @@ const PAGES = {
   tour:()=>{ const st=(n,t,p,b)=>`<div class="card tour-step"><i>${n}</i><div style="flex:1"><h4>${t}</h4><p>${p}</p>${b}</div></div>`;
     return `<h2>Start here</h2><p style="color:#b7bccb;margin:-6px 0 14px">Three stops, about a minute.</p>
     ${st(1,"Apps I've shipped","Plexilent plus client apps for Bajaj and Crompton, live on the App Store and Google Play.",`<a class="btn ghost" href="#" data-open="projects">See the apps</a>`)}
-    ${st(2,"The hardest problem","Keeping many phones in sync with one Bluetooth mesh, without accounts.",`<button class="btn ghost" data-act="note:mesh">Read the case study</button>`)}
+    ${st(2,"The hardest problem","Phones sharing a home used to get stale copies and clashing addresses. How I fixed it.",`<button class="btn ghost" data-act="note:mesh">Read the case study</button>`)}
     ${st(3,"Try my work","The Lights screen is rebuilt from my app design. It lights up this page.",`<a class="btn ghost" href="#" data-open="lights">Open Lights</a>`)}
     <div class="stores" style="margin-top:4px"><a href="${waLink()}" target="_blank" rel="noopener" data-track="whatsapp-tour" style="background:#25D366;color:#04210f;border:0">WhatsApp me</a><a href="mailto:${ME.email}" data-track="email-tour">Email</a></div>` },
   settings:()=>`<h2>Settings</h2><div class="label">Platform</div>
@@ -888,19 +896,58 @@ function applyFlow(){
 }
 let NOTE="";
 const NOTES = [
-  {id:"mesh", title:"Many phones, one Bluetooth mesh, no accounts", date:"Oct 2026", read:"4 min read", sub:"Cloud Mesh Sync",
-   body:`<p>Bluetooth SIG Mesh protects against replay attacks: every message carries a source address and a sequence number, and a light drops any message whose number isn't higher than the last one it saw from that source. Great for security, painful for a family app. If two phones share one identity, their counters collide and commands silently disappear.</p>
-   <p>The usual fix is accounts and a server that hands out identities. I wanted sharing to be as easy as showing a QR code.</p>
-   <h3>1. Every phone is its own provisioner</h3>
-   <p>When a phone joins a network it creates its own provisioner, with its own unicast address range. Each phone counts in its own sequence space, so two phones never fight over the same counter. The counter also moves forward in steps and jumps well ahead when a phone has no local record, so a reinstall can't replay old numbers.</p>
-   <h3>2. The network lives in the cloud, keyed by its mesh ID</h3>
-   <p>The whole network (keys, devices, groups, rooms, scenes, schedules) is stored under the mesh's own ID, next to a version counter every phone listens to. A phone writes the data first, then bumps the version in a transaction. Rule one: the cloud is the truth. A phone never overwrites a newer version; it pulls first, then merges, keeping its own unsent adds and removals.</p>
-   <h3>3. Sharing is a QR code</h3>
-   <p>The sharing phone uploads the latest network and shows a QR. The new phone scans it, imports the network and creates its own provisioner. No sign-up, no password.</p>
-   <h3>4. Bluetooth first, cloud second</h3>
-   <p>Control never waits for the internet. Lights respond over Bluetooth, and uploads are deferred and retried when the phone is back online.</p>
-   <h3>What broke, and what I learned</h3>
+  {id:"mesh", title:"Case study: Cloud Mesh Sync", date:"Oct 2026", read:"5 min read", sub:"Many phones, one Bluetooth mesh, no accounts",
+   body:`<h3>The problem</h3>
+   <p>Plexilent homes are controlled from several phones. Sharing used to be a one-time copy: phone A showed a QR code and phone B imported a snapshot of the network. That snapshot started going stale the moment it was taken.</p>
+   <ul><li><b>Address clashes.</b> When A later shared with C, A's copy didn't know about B: not B's provisioner, not B's address. C could be handed an address B already used, and the two phones hit connection problems.</li>
+   <li><b>Stale data.</b> A device added on one phone never appeared on the others, and neither did changes to groups, rooms or scenes. Every phone drifted into its own version of the home.</li></ul>
+   <p>Underneath sits Bluetooth Mesh replay protection: every message carries a source address and a sequence number, and a light drops anything that isn't newer than the last message from that source. Two phones that share an identity silently lose commands.</p>
+   <h3>Constraints</h3>
+   <ul><li>No accounts: sharing had to stay a QR scan.</li><li>Bluetooth first: lights must respond with no internet.</li><li>No server to run or pay for.</li></ul>
+   <h3>The decision</h3>
+   <p>Make the cloud the single source of truth for each network, and give every phone its own identity inside it.</p>
+   <svg class="ndiag" viewBox="0 0 320 170" role="img" aria-label="Before: phone A copies the network to B and C separately, so C clashes with B. After: phones A, B and C all sync with one versioned network in the cloud.">
+     <text x="75" y="14" class="nd-h">Before: copies</text>
+     <path d="M48 62L102 44M48 70L102 106" class="nd-l"/><text x="66" y="44" class="nd-s">copy</text><text x="66" y="104" class="nd-s">copy</text>
+     <circle cx="38" cy="66" r="15" class="nd-p"/><text x="38" y="70" class="nd-t">A</text>
+     <circle cx="114" cy="40" r="15" class="nd-p"/><text x="114" y="44" class="nd-t">B</text>
+     <circle cx="114" cy="110" r="15" class="nd-p nd-bad"/><text x="114" y="114" class="nd-t">C</text>
+     <text x="75" y="150" class="nd-bad-t">C can clash with B</text><text x="75" y="162" class="nd-bad-t">new devices never sync</text>
+     <line x1="160" y1="10" x2="160" y2="165" class="nd-div"/>
+     <text x="243" y="14" class="nd-h">After: one source of truth</text>
+     <path d="M196 46L230 72M290 46L256 72M243 128V100" class="nd-l nd-on"/>
+     <rect x="208" y="70" width="70" height="30" rx="8" class="nd-c"/><text x="243" y="84" class="nd-t">Network</text><text x="243" y="95" class="nd-s">version 12</text>
+     <circle cx="188" cy="38" r="15" class="nd-p"/><text x="188" y="42" class="nd-t">A</text>
+     <circle cx="298" cy="38" r="15" class="nd-p"/><text x="298" y="42" class="nd-t">B</text>
+     <circle cx="243" cy="142" r="15" class="nd-p"/><text x="243" y="146" class="nd-t">C</text>
+     <text x="243" y="166" class="nd-s">write → bump version → others pull</text>
+   </svg>
+   <ol><li><b>One copy, keyed by the mesh ID.</b> The whole network (keys, devices, provisioners, groups, rooms, scenes, schedules) lives under the mesh's own ID, next to a version number every phone listens to.</li>
+   <li><b>Write, then bump.</b> A phone writes the network, then increments the version in a transaction. The other phones see the new version and pull.</li>
+   <li><b>The cloud is the truth.</b> A phone never overwrites a newer version. It pulls first and merges, keeping its own unsent adds and removals.</li>
+   <li><b>Every phone is its own provisioner.</b> A joining phone registers its own provisioner and address range in the shared network, so A, B and C all know about each other and each counts in its own sequence space.</li></ol>
+   <h3>Trade-offs</h3>
+   <ul><li><b>Whole network, not per-item sync.</b> Every change re-sends the full network, typically tens of kilobytes. Syncing single items sends less but needs server logic and costs more per change. At home scale, simple won.</li>
+   <li><b>A QR code is a house key.</b> Keeping sharing to one scan means the code itself has to be treated as a secret, so access is also guarded by app attestation on the cloud.</li>
+   <li><b>Offline edits merge later.</b> Bluetooth control never waits for the internet, so two offline phones can both make changes; uploads are queued and the merge rule settles them when they reconnect.</li></ul>
+   <h3>The result</h3>
+   <ul><li>Shares are no longer snapshots: devices, groups and scenes added on any phone appear on every phone.</li>
+   <li>Phones stop clashing on addresses, because every provisioner is part of the shared network.</li>
+   <li>Still no sign-up: joining a home is one QR scan.</li></ul>
+   <h3>What broke after launch</h3>
    <p>Real homes found cases a lab never did: a sync that left a phone without its own provisioner, so it couldn't control anything, and a phone stuck on a single address. Each one became a guard in the sync and sequence code. Distributed state is mostly about the moments it disagrees with itself.</p>`},
+  {id:"field", title:"Field notes: five bugs worth remembering", date:"Oct 2026", read:"3 min read", sub:"Real fixes from the Plexilent apps",
+   body:`<p>Not every hard problem is an architecture problem. These are small bugs from the Plexilent apps, each one easy to get wrong twice.</p>
+   <h3>1. The watch that said “Offline” when it wasn't</h3>
+   <p>The watch showed an “Offline” / “Open phone” status from watchOS's reachability flag, which flickers to “unreachable” even when the phone is fine. Users saw a warning about a problem that didn't exist. <b>Fix:</b> stop predicting failure. Every command is sent, and only a real failed send shows “Phone unavailable”, so the watch works whether the phone app is open, in the background or closed.</p>
+   <h3>2. Red that turned pink</h3>
+   <p>The lamp glow lifts each colour channel toward white so it reads as light, not paint. An early formula divided zero by zero on pure colours, so red, green and blue produced an undefined tint. The “obvious” fix lifted every channel, which turned red pink and yellow orange. <b>Fix:</b> lift only the channels that are actually present.</p>
+   <h3>3. The tab that vanished on iPad</h3>
+   <p>In split view, the Whites/Colors tabs were sized from the whole window instead of the pane, which pushed “Colors” off-screen. <b>Fix:</b> let the tab bar size itself from its own container at layout time, not at load.</p>
+   <h3>4. Zero isn't dim</h3>
+   <p>Turning the Digital Crown all the way down set brightness to 0%, which switches the lamp off. That's the power button's job. <b>Fix:</b> the crown stops at 1%, the dimmest visible light.</p>
+   <h3>5. Sliders that lie</h3>
+   <p>If another phone or a wall switch changes a light, this phone's slider has to show it. <b>Fix:</b> brightness, colour temperature and power follow what the lights report, not what this phone last sent.</p>`},
   {id:"gateway", title:"A smart-home gateway without an MQTT broker", date:"Oct 2026", read:"3 min read", sub:"Serverless gateway",
    body:`<p>Most smart-home gateways keep an always-on MQTT broker between the app and the hardware. That's a server to run, scale and pay for, even when nobody is home. For Plexilent I wanted remote control without that server.</p>
    <h3>How it works</h3>
