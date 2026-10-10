@@ -472,6 +472,11 @@ input.cct{accent-color:#facc15}
 .nd-on{stroke:var(--a2);animation:flow 1s linear infinite}.nd-div{stroke:rgba(255,255,255,.1)}
 .nart ul,.nart ol{color:#c9cdd8;font-size:14.5px;line-height:1.55;padding-left:20px;margin:0 0 12px}
 .nart li{margin:6px 0}
+.tl{list-style:none;margin:0 0 16px;padding:0 0 0 14px;border-left:2px solid rgba(124,92,255,.5)}
+.tl li{position:relative;margin:0 0 11px;padding-left:12px;font-size:13.5px;line-height:1.35}
+.tl li::before{content:"";position:absolute;left:-21px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--a2)}
+.tl b{display:block;font-size:11.5px;color:var(--muted);font-weight:600}
+.tl span{color:#e5e7eb}
 .nart h3{font-size:16px;margin:18px 0 6px}
 
 /* ---------- small screens: no 3D, just the phone ---------- */
@@ -659,11 +664,12 @@ const PAGES = {
     <div class="label">Cloud & connectivity</div>
     ${card("Sync without accounts",`<p>Every phone gets its own provisioner and sequence range, the network lives in the cloud under its mesh ID, and sharing is a QR scan.</p>${cs("mesh","Read the case study")}`)}
     ${card("Serverless gateway",`<p>No MQTT broker: an ESP32-C3 gateway listens to the Realtime Database and relays commands over BLE Mesh. I wrote the Cloud Functions around it. Almost free for a few users, cost-effective as users grow.</p>${cs("gateway","Read the case study")}`)}
-    ${card("APIs, SDKs & integrations",`<p>Cloud Functions APIs connecting the gateway, apps and platforms; partner SDKs incl. Crompton SENZE; Google Home, Alexa and SmartThings integrations with OAuth account linking.</p>${tags(["REST","API design","SDKs","OAuth"])}`)}
+    ${card("APIs, SDKs & integrations",`<p>Cloud Functions APIs connecting the gateway, apps and platforms; partner SDKs incl. Crompton SENZE; Google Home, Alexa and SmartThings integrations with OAuth account linking. Alexa skills are live for Plexilent and Uniflow; Google Home and SmartThings are in certification.</p>${tags(["REST","API design","SDKs","OAuth"])}`)}
     ${card("Security",`<p>App Check (App Attest, Play Integrity) on the cloud, scoped credentials per gateway, and 6+ company websites hardened against DDoS and WordPress attacks at 99.9% uptime.</p>${tags(["App Check","OAuth","Web security"])}`)}
     <div class="label">Ownership</div>
     ${card("Concept to launch",`<p>Researched protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>`)}
     ${card("Chipset migration",`<p>Directed the move from Silicon Labs to Telink chipsets, cutting hardware costs by 30% and speeding up releases.</p>`)}
+    ${card("Ownership in the code",`<p>3,450+ commits under my name in the Plexilent app repo since July 2022: 82% of all commits, and every commit in 2022 and 2023.</p>${tags(["Git history","iOS","Android","Cloud"])}`)}
     ${card("Reliability & team",`<p>App architecture for 6,000+ node networks: 30% more reliable, 20% less downtime. Mentored three engineers; the team now resolves issues 40% faster.</p>`)}
     ${go("plexilent","See the product →")}` },
   plexilent:()=>`<h2><span class="grad">Plexilent</span></h2>
@@ -671,6 +677,8 @@ const PAGES = {
     ${feat("The Plexilent App","Smarter. Sharper. More connected. On iPhone, iPad, Android, Apple Watch and Wear OS.")}
     ${stats([["1.4L+","products shipped"],["2,400+","installations"],["13+","manufacturing partners"]])}
     <p class="note">Platform numbers from plexilent.com</p>
+    <div class="label">Timeline · from the git history</div>
+    <ol class="tl"><li><b>Jul 2022</b><span>App repo starts on the Telink SDK</span></li><li><b>Nov 2022</b><span>QR-code sharing</span></li><li><b>Dec 2022</b><span>Over-the-air updates</span></li><li><b>Jun 2023</b><span>QR import/export through our own server</span></li><li><b>Aug 2023</b><span>Sync across phones</span></li><li><b>Dec 2023</b><span>Music mode</span></li><li><b>May 2024</b><span>Cloud Mesh Sync</span></li><li><b>Nov 2024</b><span>Curtain controller</span></li><li><b>Jun 2025</b><span>Human-Centric Lighting</span></li><li><b>Nov 2025</b><span>Beacon stack in the same app</span></li><li><b>Apr 2026</b><span>Apple Watch app, then Wear OS</span></li><li><b>Jul 2026</b><span>Home-screen widgets</span></li><li><b>Aug 2026</b><span>Siri Shortcuts and the serverless gateway</span></li><li><b>Oct 2026</b><span>Plexilent Alexa skill live</span></li></ol>
     <div class="label">Features</div>
     ${feat("Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
     ${feat("Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
@@ -758,7 +766,7 @@ const PAGES = {
     "Leadership":["Team lead","Mentoring","Agile / Scrum","Project planning","Client & vendor negotiation"]
   }).map(([k,v])=>`<div class="label">${k}</div><div class="chips">${v.map(x=>`<span class="chip">${x}</span>`).join("")}</div>`).join("")}`,
   resume:()=>`<h2>Résumé</h2>
-    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Serverless gateway (no MQTT broker) and the Cloud Functions behind it","Google Home, Alexa, SmartThings and Siri Shortcuts integrations","iPad, Android tablet, widget and watch apps","Merged two BLE stacks and multiple white-label apps into one codebase"])}`)}
+    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Serverless gateway (no MQTT broker) and the Cloud Functions behind it","Alexa skills live for Plexilent and Uniflow; Google Home and SmartThings in certification; Siri Shortcuts","iPad, Android tablet, widget and watch apps","Merged two BLE stacks and multiple white-label apps into one codebase"])}`)}
     ${card("Senior Application Engineer",`<p>Lumens Technologies · Apr 2023 – Aug 2025</p>`)}
     ${card("Executive, New Product Development",`<p>Lumens Technologies · Apr 2022 – May 2023</p>`)}
     ${card("Graduate Trainee",`<p>Lumens Technologies · Aug 2021 – Apr 2022</p>`)}
@@ -902,6 +910,7 @@ const NOTES = [
    <ul><li><b>Address clashes.</b> When A later shared with C, A's copy didn't know about B: not B's provisioner, not B's address. C could be handed an address B already used, and the two phones hit connection problems.</li>
    <li><b>Stale data.</b> A device added on one phone never appeared on the others, and neither did changes to groups, rooms or scenes. Every phone drifted into its own version of the home.</li></ul>
    <p>Underneath sits Bluetooth Mesh replay protection: every message carries a source address and a sequence number, and a light drops anything that isn't newer than the last message from that source. Two phones that share an identity silently lose commands.</p>
+   <p><b>It took four steps, from the git history:</b> QR-code sharing (Nov 2022) → QR import/export through our own server (Jun 2023) → sync across phones (Aug 2023) → Cloud Mesh Sync (May 2024).</p>
    <h3>Constraints</h3>
    <ul><li>No accounts: sharing had to stay a QR scan.</li><li>Bluetooth first: lights must respond with no internet.</li><li>No server to run or pay for.</li></ul>
    <h3>The decision</h3>
@@ -1092,7 +1101,7 @@ const SIRI_KB = [
   {id:"cross", k:/flutter|react native|cross.?platform|kmp/, a:()=>`His production work is native iOS and Android; his CV also lists cross-platform mobile development. Ask him about a specific framework.`, mail:1},
   {id:"arch", k:/architect|scale|mvvm|mvp|white.?label|codebase|modular|ci\/?cd/, a:()=>`He built a modular framework that ships 10+ white-label apps from one codebase (40% faster dev cycle), and app architecture for 6,000+ node networks: 30% more reliable, 20% less downtime.`, go:["eng","See Engineering"]},
   {id:"backend", k:/backend|firebase|cloud|api|server|function|gateway|sdk/, a:()=>`He built a gateway with no MQTT broker: an ESP32-C3 gateway listens to Firebase Realtime Database and relays commands over BLE Mesh, with Cloud Functions for credentials, alerts and voice. He also designs the APIs and partner SDKs.`, go:["notes","Read the write-ups"]},
-  {id:"iot", k:/ble|bluetooth|mesh|iot|beacon|matter|smart home|alexa|google home|smartthings/, a:()=>`He picked BLE Mesh for Plexilent, built Cloud Mesh Sync (share a network by QR code, no account), merged two BLE stacks (mesh and beacon) into one app, and built Google Home, Alexa and SmartThings integrations.`, go:["notes","Read his write-up"]},
+  {id:"iot", k:/ble|bluetooth|mesh|iot|beacon|matter|smart home|alexa|google home|smartthings/, a:()=>`He picked BLE Mesh for Plexilent, built Cloud Mesh Sync (share a network by QR code, no account), merged two BLE stacks (mesh and beacon) into one app, and built the Alexa skills (live) plus Google Home and SmartThings integrations (in certification).`, go:["notes","Read his write-up"]},
   {id:"design", k:/design|ui|ux|figma|lottie|3d/, a:()=>`He led the Plexilent app redesign from Figma to release. The Lights, Curtains and Fan screens on this phone are rebuilt from his designs.`, go:["design","Open Design"]},
   {id:"projects", k:/project|apps?\b|portfolio|built|product|plexilent|bajaj|crompton|biggest|proud/, a:()=>`His main product is Plexilent, a smart-home app on iPhone, iPad, Android, Apple Watch and Wear OS. He also shipped client apps like Bajaj Illumiga and Bajaj Synchronous.`, go:["projects","See Projects"]},
   {id:"awards", k:/award|recogni|achiev/, a:()=>`Two company awards at Lumens: “Above and Beyond” and “Made in Lumens”.`},
