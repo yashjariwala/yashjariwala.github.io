@@ -658,8 +658,8 @@ const PAGES = {
     <p style="color:#b7bccb;margin:-6px 0 14px">How I build. The product is in Plexilent, the system map in Architecture, the deep dives in Notes.</p>
     <div class="label">Mobile</div>
     ${card("iOS",`<p>Bridged a mixed Objective-C/Swift codebase with reusable UI libraries. iPad app, home-screen widgets, Live Activities and 12 Siri Shortcuts on App Intents.</p>${tags(["Swift","Objective-C","iPadOS","WidgetKit","App Intents"])}`)}
-    ${card("Android",`<p>Kotlin and Java with tablet layouts and widgets. Wrote a Camera2 library that made QR scanning 20% faster and more reliable.</p>${tags(["Kotlin","Java","Camera2","Widgets"])}`)}
-    ${card("One codebase → 10+ apps",`<p>A modular core with a brand configuration layer and automated builds ships Plexilent and 10+ white-label apps on iOS and Android, with a 40% faster development cycle. Later merged the separate brand apps into one structure for faster releases.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
+    ${card("Android",`<p>Kotlin and Java with tablet layouts and widgets. Built camera-based QR scanning on Camera2, and cut mesh switching from 59 s to 5 s by staying inside Android's Bluetooth scan limits.</p>${tags(["Kotlin","Java","Camera2","Widgets"])}`)}
+    ${card("One codebase → 10+ apps",`<p>A modular core with a brand configuration layer and automated builds ships Plexilent and 10+ white-label apps on iOS and Android. A new brand app now takes about a day, from configuration only (Salt and Kolors were one commit each). Later merged the separate brand apps into one structure for faster releases.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
     ${card("Two BLE stacks, one app",`<p>Merged SIG BLE Mesh and a beacon stack, two separate Bluetooth stacks, into one app on shared sync infrastructure.</p>${tags(["BLE Mesh","Beacons"])}`)}
     <div class="label">Cloud & connectivity</div>
     ${card("Sync without accounts",`<p>Every phone gets its own provisioner and sequence range, the network lives in the cloud under its mesh ID, and sharing is a QR scan.</p>${cs("mesh","Read the case study")}`)}
@@ -667,10 +667,12 @@ const PAGES = {
     ${card("APIs, SDKs & integrations",`<p>Cloud Functions APIs connecting the gateway, apps and platforms; partner SDKs incl. Crompton SENZE; Google Home, Alexa and SmartThings integrations with OAuth account linking. Alexa skills are live for Plexilent and Uniflow; Google Home and SmartThings are in certification.</p>${tags(["REST","API design","SDKs","OAuth"])}`)}
     ${card("Security",`<p>App Check (App Attest, Play Integrity) on the cloud, scoped credentials per gateway, and 6+ company websites hardened against DDoS and WordPress attacks at 99.9% uptime.</p>${tags(["App Check","OAuth","Web security"])}`)}
     <div class="label">Ownership</div>
-    ${card("Concept to launch",`<p>Researched protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>`)}
+    ${card("Concept to launch",`<p>Researched protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: on Google Play since Oct 2022 and the App Store since Jan 2023, with near-weekly Android releases through 2024.</p>`)}
     ${card("Chipset migration",`<p>Directed the move from Silicon Labs to Telink chipsets, cutting hardware costs by 30% and speeding up releases.</p>`)}
     ${card("Ownership in the code",`<p>4,190+ commits in the Plexilent app repo since July 2022, from my own and office machines: 99% of all commits.</p>${tags(["Git history","iOS","Android","Cloud"])}`)}
-    ${card("Reliability & team",`<p>App architecture for 6,000+ node networks: 30% more reliable, 20% less downtime. Mentored three engineers; the team now resolves issues 40% faster.</p>`)}
+    ${card("Measured wins",list(["Android mesh switching: 59 s → 5 s","A 265-device mesh that showed 264 offline: two root causes found and fixed","New brand app: about a day, from configuration only","Curtain artwork memory: 109 MB → 21 MB","Siri phrases: 1,749 → 128, a cleaner Shortcuts surface","Top iOS crash fixed: a lock that never locked"]))}
+    ${card("Scale & team",`<p>App architecture for networks of 6,000+ nodes, upgraded both apps to Bluetooth Mesh 1.1, and shipped in 16 languages. Mentored three engineers.</p>`)}
+    ${card("AI-assisted, human-owned",`<p>Since 2026 I pair-program with Claude to move faster. Every change is reviewed, tested and owned by me, and the design decisions stay mine.</p>${tags(["Claude","Code review","Testing"])}`)}
     ${go("plexilent","See the product →")}` },
   plexilent:()=>`<h2><span class="grad">Plexilent</span></h2>
     <p style="color:#b7bccb;margin:-6px 0 14px">Smart lighting & automation platform by Lumens Technologies. My role: from the first prototypes in 2021 to leading its IoT applications team today.</p>
@@ -678,7 +680,7 @@ const PAGES = {
     ${stats([["1.4L+","products shipped"],["2,400+","installations"],["13+","manufacturing partners"]])}
     <p class="note">Platform numbers from plexilent.com</p>
     <div class="label">Timeline · from the git history</div>
-    <ol class="tl"><li><b>Jul 2022</b><span>App repo starts on the Telink SDK</span></li><li><b>Nov 2022</b><span>QR-code sharing</span></li><li><b>Dec 2022</b><span>Over-the-air updates</span></li><li><b>Jun 2023</b><span>QR import/export through our own server</span></li><li><b>Aug 2023</b><span>Sync across phones</span></li><li><b>Dec 2023</b><span>Music mode</span></li><li><b>May 2024</b><span>Cloud Mesh Sync</span></li><li><b>Nov 2024</b><span>Curtain controller</span></li><li><b>Jun 2025</b><span>Human-Centric Lighting</span></li><li><b>Nov 2025</b><span>Beacon stack in the same app</span></li><li><b>Apr 2026</b><span>Apple Watch app, then Wear OS</span></li><li><b>Jul 2026</b><span>Home-screen widgets</span></li><li><b>Aug 2026</b><span>Siri Shortcuts and the serverless gateway</span></li><li><b>Oct 2026</b><span>Plexilent Alexa skill live</span></li></ol>
+    <ol class="tl"><li><b>Jul 2022</b><span>App repo starts on the Telink SDK</span></li><li><b>Nov 2022</b><span>QR-code sharing</span></li><li><b>Oct 2022</b><span>First Google Play release</span></li><li><b>Dec 2022</b><span>Over-the-air updates</span></li><li><b>Jan 2023</b><span>First App Store submission</span></li><li><b>Jun 2023</b><span>QR import/export through our own server</span></li><li><b>Aug 2023</b><span>Sync across phones</span></li><li><b>Dec 2023</b><span>Music mode</span></li><li><b>Feb 2024</b><span>Both apps upgraded to Bluetooth Mesh 1.1</span></li><li><b>May 2024</b><span>Cloud Mesh Sync</span></li><li><b>Nov 2024</b><span>Curtain controller</span></li><li><b>Jun 2025</b><span>Human-Centric Lighting</span></li><li><b>Nov 2025</b><span>Beacon stack in the same app</span></li><li><b>Apr 2026</b><span>Apple Watch app, then Wear OS</span></li><li><b>Jul 2026</b><span>Home-screen widgets</span></li><li><b>Aug 2026</b><span>Siri Shortcuts and the serverless gateway</span></li><li><b>Sep 2026</b><span>Salt and Galaxxy Hub brand apps, a day each</span></li><li><b>Oct 2026</b><span>Plexilent Alexa skill live</span></li></ol>
     <div class="label">Features</div>
     ${feat("Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
     ${feat("Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
@@ -743,11 +745,14 @@ const PAGES = {
     ${feat("Where it's used","Circadian lighting for healthcare, agriculture, homes and hospitality.")}`,
   projects:()=>`<h2>Projects</h2>
     ${card("Plexilent app",`<p>Production smart-home app on iPhone, iPad, Android phones and tablets, Apple Watch and Wear OS, with widgets and Siri Shortcuts. Led design and development.</p>${tags(["iOS","iPadOS","Android","watchOS","Wear OS"])}${stores("plexilent/id1667737419","com.plexilent.ble.mesh.demo.rels")}<a class="btn ghost" href="https://www.youtube.com/@plexilent/videos" target="_blank" rel="noopener">▶ Watch on YouTube</a>`)}
-    ${card("White-label app framework",`<p>One codebase behind 10+ branded apps, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.</p>${tags(["Architecture","CI/CD"])}`)}
+    ${card("White-label app framework",`<p>One codebase behind 10+ branded apps, incl. Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga and Corvi. A new brand takes about a day.</p>${tags(["Architecture","CI/CD"])}`)}
     <div class="label">Client apps</div>
     ${card("Bajaj Illumiga",`<p>Branded smart-lighting app for Bajaj Electricals.</p>${tags(["iOS","Android","White-label"])}${stores("bajaj-illumiga/id6749890178","com.bajaj.mesh")}`)}
     ${card("Bajaj Synchronous",`<p>Branded smart-lighting app for Bajaj Electricals.</p>${tags(["iOS","White-label"])}${stores("bajaj-synchronous/id6759030399")}`)}
     ${card("Crompton SENZE SDK",`<p>The SDK inside Crompton's SENZE smart-device app.</p>${tags(["SDK","iOS","Android"])}${stores("crompton-senze/id1632599504","com.crompton.iot.senze")}`)}
+    ${card("Uniflow World",`<p>Smart-home brand app from the same codebase, with Alexa live.</p>${tags(["iOS","Android","White-label"])}${stores("uniflow-world/id6785506465")}`)}
+    ${card("Galaxxy Hub (Kolors)",`<p>Kolors' smart-home app, moved onto the shared codebase from a separate one.</p>${tags(["iOS","Android","White-label"])}${stores("galaxxy-hub/id6758989875")}`)}
+    ${card("Salt",`<p>Brand app added from configuration in a single commit.</p>${tags(["White-label"])}`)}
     <div class="label">Other</div>
     ${card("Smart Street Pole EV Charger",`<p>Android app with live tracking, registration and push notifications, plus charger firmware.</p>${tags(["Android","Firebase","Firmware"])}<a class="btn ghost" href="https://youtu.be/FDqGDD8X_7s" target="_blank" rel="noopener">▶ Watch the demo</a>`)}`,
   stack:()=>`<h2>Stack</h2>${Object.entries({
@@ -957,6 +962,18 @@ const NOTES = [
    <p>Turning the Digital Crown all the way down set brightness to 0%, which switches the lamp off. That's the power button's job. <b>Fix:</b> the crown stops at 1%, the dimmest visible light.</p>
    <h3>5. Sliders that lie</h3>
    <p>If another phone or a wall switch changes a light, this phone's slider has to show it. <b>Fix:</b> brightness, colour temperature and power follow what the lights report, not what this phone last sent.</p>`},
+  {id:"scale", title:"Field notes II: bugs at scale", date:"Oct 2026", read:"3 min read", sub:"Five fixes from big networks",
+   body:`<p>Bugs that only show up with many devices, many phones or many releases.</p>
+   <h3>1. 264 of 265 devices “offline”</h3>
+   <p>On a 265-device network the app showed nearly everything offline while 124 devices were answering. Two causes: the network-wide status poll stopped listening after the first reply, and the confirm pass always restarted from the first device. <b>Fix:</b> listen for every reply and rotate through the confirm pass.</p>
+   <h3>2. Commands the bulbs refused</h3>
+   <p>After pulling state from the cloud, iOS sometimes rewound its sequence number below what the bulbs remembered, so their replay protection silently dropped every command. <b>Fix:</b> never go backwards: take the higher of the local and cloud values, then jump ahead.</p>
+   <h3>3. An app update that erased a home</h3>
+   <p>A data class changed shape between versions without a pinned version ID. Reading old data threw, the error was swallowed, and an empty network was saved over the good one. <b>Fix:</b> pin the ID, stop swallowing the error, and merge with tombstones so deletions are explicit.</p>
+   <h3>4. The lock that never locked</h3>
+   <p>The top iOS crash came from code that created a new lock on every access to a shared command list, so nothing was ever actually protected. <b>Fix:</b> one shared recursive lock.</p>
+   <h3>5. Switching networks took 59 seconds</h3>
+   <p>Android allows only a handful of Bluetooth scan starts in 30 seconds, and the switch blew through that budget and got throttled. <b>Fix:</b> stay inside the budget. Switching now takes about 5 seconds.</p>`},
   {id:"gateway", title:"A smart-home gateway without an MQTT broker", date:"Oct 2026", read:"3 min read", sub:"Serverless gateway",
    body:`<p>Most smart-home gateways keep an always-on MQTT broker between the app and the hardware. That's a server to run, scale and pay for, even when nobody is home. For Plexilent I wanted remote control without that server.</p>
    <h3>How it works</h3>
@@ -1094,16 +1111,16 @@ document.addEventListener("click", e => { const t=e.target.closest("[data-track]
 const SIRI_SUGGEST = ["Why hire Yash?","Has he led a team?","Swift experience?","Android?","Biggest project?","Where is he based?","How do I contact him?"];
 const SIRI_KB = [
   {id:"why", k:/why (should|would|hire)|strength|stand out|good fit|best|unique/, a:()=>`He ships whole products: the design in Figma, native iOS, Android and watch code, the cloud backend, and the client demo. 5 years, 10+ apps in stores, and he leads the team building them.`, go:["projects","See his apps"]},
-  {id:"lead", k:/lead|\bled\b|team|manag|mentor|senior/, a:()=>`Yes. He's been Team Lead for IoT applications at Lumens since Aug 2025, and mentored three junior engineers, cutting issue resolution time by over 40%.`},
+  {id:"lead", k:/lead|\bled\b|team|manag|mentor|senior/, a:()=>`Yes. He's been Team Lead for IoT applications at Lumens since Aug 2025, and mentored three junior engineers.`},
   {id:"ios", k:/swift|ios|iphone|ipad|objective|xcode|apple|widget|siri/, a:()=>`Native iOS in Swift and Objective-C with programmatic UI, plus iPad, widgets and Siri Shortcuts. He bridged a mixed Objective-C/Swift codebase and built reusable UI libraries.`},
-  {id:"android", k:/android|kotlin|java|tablet|play store|camera2/, a:()=>`Native Android in Kotlin and Java, including tablets and widgets. He wrote a custom Camera2 library that made QR scanning 20% faster and more reliable.`},
+  {id:"android", k:/android|kotlin|java|tablet|play store|camera2/, a:()=>`Native Android in Kotlin and Java, including tablets and widgets. He built Camera2-based QR scanning and cut Android mesh switching from 59 seconds to 5.`},
   {id:"watch", k:/watch|wear|wearable|wrist/, a:()=>`He built the Apple Watch and Wear OS apps: full lighting control from the wrist, not just shortcuts. There's a working copy on this phone.`, go:["watch","Try the Watch"]},
   {id:"cross", k:/flutter|react native|cross.?platform|kmp/, a:()=>`His production work is native iOS and Android; his CV also lists cross-platform mobile development. Ask him about a specific framework.`, mail:1},
-  {id:"arch", k:/architect|scale|mvvm|mvp|white.?label|codebase|modular|ci\/?cd/, a:()=>`He built a modular framework that ships 10+ white-label apps from one codebase (40% faster dev cycle), and app architecture for 6,000+ node networks: 30% more reliable, 20% less downtime.`, go:["eng","See Engineering"]},
+  {id:"arch", k:/architect|scale|mvvm|mvp|white.?label|codebase|modular|ci\/?cd/, a:()=>`He built a modular framework that ships 10+ white-label apps from one codebase (a new brand in about a day), and app architecture for networks of 6,000+ nodes.`, go:["eng","See Engineering"]},
   {id:"backend", k:/backend|firebase|cloud|api|server|function|gateway|sdk/, a:()=>`He built a gateway with no MQTT broker: an ESP32-C3 gateway listens to Firebase Realtime Database and relays commands over BLE Mesh, with Cloud Functions for credentials, alerts and voice. He also designs the APIs and partner SDKs.`, go:["notes","Read the write-ups"]},
   {id:"iot", k:/ble|bluetooth|mesh|iot|beacon|matter|smart home|alexa|google home|smartthings/, a:()=>`He picked BLE Mesh for Plexilent, built Cloud Mesh Sync (share a network by QR code, no account), merged two BLE stacks (mesh and beacon) into one app, and built the Alexa skills (live) plus Google Home and SmartThings integrations (in certification).`, go:["notes","Read his write-up"]},
   {id:"design", k:/design|ui|ux|figma|lottie|3d/, a:()=>`He led the Plexilent app redesign from Figma to release. The Lights, Curtains and Fan screens on this phone are rebuilt from his designs.`, go:["design","Open Design"]},
-  {id:"projects", k:/project|apps?\b|portfolio|built|product|plexilent|bajaj|crompton|biggest|proud/, a:()=>`His main product is Plexilent, a smart-home app on iPhone, iPad, Android, Apple Watch and Wear OS. He also shipped client apps like Bajaj Illumiga and Bajaj Synchronous.`, go:["projects","See Projects"]},
+  {id:"projects", k:/project|apps?\b|portfolio|built|product|plexilent|bajaj|crompton|biggest|proud/, a:()=>`His main product is Plexilent, a smart-home app on iPhone, iPad, Android, Apple Watch and Wear OS. He also shipped brand apps like Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga and Bajaj Synchronous.`, go:["projects","See Projects"]},
   {id:"awards", k:/award|recogni|achiev/, a:()=>`Two company awards at Lumens: “Above and Beyond” and “Made in Lumens”.`},
   {id:"edu", k:/educat|degree|college|universit|study|certif/, a:()=>`B.E. in Electrical Engineering (SIGCE, 2021), a Diploma from K.J. Somaiya Polytechnic (2018), and NIIT's ANIIT in Cloud & Mobile Software Engineering (CGPA 9.0).`},
   {id:"biz", k:/sales|exhibition|client|business|market|partner/, a:()=>`Beyond code: he managed 10+ industry exhibitions, demoed the product himself, and helped secure 8 B2B partnerships.`},
