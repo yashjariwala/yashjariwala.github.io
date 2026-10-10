@@ -640,56 +640,48 @@ const PAGES = {
     ${card("How I work",`<p>Take the product apart, find the friction, rebuild it so simple nobody needs a manual. Then watch real people use it and fix what they trip over.</p>`)}
     ${card("Awards",`<p>🏆 “Above and Beyond” · 🏆 “Made in Lumens”</p>`)}
     ${go("eng","See the engineering →")}`,
-  eng:()=>`<h2>Engineering</h2>
-    <p style="color:#b7bccb;margin:-6px 0 14px">Problems every app team has, and how I solved them.</p>
-    ${card("One codebase → 10+ apps",`<p>Built a modular app framework with brand-level configuration that ships 10+ white-label apps on iOS and Android. Development cycle cut by 40% with reusable architecture and automated builds. Later merged the separate white-label apps into one structure, so one update ships to every brand faster.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
-    ${card("Real-time sync without accounts",`<p>Kept BLE Mesh networks in sync across every user's phone through the cloud. Each phone gets its own provisioner and sequence range, so phones don't collide, and sharing needs no sign-up: you join by scanning a QR code.</p>${tags(["Firebase RTDB","QR onboarding"])}`)}
-    ${card("Custom camera library",`<p>Wrote a Java scanning library on Google's Camera2 API that improved QR scanning speed and reliability by 20%.</p>${tags(["Android","Camera2","Performance"])}`)}
-    ${card("Objective-C ↔ Swift",`<p>Bridged a mixed iOS codebase and built reusable UI component libraries shared across screens and brands.</p>${tags(["iOS","Swift","Objective-C","UI libraries"])}`)}
-    ${card("Serverless gateway",`<p>Built a gateway that needs no MQTT broker or always-on server: an ESP32-C3 gateway listens to the Realtime Database and relays commands over BLE Mesh, while Cloud Functions handle credentials, members, offline alerts and voice. Almost free to run for a few users and cost-effective as users grow.</p>${tags(["Cloud Functions","Firebase","Gateway"])}`)}
-    ${card("Smart-home integrations",`<p>Built cloud-to-cloud integrations for Google Home, Alexa and SmartThings with OAuth account linking. On iOS, App Intents power 12 Siri Shortcuts (all on/off, brightness, warmth, colour, scenes) plus home-screen widgets and Live Activities.</p>${tags(["Google Home","SmartThings","Alexa","Siri Shortcuts"])}`)}
-    ${card("APIs & SDKs",`<p>Designed the Cloud Functions APIs that connect the gateway, the apps and the smart-home platforms. RESTful APIs and API design patterns across products, and SDKs for partners, incl. the Crompton SENZE SDK.</p>${tags(["REST","Cloud Functions","API design","SDKs"])}`)}
-    ${card("Two BLE stacks, one app",`<p>Merged BLE Mesh and beacon, two separate BLE stacks, into one app on shared sync infrastructure.</p>${tags(["BLE Mesh","Beacons","Architecture"])}`)}
-    ${card("Every screen size",`<p>iPad app with a proper tablet experience, the same on Android tablets, plus home-screen widgets and watch apps for more granular control.</p>${tags(["iPadOS","Android tablets","Widgets","watchOS","Wear OS"])}`)}
-    ${card("Full redesign",`<p>Led the complete UI redesign of a production app to modern standards, from Figma to release.</p>${tags(["UI/UX","Figma","Lottie"])}`)}
-    ${card("Concept to launch",`<p>Researched communication protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>${tags(["Product","BLE Mesh","Prototyping"])}`)}
-    ${card("Websites & security",`<p>Ran design, upkeep and security for 6+ company websites, incl. plexilent.com, colossusworld.com and evertstar.in. Stopped DDoS and WordPress attacks and kept them at 99.9% uptime.</p>${tags(["Web","WordPress","Security"])}`)}
-    ${card("Reliability & team",`<p>30% better reliability and 20% less downtime at scale. Mentored three engineers, and the team now resolves issues 40% faster.</p>`)}
-    ${go("plexilent","See it in a real product →")}`,
+  eng:()=>{ const cs=(id,t)=>`<button class="btn ghost" data-act="note:${id}" style="margin-top:10px">${t}</button>`;
+    return `<h2>Engineering</h2>
+    <p style="color:#b7bccb;margin:-6px 0 14px">How I build. The product is in Plexilent, the system map in Architecture, the deep dives in Notes.</p>
+    <div class="label">Mobile</div>
+    ${card("iOS",`<p>Bridged a mixed Objective-C/Swift codebase with reusable UI libraries. iPad app, home-screen widgets, Live Activities and 12 Siri Shortcuts on App Intents.</p>${tags(["Swift","Objective-C","iPadOS","WidgetKit","App Intents"])}`)}
+    ${card("Android",`<p>Kotlin and Java with tablet layouts and widgets. Wrote a Camera2 library that made QR scanning 20% faster and more reliable.</p>${tags(["Kotlin","Java","Camera2","Widgets"])}`)}
+    ${card("One codebase → 10+ apps",`<p>A modular core with a brand configuration layer and automated builds ships Plexilent and 10+ white-label apps on iOS and Android, with a 40% faster development cycle. Later merged the separate brand apps into one structure for faster releases.</p>${tags(["Modular architecture","CI/CD","White-label"])}`)}
+    ${card("Two BLE stacks, one app",`<p>Merged SIG BLE Mesh and a beacon stack, two separate Bluetooth stacks, into one app on shared sync infrastructure.</p>${tags(["BLE Mesh","Beacons"])}`)}
+    <div class="label">Cloud & connectivity</div>
+    ${card("Sync without accounts",`<p>Every phone gets its own provisioner and sequence range, the network lives in the cloud under its mesh ID, and sharing is a QR scan.</p>${cs("mesh","Read the case study")}`)}
+    ${card("Serverless gateway",`<p>No MQTT broker: an ESP32-C3 gateway listens to the Realtime Database and relays commands over BLE Mesh. I wrote the Cloud Functions around it. Almost free for a few users, cost-effective as users grow.</p>${cs("gateway","Read the case study")}`)}
+    ${card("APIs, SDKs & integrations",`<p>Cloud Functions APIs connecting the gateway, apps and platforms; partner SDKs incl. Crompton SENZE; Google Home, Alexa and SmartThings integrations with OAuth account linking.</p>${tags(["REST","API design","SDKs","OAuth"])}`)}
+    ${card("Security",`<p>App Check (App Attest, Play Integrity) on the cloud, scoped credentials per gateway, and 6+ company websites hardened against DDoS and WordPress attacks at 99.9% uptime.</p>${tags(["App Check","OAuth","Web security"])}`)}
+    <div class="label">Ownership</div>
+    ${card("Concept to launch",`<p>Researched protocols and picked BLE Mesh for stable control with little or no internet. Built the first Android and iOS prototypes with the firmware team, then led the full app lifecycle: feature adoption up 20%.</p>`)}
+    ${card("Chipset migration",`<p>Directed the move from Silicon Labs to Telink chipsets, cutting hardware costs by 30% and speeding up releases.</p>`)}
+    ${card("Reliability & team",`<p>App architecture for 6,000+ node networks: 30% more reliable, 20% less downtime. Mentored three engineers; the team now resolves issues 40% faster.</p>`)}
+    ${go("plexilent","See the product →")}` },
   plexilent:()=>`<h2><span class="grad">Plexilent</span></h2>
-    <p style="color:#b7bccb;margin:-6px 0 14px">Smart lighting & automation platform by Lumens Technologies. I've worked on it since the first prototypes in 2021 and now lead its IoT applications team.</p>
-    ${feat("The Plexilent App","Smarter. Sharper. More connected. On iOS, Android, Apple Watch and Wear OS.")}
+    <p style="color:#b7bccb;margin:-6px 0 14px">Smart lighting & automation platform by Lumens Technologies. My role: from the first prototypes in 2021 to leading its IoT applications team today.</p>
+    ${feat("The Plexilent App","Smarter. Sharper. More connected. On iPhone, iPad, Android, Apple Watch and Wear OS.")}
     ${stats([["1.4L+","products shipped"],["2,400+","installations"],["13+","manufacturing partners"]])}
     <p class="note">Platform numbers from plexilent.com</p>
-    ${card("What I built",list(["Full app redesign to modern UI standards","Scalable architecture for 6,000+ node networks: 30% more reliable, 20% less downtime","Cloud Mesh Sync: share a network by QR, no account","Serverless gateway infrastructure","Silicon Labs → Telink migration: 30% lower hardware cost","Watch apps with full lighting control"]))}
-    <div class="label">Feature tour · tap to enlarge</div>
+    <div class="label">Features</div>
     ${feat("Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
     ${feat("Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
     ${feat("Effects","Jump, Flash, Breathing and Gradient, with speed, brightness and colour control.")}
     ${feat("Music Mode","Rhythmic Radiance: lights react to music, processed locally from the phone's mic.")}
     ${feat("Scenes & scheduling","By time, day, date or week, with fade times and group control.")}
     ${feat("Sensors","Motion, occupancy and environment sensors that trigger routines automatically.")}
-    ${feat("Switches & sockets","Per-gang control, appliances and fans, with daily and weekly routines.")}
-    ${feat("Curtains","Precision slider, open/close/pause, motor direction and scene sync.")}
-    ${feat("Fans","Speed control, quick modes and scheduled comfort.")}
+    ${feat("Switches, curtains & fans","Per-gang switches and sockets, curtain motors and fan speed, all with routines.")}
     ${feat("Transition · Trim · Tune","Fade times, lightness trim and CCT range per device.")}
     ${feat("Bulk OTA","Update every device on the network in one tap.")}
     ${feat("Auto device recovery","Mesh fallback: a reset device returns to its owner within 2 minutes, automatically.")}
-    ${feat("White-label","Your brand, your app: the framework behind 10+ rebrands, incl. Bajaj Illumiga and Corvi. 40% faster dev cycle.")}
-    ${feat("Enterprise","Gateways scale one network from device → group → room → area → floor → building, with a web dashboard.")}
+    ${feat("Scales to buildings","Devices roll up into groups, rooms, areas, floors and buildings, with a web dashboard for enterprise sites.")}
     ${go("arch","How it all connects →")}`,
   arch:()=>`<h2>Architecture</h2>
     <p style="color:#b7bccb;margin:-6px 0 10px">The Plexilent system I work on, end to end. Pick a flow to see the path a command takes.</p>
     <div class="flows">${Object.keys(FLOWS).map(k=>`<button data-act="flow:${k}" id="fb-${k}">${FLOWS[k].name}</button>`).join("")}</div>
     <div class="card" style="padding:8px">${archSVG()}</div>
     <div class="card" id="flowcap"><h4></h4><p></p></div>
-    <div class="label">Inside the apps</div>
-    ${card("One codebase, many brands",`<p>A modular core with a brand configuration layer on top. Automated builds produce Plexilent and the white-label apps (Bajaj Illumiga, Bajaj Synchronous and more) for iOS and Android, with MVVM/MVP inside each app.</p>`)}
-    ${card("Two Bluetooth stacks, one app",`<p>SIG BLE Mesh for networks and a beacon stack for simple devices, merged into one app on the same sync infrastructure.</p>`)}
-    ${card("Everywhere you reach for it",`<p>iPhone, iPad, Android phones and tablets, Apple Watch and Wear OS, plus home-screen widgets, Live Activities and 12 Siri Shortcuts.</p>`)}
-    ${card("Scales to buildings",`<p>Devices roll up into groups, rooms, areas, floors and buildings, so one model works from a flat to an office.</p>`)}
-    ${card("Security",`<p>App Check (App Attest on iOS, Play Integrity on Android) guards the cloud. Gateways get their own scoped credentials, and voice assistants link accounts over OAuth.</p>`)}
-    <a class="btn" href="#" data-open="notes">Read the write-ups →</a>`,
+    <a class="btn" href="#" data-open="notes">Read the case studies →</a>`,
   watch:()=>`<h2>Watch</h2><p style="color:#b7bccb;margin:-6px 0 4px">The Plexilent Apple Watch app. Try it: it controls the same room light.</p>
     <div class="wt-wrap"><div class="wt-case"><div class="wt-crown"></div><div class="wt-btn"></div>
       <div class="wt-scr" id="wt-scr">
@@ -758,7 +750,7 @@ const PAGES = {
     "Leadership":["Team lead","Mentoring","Agile / Scrum","Project planning","Client & vendor negotiation"]
   }).map(([k,v])=>`<div class="label">${k}</div><div class="chips">${v.map(x=>`<span class="chip">${x}</span>`).join("")}</div>`).join("")}`,
   resume:()=>`<h2>Résumé</h2>
-    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Built a gateway without an MQTT broker: commands flow through the Realtime Database to an ESP32-C3 gateway. Almost free for a few users and cost-effective as users grow.","Built Google Home, Alexa and SmartThings integrations with OAuth account linking.","Wrote the Cloud Functions behind the whole gateway project and connected them to every app.","Siri Shortcuts integration (12 App Intents), so the iOS Shortcuts app can run automations.","iPad app, plus the same tablet experience on Android.","Merged two separate BLE stacks (BLE Mesh and beacon) into one app, on shared sync infrastructure.","Widgets and watch apps for more granular control.","Merged multiple white-label apps into one structure: easier codebase management, faster releases."])}`)}
+    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Serverless gateway (no MQTT broker) and the Cloud Functions behind it","Google Home, Alexa, SmartThings and Siri Shortcuts integrations","iPad, Android tablet, widget and watch apps","Merged two BLE stacks and multiple white-label apps into one codebase"])}`)}
     ${card("Senior Application Engineer",`<p>Lumens Technologies · Apr 2023 – Aug 2025</p>`)}
     ${card("Executive, New Product Development",`<p>Lumens Technologies · Apr 2022 – May 2023</p>`)}
     ${card("Graduate Trainee",`<p>Lumens Technologies · Aug 2021 – Apr 2022</p>`)}
