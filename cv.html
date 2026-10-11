@@ -87,6 +87,41 @@
 <title>Yash Jariwala · Résumé</title>
 <meta name="description" content="Yash Jariwala: iOS & Android developer and team lead, Mumbai. 5 years building native apps for iPhone, Android, Apple Watch and Wear OS.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232F39D3'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3EYJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<script>if(/[?&]pdf\b/.test(location.search))document.documentElement.classList.add("pdf")</script>
+<style>
+/* themed PDF export (cv.html?pdf), same look as the portfolio */
+@page{size:A4;margin:10mm 0;background:#05081f}
+.pdf{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#05081f}
+.pdf body{background:#05081f;color:#e5e7eb;font-size:9.3pt;line-height:1.4}
+.pdf body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 70% 40% at 85% 0%,rgba(47,57,211,.55),transparent 70%),#05081f}
+.pdf main{max-width:none;padding:3mm 15mm 0}
+.pdf .top{display:none}
+.pdf a{color:#7dd3fc;text-decoration:none}
+.pdf h1{font-family:Montserrat,system-ui,sans-serif;font-weight:800;font-size:26pt;color:#fff}
+.pdf h1::after{content:"";display:block;width:64px;height:4px;border-radius:2px;margin-top:7px;background:linear-gradient(90deg,#6b74ff,#1fb6ff 55%,#ff5b4a)}
+.pdf .role{color:#c9cdd8;font-size:11.5pt;margin:2px 0 8px}
+.pdf .contact{font-size:9pt;gap:4px 14px}
+.pdf .stats{gap:7px;margin-top:12px}
+.pdf .stat{border:1px solid rgba(255,255,255,.12);background:rgba(29,32,48,.75);padding:5px}
+.pdf .stat b{font-family:Montserrat,system-ui,sans-serif;font-size:15pt;color:#fff}
+.pdf .stat small{color:#9aa0ae;font-size:8pt}
+.pdf h2{font-family:Montserrat,system-ui,sans-serif;font-size:8pt;letter-spacing:.16em;color:#1fb6ff;border-bottom:1px solid rgba(31,182,255,.3);margin:11px 0 5px;padding-bottom:3px;break-after:avoid}
+.pdf p,.pdf li{color:#d9dce5}
+.pdf ul{margin:4px 0 0;padding-left:16px}
+.pdf li{margin:1.5px 0}
+.pdf li::marker{color:#6b74ff}
+.pdf .job{margin-bottom:6px}
+.pdf .job h3{font-size:10.5pt;color:#fff}
+.pdf .meta{color:#9aa0ae;font-size:8.5pt;margin-bottom:2px}
+.pdf .row{grid-template-columns:96px 1fr;margin-bottom:3px;break-inside:avoid}
+.pdf .row b{font-size:8.5pt;color:#c9cdd8;padding-top:2px}
+.pdf .chips{gap:4px}
+.pdf .chip{background:#1d2030;border:1px solid rgba(255,255,255,.08);color:#e5e7eb;font-size:7.5pt;padding:1px 7px}
+.pdf li,.pdf .stat{break-inside:avoid}
+.pdf .pdf-foot{display:block}
+.pdf-foot{display:none;margin-top:14px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:8.5pt;color:#9aa0ae}
+</style>
 <style>
 :root{--bg:#ffffff;--ink:#14161c;--muted:#5b6170;--line:#e6e8ee;--accent:#2F39D3;--chip:#f1f3f8}
 @media (prefers-color-scheme:dark){:root{--bg:#0b0d14;--ink:#eef0f5;--muted:#9aa0ae;--line:#23262f;--accent:#6b74ff;--chip:#171a24}}
@@ -137,28 +172,23 @@ li{margin:4px 0}
   </header>
 
   <h2>Summary</h2>
-  <p>I build native apps for iPhone, iPad, Android phones and tablets, Apple Watch and Wear OS, from the first Figma frame to the store release. Five years building production apps at Lumens Technologies across UI/UX, app architecture and cloud backends, and leading the IoT applications team since August 2025. I like taking complicated products apart and rebuilding them so simple they just work.</p>
+  <p>I'm an iOS and Android developer at Lumens Technologies in Mumbai. For five years I've built Plexilent, a smart-lighting app, from its first prototype to what's on the App Store and Google Play today, and since August 2025 I've led the team behind it. I design the screens, write the native code for phones, tablets and watches, and build the cloud pieces underneath. What I enjoy most is taking a complicated product apart and rebuilding it so simple that anyone can use it.</p>
 
   <h2>Highlights</h2>
   <ul>
-    <li><b>One codebase → 10+ apps:</b> modular white-label framework for iOS and Android (incl. Uniflow, Galaxxy Hub/Kolors, Salt, Bajaj Illumiga, Corvi); a new brand app in about a day; later merged the separate white-label apps into one structure for faster releases.</li>
-    <li><b>Real-time sync without accounts:</b> share a network by QR code with no sign-up; networks stay in sync across phones through Firebase, with a per-phone provisioner and sequence range so phones don't collide.</li>
-    <li><b>Measured wins:</b> Android mesh switching 59 s → 5 s; fixed a 265-device mesh shown as 264 offline; curtain artwork memory 109 MB → 21 MB; Siri phrases 1,749 → 128.</li>
-    <li><b>Serverless gateway:</b> an ESP32-C3 gateway listens to Firebase Realtime Database and relays commands over BLE Mesh, with Cloud Functions for credentials, members, alerts and voice. No MQTT broker; almost free for a few users, cost-effective at scale. Google Home, Alexa and SmartThings integrations built with OAuth account linking.</li>
-    <li><b>APIs &amp; SDKs:</b> Cloud Functions APIs connecting the gateway, apps and smart-home platforms; RESTful APIs and API design; partner SDKs incl. the <a href="https://apps.apple.com/in/app/crompton-senze/id1632599504">Crompton SENZE</a> SDK.</li>
-    <li><b>Ownership:</b> 4,190+ commits in the Plexilent app repo since July 2022, 99% of all commits.</li>
-    <li><b>Open integrations:</b> <a href="https://pypi.org/project/pyplexilent/">pyplexilent</a> on PyPI for Home Assistant (core PRs open); IFTTT service submitted; Hindi Siri; Android AppFunctions for Gemini.</li>
-    <li><b>Also shipped:</b> native CCTV viewer (RTSP → VideoToolbox), sensor suite, Bulk OTA with Live Activity, Liquid Glass for iOS 26, and a web dashboard that turns PDF floor plans into interactive 3D maps.</li>
-    <li><b>Quality:</b> cloud security rules with a 27/27 rules test suite, a 1,000-device emulator migration test, and an Android instrumented suite.</li>
-    <li><b>Every screen:</b> iPad and Android tablet apps, home-screen widgets, Siri Shortcuts, and full-control apps for Apple Watch and Wear OS.</li>
-    <li><b>Scale:</b> app architecture for networks of 6,000+ nodes; Bluetooth Mesh 1.1 upgrade on both apps; 16 languages.</li>
-    <li><b>AI-assisted, human-owned:</b> pair-programs with Claude since 2026; every change reviewed, tested and owned.</li>
+    <li>Built Plexilent for iPhone, iPad, Android, Apple Watch and Wear OS, in 16 languages. 4,190+ commits since July 2022, 99% of the repo.</li>
+    <li>One codebase now ships 10+ brand apps, including Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga and Corvi. Adding a new brand takes about a day.</li>
+    <li>Fixed how phones share a home. Sharing used to hand out stale copies, and phones clashed on addresses. I moved each network into the cloud with a version number and gave every phone its own identity. Joining is still one QR scan, no sign-up.</li>
+    <li>Replaced the usual MQTT broker with an ESP32-C3 gateway that listens to Firebase. It costs almost nothing for a few homes. The Alexa skill is live; Google Home, SmartThings, Home Assistant and IFTTT are in review.</li>
+    <li>Made it faster and steadier: Android mesh switching went from 59 s to 5 s, a 265-device network that showed 264 devices offline now reports correctly, and the top iOS crash is gone.</li>
+    <li>Also built a CCTV viewer, a sensor suite, Bulk OTA with Live Activity, Siri in Hindi, Gemini AppFunctions, a Home Assistant library on PyPI, and a web app that turns PDF floor plans into 3D maps.</li>
+    <li>I pair-program with Claude, and I review, test and own every change.</li>
   </ul>
 
   <h2>Apps &amp; projects</h2>
   <ul>
     <li><b>Plexilent</b>: iPhone, iPad, Android phones &amp; tablets, Apple Watch, Wear OS · <a href="https://apps.apple.com/in/app/plexilent/id1667737419">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.plexilent.ble.mesh.demo.rels">Google Play</a> · <a href="https://www.youtube.com/@plexilent/videos">videos</a></li>
-    <li><b>Client apps:</b> <a href="https://apps.apple.com/in/app/bajaj-illumiga/id6749890178">Bajaj Illumiga</a>, <a href="https://apps.apple.com/in/app/bajaj-synchronous/id6759030399">Bajaj Synchronous</a>, <a href="https://apps.apple.com/in/app/crompton-senze/id1632599504">Crompton SENZE</a> SDK</li>
+    <li><b>Brand apps:</b> <a href="https://apps.apple.com/in/app/uniflow-world/id6785506465">Uniflow World</a>, <a href="https://apps.apple.com/in/app/galaxxy-hub/id6758989875">Galaxxy Hub</a>, Salt, <a href="https://apps.apple.com/in/app/bajaj-illumiga/id6749890178">Bajaj Illumiga</a>, <a href="https://apps.apple.com/in/app/bajaj-synchronous/id6759030399">Bajaj Synchronous</a>, <a href="https://apps.apple.com/in/app/crompton-senze/id1632599504">Crompton SENZE</a> SDK</li>
     <li><b>Smart Street Pole EV Charger</b>: Android app + charger firmware · <a href="https://youtu.be/FDqGDD8X_7s">demo video</a></li>
   </ul>
 
@@ -182,7 +212,7 @@ li{margin:4px 0}
     <div class="meta">Lumens Technologies · Apr 2023 – Aug 2025</div>
     <ul>
       <li>Directed the complete redesign of the Plexilent app UI to modern standards.</li>
-      <li>Engineered scalable app architecture for networks of 6,000+ nodes.</li>
+      <li>Built the app architecture for networks of 6,000+ nodes.</li>
       <li>Bridged Objective-C and Swift on iOS and built reusable UI libraries.</li>
       <li>Mentored three junior engineers.</li>
       <li>Built Camera2-based QR scanning on Android.</li>
@@ -227,7 +257,7 @@ li{margin:4px 0}
   <div class="row"><b>Wearables</b><div class="chips"><span class="chip">watchOS</span><span class="chip">Wear OS</span></div></div>
   <div class="row"><b>Architecture</b><div class="chips"><span class="chip">MVVM</span><span class="chip">MVP</span><span class="chip">Modular / white-label</span><span class="chip">CI/CD</span></div></div>
   <div class="row"><b>APIs</b><div class="chips"><span class="chip">REST</span><span class="chip">API design</span><span class="chip">Cloud Functions APIs</span><span class="chip">SDKs</span></div></div>
-  <div class="row"><b>Backend</b><div class="chips"><span class="chip">Firebase RTDB</span><span class="chip">Cloud Functions</span><span class="chip">AWS Lambda</span><span class="chip">Python (PyPI)</span><span class="chip">Crashlytics</span><span class="chip">REST</span><span class="chip">MySQL</span><span class="chip">ObjectBox</span></div></div>
+  <div class="row"><b>Backend</b><div class="chips"><span class="chip">Firebase RTDB</span><span class="chip">Cloud Functions</span><span class="chip">AWS Lambda</span><span class="chip">Python (PyPI)</span><span class="chip">Crashlytics</span><span class="chip">MySQL</span><span class="chip">ObjectBox</span></div></div>
   <div class="row"><b>Design</b><div class="chips"><span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">Lottie</span></div></div>
   <div class="row"><b>Smart home</b><div class="chips"><span class="chip">Alexa</span><span class="chip">Google Home</span><span class="chip">SmartThings</span><span class="chip">Home Assistant</span><span class="chip">IFTTT</span><span class="chip">Gemini AppFunctions</span></div></div>
   <div class="row"><b>IoT &amp; firmware</b><div class="chips"><span class="chip">BLE / BLE Mesh</span><span class="chip">Wi-Fi</span><span class="chip">Matter</span><span class="chip">MQTT</span><span class="chip">Gateway firmware</span><span class="chip">Beacons</span><span class="chip">C / C++</span><span class="chip">Arduino</span><span class="chip">Lighting control systems</span></div></div>
@@ -247,6 +277,7 @@ li{margin:4px 0}
     <li>Post Graduate Diploma in Industrial Automation · Prolific</li>
     <li>Arduino Programming and Hardware Fundamentals with Hackster · Udemy</li>
   </ul>
+  <div class="pdf-foot">Interactive portfolio: <a href="https://yashjariwala.github.io/">yashjariwala.github.io</a> · WhatsApp <a href="https://wa.me/919820004296">+91 98200 04296</a> · <a href="mailto:yashjariwala@gmail.com">yashjariwala@gmail.com</a></div>
 </main>
 <script data-goatcounter="https://yashjariwala.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
