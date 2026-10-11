@@ -26,5 +26,5 @@ Then open http://localhost:4322
 `resume.pdf` is rendered from `cv.html` in the site's theme (the `?pdf` styles). After editing `cv.html`:
 ```bash
 python3 -m http.server 4323 --bind 127.0.0.1 &
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --virtual-time-budget=4000 --print-to-pdf=resume.pdf "http://127.0.0.1:4323/cv.html?pdf"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --virtual-time-budget=4000 --print-to-pdf=resume.pdf "http://127.0.0.1:4323/resume-src.html"
 ```
