@@ -11,13 +11,13 @@
  "@context": "https://schema.org",
  "@type": "ProfilePage",
  "url": "https://yashjariwala.github.io/",
- "name": "Yash Jariwala · iOS & Android Developer",
+ "name": "Yash Jariwala · Mobile Engineer (iOS & Android)",
  "dateModified": "2026-10-10",
  "mainEntity": {
   "@type": "Person",
   "@id": "https://yashjariwala.github.io/#person",
   "name": "Yash Jariwala",
-  "jobTitle": "iOS & Android Developer, Team Lead",
+  "jobTitle": "Mobile Engineer (iOS & Android), Team Lead",
   "description": "iOS and Android developer and team lead with 5 years building native apps for iPhone, iPad, Android, Apple Watch and Wear OS, from Figma design to store release.",
   "url": "https://yashjariwala.github.io/",
   "email": "mailto:yashjariwala@gmail.com",
@@ -86,10 +86,10 @@
  }
 }
 </script>
-<title>Yash Jariwala · iOS & Android Developer</title>
-<meta name="description" content="Yash Jariwala: iOS & Android developer and team lead. Native apps for iPhone, iPad, Android, Apple Watch and Wear OS, from Figma to store release.">
+<title>Yash Jariwala · Mobile Engineer (iOS & Android)</title>
+<meta name="description" content="Yash Jariwala: mobile engineer and team lead. Native iOS and Android apps in Swift, SwiftUI and Kotlin for phones, tablets, Apple Watch and Wear OS, from Figma design to store release.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Yash Jariwala · iOS & Android Developer">
+<meta property="og:title" content="Yash Jariwala · Mobile Engineer (iOS & Android)">
 <meta property="og:description" content="Native apps for iPhone, Android and the wrist. Tap the phone, it's the portfolio.">
 <meta property="og:url" content="https://yashjariwala.github.io/">
 <meta property="og:image" content="https://yashjariwala.github.io/og.jpg">
@@ -563,7 +563,7 @@ input.cct{accent-color:#facc15}
 const ME = {
   name: "Yash Jariwala",
   initials: "YJ",
-  role: "iOS & Android Developer · Team Lead",
+  role: "Mobile Engineer · iOS & Android · Team Lead",
   pitch: "I build native apps for iPhone, iPad, Android and the wrist, and the cloud they talk to. I like taking complicated products apart and rebuilding them so simple anyone can use them.",
   status: "Team Lead at Lumens · Mumbai · Open to talk",
   email: "yashjariwala@gmail.com",
@@ -763,8 +763,8 @@ const PAGES = {
     <div class="label">Other</div>
     ${card("Smart Street Pole EV Charger",`<p>Android app with live tracking, registration and push notifications, plus charger firmware.</p>${tags(["Android","Firebase","Firmware"])}<a class="btn ghost" href="https://youtu.be/FDqGDD8X_7s" target="_blank" rel="noopener">▶ Watch the demo</a>`)}`,
   stack:()=>`<h2>Stack</h2>${Object.entries({
-    "iOS":["Swift","Objective-C","Programmatic UI","iPad","Widgets","Siri Shortcuts","Xcode","CocoaPods"],
-    "Android":["Kotlin","Java","XML","Camera2","Tablets","Widgets","Android Studio"],
+    "iOS":["Swift","SwiftUI","UIKit","Objective-C","async/await","Combine","WidgetKit","App Intents","Live Activities","XCTest","Xcode","CocoaPods"],
+    "Android":["Kotlin","Java","Jetpack Compose","Coroutines","Camera2","Tablets","Widgets","JUnit & instrumented tests","Android Studio"],
     "Wearables":["watchOS","Wear OS"],
     "Architecture":["MVVM","MVP","Modular / white-label","CI/CD","SDKs"],
     "APIs":["REST","API design","Cloud Functions APIs","SDKs"],
@@ -1124,8 +1124,8 @@ const SIRI_SUGGEST = ["Why hire Yash?","Has he led a team?","Swift experience?",
 const SIRI_KB = [
   {id:"why", k:/why (should|would|hire)|strength|stand out|good fit|best|unique/, a:()=>`He ships whole products: the design in Figma, native iOS, Android and watch code, the cloud backend, and the client demo. 5 years, 10+ apps in stores, and he leads the team building them.`, go:["projects","See his apps"]},
   {id:"lead", k:/lead|\bled\b|team|manag|mentor|senior/, a:()=>`Yes. He's been Team Lead for IoT applications at Lumens since Aug 2025, and mentored three junior engineers.`},
-  {id:"ios", k:/swift|ios|iphone|ipad|objective|xcode|apple|widget|siri/, a:()=>`Native iOS in Swift and Objective-C with programmatic UI, plus iPad, widgets and Siri Shortcuts. He bridged a mixed Objective-C/Swift codebase and built reusable UI libraries.`},
-  {id:"android", k:/android|kotlin|java|tablet|play store|camera2/, a:()=>`Native Android in Kotlin and Java, including tablets and widgets. He built Camera2-based QR scanning and cut Android mesh switching from 59 seconds to 5.`},
+  {id:"ios", k:/swift|ios|iphone|ipad|objective|xcode|apple|widget|siri/, a:()=>`Native iOS in Swift, SwiftUI and Objective-C (UIKit), with async/await, Combine, iPad, widgets, Live Activities and Siri Shortcuts. He bridged a mixed Objective-C/Swift codebase and built reusable UI libraries.`},
+  {id:"android", k:/android|kotlin|java|tablet|play store|camera2/, a:()=>`Native Android in Kotlin and Java, with Jetpack Compose, Coroutines, tablets, widgets and tests. He built Camera2-based QR scanning and cut Android mesh switching from 59 seconds to 5.`},
   {id:"watch", k:/watch|wear|wearable|wrist/, a:()=>`He built the Apple Watch and Wear OS apps: full lighting control from the wrist, not just shortcuts. There's a working copy on this phone.`, go:["watch","Try the Watch"]},
   {id:"cross", k:/flutter|react native|cross.?platform|kmp/, a:()=>`His production work is native iOS and Android; his CV also lists cross-platform mobile development. Ask him about a specific framework.`, mail:1},
   {id:"arch", k:/architect|scale|mvvm|mvp|white.?label|codebase|modular|ci\/?cd/, a:()=>`He built a modular framework that ships 10+ white-label apps from one codebase (a new brand in about a day), and app architecture for networks of 6,000+ nodes.`, go:["eng","See Engineering"]},

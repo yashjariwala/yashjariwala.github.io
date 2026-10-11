@@ -32,29 +32,29 @@ th,td{border:1px solid #000;padding:2px 6px}
 </head>
 <body>
 <h1>YASH JARIWALA</h1>
-<p class="contact">iOS &amp; Android Developer, Team Lead | +91 9820004296 | <a href="mailto:yashjariwala@gmail.com">yashjariwala@gmail.com</a> | <a href="https://www.linkedin.com/in/yashjariwala">linkedin.com/in/yashjariwala</a> | <a href="https://yashjariwala.github.io/">yashjariwala.github.io</a></p>
+<p class="contact">Mobile Engineer (iOS &amp; Android), Team Lead | +91 9820004296 | <a href="mailto:yashjariwala@gmail.com">yashjariwala@gmail.com</a> | <a href="https://www.linkedin.com/in/yashjariwala">linkedin.com/in/yashjariwala</a> | <a href="https://yashjariwala.github.io/">yashjariwala.github.io</a></p>
 
 <h2>Professional Summary</h2>
-<p>iOS and Android developer and team lead with 5 years building Plexilent, a smart-lighting app, from first prototype to the App Store and Google Play. Leads the IoT applications team since August 2025. Designs the screens, writes native code for phones, tablets and watches, and builds the cloud services underneath. Takes complicated products apart and rebuilds them so simple that anyone can use them.</p>
+<p>Mobile engineer with 5 years shipping native iOS and Android apps, and team lead since August 2025. Builds in Swift, SwiftUI, Kotlin and Java, from Figma designs to App Store and Google Play releases, across phones, tablets, watches and widgets. Strong in app architecture, offline-first sync, real-time data and performance. Takes complicated products apart and rebuilds them so simple that anyone can use them.</p>
 
 <h2>Experience</h2>
 <div class="job"><div><b>Team Lead – IoT Applications</b> - Lumens Technologies Pvt. Ltd</div><span>Aug 2025 – Present</span></div>
 <ul>
-  <li>Head the IoT applications team and own the Plexilent roadmap across iOS, iPadOS, Android, watchOS and Wear OS, with 4,190+ commits since 2022.</li>
-  <li>Architected an MQTT-free gateway: an ESP32-C3 board listens to Firebase and relays commands over BLE Mesh, backed by 40+ Cloud Functions across 5 backends at near-zero cost for small installs.</li>
-  <li>Launched Alexa skills for 2 brands, submitted Google Home, SmartThings and IFTTT integrations, and published pyplexilent on PyPI for Home Assistant.</li>
-  <li>Cut Android mesh switching from 59 s to 5 s and restored correct status on a 265-device network that showed 264 devices offline.</li>
-  <li>Unified 2 separate BLE stacks (Mesh and beacon) and merged the white-label apps; a new brand now onboards in about 1 day.</li>
-  <li>Added 12 Siri Shortcuts (including Hindi), 7 widget types, Live Activities and tablet layouts.</li>
+  <li>Head the mobile team and own the app roadmap across iOS, iPadOS, Android, watchOS and Wear OS, with 4,190+ commits since 2022.</li>
+  <li>Cut a core Android flow from 59 s to 5 s, fixed status reporting for 265-device homes, and removed the top iOS crash.</li>
+  <li>Architected a serverless backend on Firebase (Realtime Database, 40+ Cloud Functions, OAuth) that replaced an MQTT broker at near-zero cost for small installs.</li>
+  <li>Shipped integrations with Alexa (live for 2 brands), Google Home, SmartThings, IFTTT and Siri Shortcuts (12 App Intents, incl. Hindi), plus a Python client on PyPI.</li>
+  <li>Added 7 widget types, Live Activities, iPad and Android tablet layouts, and watch apps in SwiftUI and Wear OS.</li>
+  <li>Unified separate white-label apps and two Bluetooth stacks into one codebase; a new brand app now ships in about 1 day.</li>
 </ul>
 
 <div class="job"><div><b>Senior Application Engineer</b> - Lumens Technologies Pvt. Ltd</div><span>Apr 2023 – Aug 2025</span></div>
 <ul>
   <li>Directed the full redesign of the Plexilent app UI across iOS and Android.</li>
-  <li>Engineered the app architecture for networks of 6,000+ nodes and upgraded both apps to Bluetooth Mesh 1.1.</li>
+  <li>Engineered the app architecture for real-time control of networks with 6,000+ devices, and upgraded both apps to Bluetooth Mesh 1.1.</li>
   <li>Bridged Objective-C and Swift on iOS with reusable UI libraries used across 10+ brand apps.</li>
   <li>Mentored 3 junior engineers and kept near-weekly Android releases through 2024.</li>
-  <li>Delivered Human-Centric Lighting with 48 daily set points, scheduling, lighting effects and Camera2 QR scanning.</li>
+  <li>Delivered scheduling, automation and QR onboarding features, including a Camera2 scanner on Android.</li>
   <li>Managed 10+ industry exhibitions, secured 8 B2B partnerships and kept 6+ company websites at 99.9% uptime through DDoS and WordPress attacks.</li>
 </ul>
 
@@ -62,7 +62,7 @@ th,td{border:1px solid #000;padding:2px 6px}
 <ul>
   <li>Launched the Plexilent apps: first Google Play release in Oct 2022, App Store in Jan 2023.</li>
   <li>Directed the migration from Silicon Labs to Telink chipsets, cutting hardware costs by 30%.</li>
-  <li>Introduced login-free mesh sharing with Firebase and QR onboarding, removing passwords entirely.</li>
+  <li>Introduced login-free sharing with Firebase and QR onboarding, removing passwords entirely.</li>
   <li>Ran 5+ industry exhibitions end to end.</li>
 </ul>
 
@@ -81,8 +81,8 @@ th,td{border:1px solid #000;padding:2px 6px}
 <h2>Projects</h2>
 <div class="sub">Plexilent Smart Home App (<a href="https://apps.apple.com/in/app/plexilent/id1667737419">App Store</a> | <a href="https://play.google.com/store/apps/details?id=com.plexilent.ble.mesh.demo.rels">Google Play</a> | <a href="https://www.youtube.com/@plexilent/videos">YouTube</a>)</div>
 <ul>
-  <li>Cloud Mesh Sync: a versioned cloud copy of each network plus one provisioner per phone keeps shared homes in sync; joining takes 1 QR scan, with no sign-up.</li>
-  <li>Shipped a native CCTV viewer (RTSP to VideoToolbox), 8 sensor types, Bulk OTA with Live Activity, 16 languages, and a web app that turns PDF floor plans into 3D maps.</li>
+  <li>Offline-first sync: control works with no internet, and a versioned cloud copy merges changes across every user's phone; joining a shared home takes 1 QR scan, with no sign-up.</li>
+  <li>Shipped a native video player (RTSP to VideoToolbox), 8 sensor types, bulk firmware updates with Live Activity, 16 languages, and a web app that turns PDF floor plans into 3D maps.</li>
 </ul>
 <div class="sub">White-label Brand Apps</div>
 <ul>
@@ -90,16 +90,16 @@ th,td{border:1px solid #000;padding:2px 6px}
 </ul>
 <div class="sub">Smart Street Pole Car Charger (College Project)</div>
 <ul>
-  <li>Android app with real-time tracking, registration and Firebase notifications, plus charger firmware for live consumption reporting. Demo: <a href="https://youtu.be/FDqGDD8X_7s">youtu.be/FDqGDD8X_7s</a>.</li>
+  <li>Android app with real-time tracking, registration and Firebase push notifications, plus charger firmware for live consumption reporting. Demo: <a href="https://youtu.be/FDqGDD8X_7s">youtu.be/FDqGDD8X_7s</a>.</li>
 </ul>
 
 <h2>Technical Skills</h2>
 <ul>
-  <li>Mobile: Swift, Objective-C, SwiftUI, WidgetKit, App Intents, Kotlin, Java, Android Studio, Xcode, watchOS, Wear OS, iPadOS, MVVM, MVP, CI/CD.</li>
-  <li>IoT: BLE Mesh, Beacons, Wi-Fi, MQTT, ESP32, Firmware (C, C++), Arduino, Lighting Management Systems.</li>
-  <li>Backend and APIs: Firebase (Realtime Database, Cloud Functions, Auth, Crashlytics, App Check), AWS Lambda, REST, Python, MySQL.</li>
-  <li>Platforms and Tools: Alexa, Google Home, SmartThings, Home Assistant, IFTTT, Figma, Adobe XD, Lottie, Git, WordPress, Claude (AI-assisted development).</li>
-  <li>Leadership: Team Leadership, Mentoring, Agile/Scrum, Client Engagement, Exhibitions, Vendor Negotiation.</li>
+  <li>iOS: Swift, SwiftUI, UIKit, Objective-C, async/await, Combine, WidgetKit, App Intents, Live Activities, XCTest, Xcode, App Store Connect.</li>
+  <li>Android: Kotlin, Java, Jetpack Compose, Coroutines, Android Studio, Camera2, Wear OS, JUnit and instrumented tests, Google Play Console.</li>
+  <li>Architecture and Backend: MVVM, MVP, modular white-label apps, offline-first sync, REST APIs, OAuth, Firebase (Realtime Database, Cloud Functions, Auth, Crashlytics, App Check), AWS Lambda, Python, MySQL.</li>
+  <li>Integrations and Hardware: Alexa, Google Home, SmartThings, Home Assistant, IFTTT, Bluetooth LE / BLE Mesh, ESP32, MQTT.</li>
+  <li>Tools and Leadership: Figma, Adobe XD, Lottie, Git, Claude (AI-assisted development), Team Leadership, Mentoring, Agile/Scrum, Client Engagement.</li>
 </ul>
 
 <h2>Education</h2>
