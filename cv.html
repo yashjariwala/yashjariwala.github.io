@@ -113,7 +113,15 @@ li{margin:4px 0}
 .row{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;margin-bottom:10px}
 .row b{font-size:14px}
 @media (max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}.row{grid-template-columns:1fr}}
-@media print{.top{display:none}main{padding:0}h2{margin-top:22px}}
+/* living light: soft aurora above the header, numbers lit in the same colours */
+body::before{content:"";position:fixed;left:50%;top:-38vh;width:min(1100px,140vw);height:70vh;transform:translateX(-50%);pointer-events:none;z-index:-1;
+  background:radial-gradient(ellipse 45% 55% at 35% 60%,rgba(34,211,238,.28),transparent 70%),radial-gradient(ellipse 45% 55% at 65% 55%,rgba(70,81,255,.26),transparent 70%),radial-gradient(ellipse 30% 40% at 50% 80%,rgba(52,211,153,.18),transparent 70%);
+  filter:blur(40px);animation:breathe 9s ease-in-out infinite alternate}
+@keyframes breathe{to{opacity:.65;transform:translateX(-50%) scale(1.08)}}
+.stat b{background:linear-gradient(90deg,#22d3ee,#4651ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat{background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion:reduce){body::before{animation:none}}
+@media print{.top{display:none}main{padding:0}h2{margin-top:22px}body::before{display:none}.stat b{color:#000;background:none}}
 </style>
 </head>
 <body>
@@ -130,30 +138,31 @@ li{margin:4px 0}
     </div>
     <div class="stats">
       <div class="stat"><b>5</b><small>years</small></div>
-      <div class="stat"><b>10+</b><small>apps shipped</small></div>
+      <div class="stat"><b>15+</b><small>apps live</small></div>
       <div class="stat"><b>5</b><small>platforms</small></div>
       <div class="stat"><b>3</b><small>engineers mentored</small></div>
     </div>
   </header>
 
   <h2>Summary</h2>
-  <p>I'm a mobile engineer (iOS and Android) at Lumens Technologies in Mumbai. For five years I've built Plexilent, a smart-lighting app, from its first prototype to what's on the App Store and Google Play today, and since August 2025 I've led the team behind it. I design the screens, write the native code for phones, tablets and watches, and build the cloud pieces underneath. What I enjoy most is taking a complicated product apart and rebuilding it so simple that anyone can use it.</p>
+  <p>I'm a mobile engineer (iOS and Android) at Lumens Technologies in Mumbai. I've worked on Plexilent, a smart-home app, since its first prototype in 2021, alongside our firmware, design and sales teams, and since August 2025 I've led the mobile team behind it. I design the screens, write native code for phones, tablets and watches, and design the cloud pieces underneath. What I enjoy most is helping my teammates grow, and making a complicated product so simple that anyone can use it.</p>
 
   <h2>Highlights</h2>
   <ul>
-    <li>Built Plexilent for iPhone, iPad, Android, Apple Watch and Wear OS, in 16 languages. 4,190+ commits since July 2022, 99% of the repo.</li>
-    <li>One codebase now ships 10+ brand apps, including Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga and Corvi. Adding a new brand takes about a day.</li>
+    <li>Lead and mentor the mobile team: I train new colleagues on our codebase and tools, plan work with them, and write a plan and handoff note for every major feature so anyone can pick it up.</li>
+    <li>Plexilent runs on iPhone, iPad, Android, Apple Watch and Wear OS, in 16 languages.</li>
+    <li>One codebase now ships 15+ live apps, including Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga, Bajaj Synchronous, Corvi and Focus Lighting, plus the SDK inside Crompton SENZE. Adding a new brand takes about a day.</li>
     <li>Fixed how phones share a home. Sharing used to hand out stale copies, and phones clashed on addresses. I moved each network into the cloud with a version number and gave every phone its own identity. Joining is still one QR scan, no sign-up.</li>
     <li>Replaced the usual MQTT broker with a hardware gateway that listens to Firebase. It costs almost nothing for a few homes. The Alexa skill is live; Google Home, SmartThings, Home Assistant and IFTTT are in review.</li>
     <li>Made it faster and steadier: Android mesh switching went from 59 s to 5 s, a 265-device network that showed 264 devices offline now reports correctly, and the top iOS crash is gone.</li>
     <li>Also built a CCTV viewer, a sensor suite, Bulk OTA with Live Activity, Siri in Hindi, Gemini AppFunctions, a Home Assistant library on PyPI, and a web app that turns PDF floor plans into 3D maps.</li>
-    <li>I pair-program with Claude, and I review, test and own every change.</li>
+    <li>We use Claude as a pair programmer, and every change is still reviewed and tested before it ships.</li>
   </ul>
 
   <h2>Apps &amp; projects</h2>
   <ul>
     <li><b>Plexilent</b>: iPhone, iPad, Android phones &amp; tablets, Apple Watch, Wear OS · <a href="https://apps.apple.com/in/app/plexilent/id1667737419">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.plexilent.ble.mesh.demo.rels">Google Play</a> · <a href="https://www.youtube.com/@plexilent/videos">videos</a></li>
-    <li><b>Brand apps:</b> <a href="https://apps.apple.com/in/app/uniflow-world/id6785506465">Uniflow World</a>, <a href="https://apps.apple.com/in/app/galaxxy-hub/id6758989875">Galaxxy Hub</a>, Salt, <a href="https://apps.apple.com/in/app/bajaj-illumiga/id6749890178">Bajaj Illumiga</a>, <a href="https://apps.apple.com/in/app/bajaj-synchronous/id6759030399">Bajaj Synchronous</a>, <a href="https://apps.apple.com/in/app/crompton-senze/id1632599504">Crompton SENZE</a> SDK</li>
+    <li><b>Brand apps:</b> <a href="https://apps.apple.com/in/app/uniflow-world/id6785506465">Uniflow World</a>, <a href="https://apps.apple.com/in/app/galaxxy-hub/id6758989875">Galaxxy Hub</a>, Salt, <a href="https://apps.apple.com/in/app/bajaj-illumiga/id6749890178">Bajaj Illumiga</a>, <a href="https://apps.apple.com/in/app/bajaj-synchronous/id6759030399">Bajaj Synchronous</a>, <a href="https://apps.apple.com/in/app/crompton-senze/id1632599504">Crompton SENZE</a> SDK, Corvi, Focus Lighting · <a href="https://apps.apple.com/in/developer/plexilent/id1667733175">all apps on the App Store</a></li>
     <li><b>Smart Street Pole EV Charger</b>: Android app + charger firmware · <a href="https://youtu.be/FDqGDD8X_7s">demo video</a></li>
   </ul>
 
@@ -162,14 +171,15 @@ li{margin:4px 0}
     <h3>Team Lead – IoT Applications</h3>
     <div class="meta">Lumens Technologies (Plexilent) · Thane · Aug 2025 – present</div>
     <ul>
-      <li>Built a gateway without an MQTT broker: commands flow through the Realtime Database to a hardware gateway. Almost free for a few users and cost-effective as users grow.</li>
+      <li>Lead and mentor the mobile team: train new colleagues, plan work together, and help each engineer grow until they own features on their own.</li>
+      <li>Designed a gateway without an MQTT broker: commands flow through the Realtime Database to a hardware gateway. Almost free for a few users and cost-effective as users grow.</li>
       <li>Built Google Home, Alexa and SmartThings integrations with OAuth account linking; Alexa skills live for Plexilent and Uniflow, Google Home and SmartThings in certification.</li>
-      <li>Wrote the Cloud Functions behind the whole gateway project and connected them to every app.</li>
+      <li>Wrote the Cloud Functions behind the gateway project and connected them to every app.</li>
       <li>Siri Shortcuts integration (12 App Intents), so the iOS Shortcuts app can run automations.</li>
       <li>iPad app, plus the same tablet experience on Android.</li>
       <li>Merged two separate BLE stacks (BLE Mesh and beacon) into one app, on shared sync infrastructure.</li>
       <li>Widgets and watch apps for more granular control.</li>
-      <li>Merged multiple white-label apps into one structure: easier codebase management, faster releases.</li>
+      <li>Worked with the team to merge multiple white-label apps into one structure: easier codebase management, faster releases.</li>
     </ul>
   </div>
   <div class="job">
@@ -202,7 +212,7 @@ li{margin:4px 0}
     <div class="meta">Lumens Technologies · Aug 2021 – Apr 2022</div>
     <ul>
       <li>Researched communication protocols and adopted BLE Mesh for stable, low-internet connectivity in smart lighting.</li>
-      <li>Built the first Plexilent prototypes for Android and iOS from scratch, working closely with the firmware team.</li>
+      <li>Built the first Plexilent prototypes for Android and iOS together with the firmware team.</li>
       <li>Presented early product versions at industry exhibitions, securing B2B client interest.</li>
       <li>Designed UI/UX workflows and high-fidelity interfaces in Figma and Adobe XD.</li>
     </ul>
