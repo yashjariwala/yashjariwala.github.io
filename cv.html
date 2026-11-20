@@ -153,7 +153,7 @@ body::before{content:"";position:fixed;left:50%;top:-38vh;width:min(1100px,140vw
     <li>Plexilent runs on iPhone, iPad, Android, Apple Watch and Wear OS, in 16 languages.</li>
     <li>One codebase now ships 15+ live apps, including Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga, Bajaj Synchronous, Corvi and Focus Lighting, plus the SDK inside Crompton SENZE. Adding a new brand takes about a day.</li>
     <li>Fixed how phones share a home. Sharing used to hand out stale copies, and phones clashed on addresses. I moved each network into the cloud with a version number and gave every phone its own identity. Joining is still one QR scan, no sign-up.</li>
-    <li>Replaced the usual MQTT broker with a hardware gateway that listens to Firebase. It costs almost nothing for a few homes. The Alexa skill is live; Google Home, SmartThings, Home Assistant and IFTTT are in review.</li>
+    <li>Phone gateway: a spare iPhone or Android phone at home listens to Firebase and relays app and voice commands to the lights, with no MQTT broker and no extra hardware (in field testing). The Alexa skill is live; Google Home, SmartThings, Home Assistant and IFTTT are in review.</li>
     <li>Made it faster and steadier: Android mesh switching went from 59 s to 5 s, a 265-device network that showed 264 devices offline now reports correctly, and the top iOS crash is gone.</li>
     <li>Also built a CCTV viewer, a sensor suite, Bulk OTA with Live Activity, Siri in Hindi, Gemini AppFunctions, a Home Assistant library on PyPI, and a web app that turns PDF floor plans into 3D maps.</li>
     <li>We use Claude as a pair programmer, and every change is still reviewed and tested before it ships.</li>
@@ -172,7 +172,7 @@ body::before{content:"";position:fixed;left:50%;top:-38vh;width:min(1100px,140vw
     <div class="meta">Lumens Technologies (Plexilent) · Thane · Aug 2025 – present</div>
     <ul>
       <li>Lead and mentor the mobile team: train new colleagues, plan work together, and help each engineer grow until they own features on their own.</li>
-      <li>Designed a gateway without an MQTT broker: commands flow through the Realtime Database to a hardware gateway. Almost free for a few users and cost-effective as users grow.</li>
+      <li>Designed the phone gateway: commands flow through the Realtime Database to a spare phone at home, which relays them over Bluetooth Mesh. No MQTT broker, no extra hardware, almost free per home.</li>
       <li>Built Google Home, Alexa and SmartThings integrations with OAuth account linking; Alexa skills live for Plexilent and Uniflow, Google Home and SmartThings in certification.</li>
       <li>Wrote the Cloud Functions behind the gateway project and connected them to every app.</li>
       <li>Siri Shortcuts integration (12 App Intents), so the iOS Shortcuts app can run automations.</li>
@@ -235,7 +235,7 @@ body::before{content:"";position:fixed;left:50%;top:-38vh;width:min(1100px,140vw
   <div class="row"><b>Backend</b><div class="chips"><span class="chip">Firebase RTDB</span><span class="chip">Cloud Functions</span><span class="chip">AWS Lambda</span><span class="chip">Python (PyPI)</span><span class="chip">Crashlytics</span><span class="chip">MySQL</span><span class="chip">ObjectBox</span></div></div>
   <div class="row"><b>Design</b><div class="chips"><span class="chip">Figma</span><span class="chip">Adobe XD</span><span class="chip">Lottie</span></div></div>
   <div class="row"><b>Smart home</b><div class="chips"><span class="chip">Alexa</span><span class="chip">Google Home</span><span class="chip">SmartThings</span><span class="chip">Home Assistant</span><span class="chip">IFTTT</span><span class="chip">Gemini AppFunctions</span></div></div>
-  <div class="row"><b>IoT &amp; firmware</b><div class="chips"><span class="chip">BLE / BLE Mesh</span><span class="chip">Wi-Fi</span><span class="chip">Matter</span><span class="chip">MQTT</span><span class="chip">Gateway firmware</span><span class="chip">Beacons</span><span class="chip">C / C++</span><span class="chip">Arduino</span><span class="chip">Lighting control systems</span></div></div>
+  <div class="row"><b>IoT &amp; firmware</b><div class="chips"><span class="chip">BLE / BLE Mesh</span><span class="chip">Wi-Fi</span><span class="chip">Matter</span><span class="chip">MQTT</span><span class="chip">Phone gateway</span><span class="chip">Beacons</span><span class="chip">C / C++</span><span class="chip">Arduino</span><span class="chip">Lighting control systems</span></div></div>
   <div class="row"><b>Web</b><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">WordPress</span><span class="chip">SEO</span><span class="chip">Analytics</span><span class="chip">Social media</span></div></div>
   <div class="row"><b>Tools</b><div class="chips"><span class="chip">Git / GitHub</span><span class="chip">Xcode</span><span class="chip">Android Studio</span><span class="chip">Firebase Console</span></div></div>
   <div class="row"><b>Security</b><div class="chips"><span class="chip">Cybersecurity</span><span class="chip">Threat mitigation</span></div></div>

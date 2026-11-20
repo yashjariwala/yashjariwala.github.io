@@ -762,7 +762,7 @@ const PAGES = {
     ${card("Two BLE stacks, one app",`<p>Merged SIG BLE Mesh and a beacon stack, two separate Bluetooth stacks, into one app on shared sync infrastructure.</p>${tags(["BLE Mesh","Beacons"])}`)}
     <div class="label">Cloud & connectivity</div>
     ${card("Sync without accounts",`<p>Every phone gets its own provisioner and sequence range, the network lives in the cloud under its mesh ID, and sharing is a QR scan.</p>${cs("mesh","Read the case study")}`)}
-    ${card("Serverless gateway",`<p>No MQTT broker: a hardware gateway listens to the Realtime Database and relays commands over BLE Mesh. I wrote the Cloud Functions around it. Almost free for a few users, cost-effective as users grow.</p>${cs("gateway","Read the case study")}`)}
+    ${card("Your phone is the gateway",`<p>A spare iPhone or Android phone left at home becomes the gateway: it listens to the Realtime Database and relays app and voice commands to the lights over Bluetooth Mesh. No MQTT broker, no extra hardware, and almost no running cost. I designed the app-side relay and the Cloud Functions around it; it's in field testing now.</p>${tags(["iOS","Android","Background execution","Firebase"])}${cs("gateway","Read the case study")}`)}
     ${card("APIs, SDKs & integrations",`<p>Cloud Functions APIs connecting the gateway, apps and platforms; partner SDKs incl. Crompton SENZE; Google Home, Alexa and SmartThings integrations with OAuth account linking. Alexa skills are live for Plexilent and Uniflow; Google Home and SmartThings are in certification.</p>${tags(["REST","API design","SDKs","OAuth"])}`)}
     ${card("Security",`<p>App Check (App Attest, Play Integrity) on the cloud, scoped credentials per gateway, and 6+ company websites hardened against DDoS and WordPress attacks at 99.9% uptime.</p>${tags(["App Check","OAuth","Web security"])}`)}
     <div class="label">Ownership</div>
@@ -786,7 +786,7 @@ const PAGES = {
     ${stats([["1.4L+","products shipped"],["2,400+","installations"],["13+","manufacturing partners"]])}
     <p class="note">Platform numbers from plexilent.com</p>
     <div class="label">Timeline · from the git history</div>
-    <ol class="tl"><li><b>Jul 2022</b><span>App repo starts on the Telink SDK</span></li><li><b>Nov 2022</b><span>QR-code sharing</span></li><li><b>Oct 2022</b><span>First Google Play release</span></li><li><b>Dec 2022</b><span>Over-the-air updates</span></li><li><b>Jan 2023</b><span>First App Store submission</span></li><li><b>Jun 2023</b><span>QR import/export through our own server</span></li><li><b>Aug 2023</b><span>Sync across phones</span></li><li><b>Dec 2023</b><span>Music mode</span></li><li><b>Feb 2024</b><span>Both apps upgraded to Bluetooth Mesh 1.1</span></li><li><b>May 2024</b><span>Cloud Mesh Sync</span></li><li><b>Nov 2024</b><span>Curtain controller</span></li><li><b>Jun 2025</b><span>Human-Centric Lighting</span></li><li><b>Nov 2025</b><span>Beacon stack in the same app</span></li><li><b>Apr 2026</b><span>Apple Watch app, then Wear OS</span></li><li><b>Jul 2026</b><span>Home-screen widgets</span></li><li><b>Aug 2026</b><span>Siri Shortcuts and the serverless gateway</span></li><li><b>Sep 2026</b><span>Salt and Galaxxy Hub brand apps, a day each</span></li><li><b>Oct 2026</b><span>3D floor-plan dashboard; pyplexilent on PyPI</span></li><li><b>Oct 2026</b><span>Plexilent Alexa skill live</span></li></ol>
+    <ol class="tl"><li><b>Jul 2022</b><span>App repo starts on the Telink SDK</span></li><li><b>Nov 2022</b><span>QR-code sharing</span></li><li><b>Oct 2022</b><span>First Google Play release</span></li><li><b>Dec 2022</b><span>Over-the-air updates</span></li><li><b>Jan 2023</b><span>First App Store submission</span></li><li><b>Jun 2023</b><span>QR import/export through our own server</span></li><li><b>Aug 2023</b><span>Sync across phones</span></li><li><b>Dec 2023</b><span>Music mode</span></li><li><b>Feb 2024</b><span>Both apps upgraded to Bluetooth Mesh 1.1</span></li><li><b>May 2024</b><span>Cloud Mesh Sync</span></li><li><b>Nov 2024</b><span>Curtain controller</span></li><li><b>Jun 2025</b><span>Human-Centric Lighting</span></li><li><b>Nov 2025</b><span>Beacon stack in the same app</span></li><li><b>Apr 2026</b><span>Apple Watch app, then Wear OS</span></li><li><b>Jul 2026</b><span>Home-screen widgets</span></li><li><b>Aug 2026</b><span>Siri Shortcuts and the cloud gateway</span></li><li><b>Sep 2026</b><span>Salt and Galaxxy Hub brand apps, a day each</span></li><li><b>Oct 2026</b><span>3D floor-plan dashboard; pyplexilent on PyPI</span></li><li><b>Oct 2026</b><span>Plexilent Alexa skill live</span></li><li><b>Nov 2026</b><span>Phone gateway in field testing</span></li></ol>
     <div class="label">Features</div>
     ${feat("Every luminaire","Dimmable, tunable and RGB control with smooth fades: bulbs, panels, strips, downlights and more.")}
     ${feat("Human-Centric Lighting","48 customisable points in 24h, aligned with WELL v2 and DIN/TS 67600.")}
@@ -871,14 +871,14 @@ const PAGES = {
     "Design":["Figma","Adobe XD","Lottie"],
     "Smart home":["Alexa","Google Home","SmartThings","Home Assistant","IFTTT","Gemini AppFunctions"],
     "Media & web":["RTSP / VideoToolbox","3D floor plans","Liquid Glass"],
-    "IoT & firmware":["BLE / BLE Mesh","Wi-Fi","Matter","MQTT","Gateway firmware","Beacons","C / C++","Arduino","Lighting control systems"],
+    "IoT & firmware":["BLE / BLE Mesh","Wi-Fi","Matter","MQTT","Phone gateway","Beacons","C / C++","Arduino","Lighting control systems"],
     "Web":["HTML","CSS","JavaScript","WordPress","SEO","Analytics","Social media"],
     "Tools":["Git / GitHub","Xcode","Android Studio","Firebase Console"],
     "Security":["Cybersecurity","Threat mitigation","DDoS protection"],
     "Leadership":["Team lead","Mentoring","Agile / Scrum","Project planning","Client & vendor negotiation"]
   }).map(([k,v])=>`<div class="label">${k}</div><div class="chips">${v.map(x=>`<span class="chip">${x}</span>`).join("")}</div>`).join("")}`,
   resume:()=>`<h2>Résumé</h2>
-    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Serverless gateway (no MQTT broker) and the Cloud Functions behind it","Alexa skills live for Plexilent and Uniflow; Google Home and SmartThings in certification; Siri Shortcuts","iPad, Android tablet, widget and watch apps","Merged two BLE stacks and multiple white-label apps into one codebase"])}`)}
+    ${card("Team Lead – IoT Applications",`<p>Lumens Technologies · Aug 2025 – now</p>${list(["Phone gateway: a spare phone relays cloud and voice commands to the lights, no MQTT broker, plus the Cloud Functions behind it","Alexa skills live for Plexilent and Uniflow; Google Home and SmartThings in certification; Siri Shortcuts","iPad, Android tablet, widget and watch apps","Merged two BLE stacks and multiple white-label apps into one codebase"])}`)}
     ${card("Senior Application Engineer",`<p>Lumens Technologies · Apr 2023 – Aug 2025</p>`)}
     ${card("Executive, New Product Development",`<p>Lumens Technologies · Apr 2022 – May 2023</p>`)}
     ${card("Graduate Trainee",`<p>Lumens Technologies · Aug 2021 – Apr 2022</p>`)}
@@ -983,7 +983,7 @@ function archSVG(){
   const N={app:[10,10,155,46,"Phone & tablet apps","iOS · iPadOS · Android · white-label"],
     wrist:[175,10,155,46,"Watch · widgets · Siri","watchOS · Wear OS · App Intents"],
     db:[175,120,155,46,"Realtime Database","network data + version"],
-    gw:[50,230,115,46,"Gateway","hardware · a mesh node"],
+    gw:[50,230,115,46,"Phone gateway","spare phone at home"],
     cf:[175,230,155,46,"Cloud Functions","credentials · alerts · voice"],
     nodes:[10,340,155,46,"Lights & devices","BLE Mesh + beacon"],
     voice:[175,340,155,46,"Voice assistants","Google Home · Alexa · SmartThings"]};
@@ -1001,9 +1001,9 @@ const FLOWS = {
   share:{name:"Share", e:["sync"], n:["app","db"],
     text:"Phone A uploads the network, keyed by its mesh ID, and shows a QR code. Phone B scans it, imports the network and creates its own provisioner, so the two phones never share a sequence counter. No account needed."},
   remote:{name:"Remote", e:["sync","stream","gwble"], n:["app","db","gw","nodes"],
-    text:"Away from home, the app writes a command to the database. The gateway is already listening, so it relays the command over Bluetooth Mesh straight away. No MQTT broker, no server to run."},
+    text:"Away from home, the app writes a command to the database. A phone left at home is already listening as the gateway, so it relays the command over Bluetooth Mesh straight away. No MQTT broker, no server to run, no extra hardware."},
   voice:{name:"Voice", e:["voice","cfdb","stream","gwble"], n:["voice","cf","db","gw","nodes"],
-    text:"“Hey Google, dim the bedroom.” An account-linked Cloud Function turns the request into a command in the database, and the gateway does the rest. The same path serves Alexa and SmartThings."},
+    text:"“Hey Google, dim the bedroom.” An account-linked Cloud Function turns the request into a command in the database, and the phone gateway at home does the rest. The same path serves Alexa and SmartThings."},
 };
 let FLOW="remote";
 function applyFlow(){
@@ -1084,16 +1084,18 @@ const NOTES = [
    <p>A custom-key Bluetooth remote could leave an “is connecting” flag set forever, so every later attempt quietly waited on it. <b>Fix:</b> a watchdog that clears the stuck state, a retry, and restoring the Bluetooth delegate afterwards.</p>
    <h3>7. Setting up the gateway broke its internet</h3>
    <p>During setup the iPhone joins the gateway's temporary hotspot. It then kept rejoining that hotspot, so the gateway never stayed on the home Wi-Fi. Two smaller bugs hid behind it: a security handshake mismatch in provisioning, and the mesh ID written in different letter case in different places. <b>Fix:</b> release the setup network, match the handshake, and use one case everywhere.</p>`},
-  {id:"gateway", title:"A smart-home gateway without an MQTT broker", date:"Oct 2026", read:"3 min read", sub:"Serverless gateway",
-   body:`<p>Most smart-home gateways keep an always-on MQTT broker between the app and the hardware. That's a server to run, scale and pay for, even when nobody is home. For Plexilent I wanted remote control without that server.</p>
-   <h3>How it works</h3>
-   <p>The gateway is a small hardware board that joins the Bluetooth mesh as a node and holds a streaming connection to Firebase Realtime Database. Away from home, the app writes a command for a device into the database; the gateway receives it immediately and sends the Bluetooth Mesh message. State and replies flow back the same way.</p>
+  {id:"gateway", title:"A smart-home gateway without an MQTT broker", date:"Oct 2026", read:"3 min read", sub:"Phone gateway, serverless cloud",
+   body:`<p>Most smart-home systems keep an always-on MQTT broker between the app and the lights. That's a server to run, scale and pay for, even when nobody is home. For Plexilent the team wanted remote and voice control without that server, and ideally without asking customers to buy extra hardware.</p>
+   <h3>The phone is the gateway</h3>
+   <p>A spare iPhone or Android phone that stays at home acts as the gateway. The Plexilent app keeps a streaming connection to Firebase Realtime Database; when a command arrives, from the app away from home or from Alexa or Google Home, the home phone relays it to the lights over Bluetooth Mesh and reports the new state back. State and replies flow back the same way.</p>
+   <h3>Making a phone a dependable gateway</h3>
+   <p>Phones sleep, drop Bluetooth and get closed, so most of the work is on the app side: keeping the relay alive in the background on iOS and Android, batching commands so dragging a dimmer sends a few kilobytes instead of hundreds, and weekend soak tests on real phones to measure speed and cost. It's in field testing now.</p>
    <h3>Where Cloud Functions fit</h3>
-   <p>They stay out of the command path and handle the edges: issuing each gateway its own credentials, managing who can use a home, marking gateways offline and sending an alert, and turning Google Home, Alexa and SmartThings requests into commands.</p>
+   <p>They stay out of the command path and handle the edges: issuing each gateway its own credentials, managing who can use a home, noticing when a gateway goes offline and sending an alert, and turning Google Home, Alexa and SmartThings requests into commands.</p>
    <h3>Why this shape</h3>
-   <p>No broker to run. Cost follows usage: close to nothing for a few homes, growing gradually instead of in server-sized steps. And one data model: the apps, the gateway and the voice integrations all read and write the same database.</p>
+   <p>No broker to run and no box to buy. Cost follows usage: close to nothing per home, growing gradually instead of in server-sized steps. And one data model: the apps, the phone gateway and the voice integrations all read and write the same database.</p>
    <h3>The trade-off</h3>
-   <p>Every gateway holds an open connection, which has its own cost at large scale, so the plan keeps MQTT for commands as a fallback if the database ever stops being the cheaper option. Starting with the simple system, with a known exit, is what made it shippable.</p>`},
+   <p>Every gateway holds an open connection, which has its own cost at large scale, so MQTT stays as a known fallback if the database ever stops being the cheaper option. Homes that prefer a dedicated device can use a small hardware gateway on the same data model. Starting with the simple system, with a known exit, is what made it shippable.</p>`},
 ];
 
 const L = {on:false, b:70, k:3000, mode:"b", tab:"w", rgb:null, touched:false};   // rgb: [r,g,b] 0..1
@@ -1227,7 +1229,7 @@ const SIRI_KB = [
   {id:"watch", k:/watch|wear|wearable|wrist/, a:()=>`He built the Apple Watch and Wear OS apps: full lighting control from the wrist, not just shortcuts. There's a working copy on this phone.`, go:["watch","Try the Watch"]},
   {id:"cross", k:/flutter|react native|cross.?platform|kmp/, a:()=>`His production work is native iOS and Android; his CV also lists cross-platform mobile development. Ask him about a specific framework.`, mail:1},
   {id:"arch", k:/architect|scale|mvvm|mvp|white.?label|codebase|modular|ci\/?cd/, a:()=>`He built a modular framework that ships 15+ white-label apps from one codebase (a new brand in about a day), and app architecture for networks of 6,000+ nodes.`, go:["eng","See Engineering"]},
-  {id:"backend", k:/backend|firebase|cloud|api|server|function|gateway|sdk/, a:()=>`He built a gateway with no MQTT broker: a hardware gateway listens to Firebase Realtime Database and relays commands over BLE Mesh, with Cloud Functions for credentials, alerts and voice. He also designs the APIs and partner SDKs.`, go:["notes","Read the write-ups"]},
+  {id:"backend", k:/backend|firebase|cloud|api|server|function|gateway|sdk/, a:()=>`He designed a phone gateway with no MQTT broker: a spare iPhone or Android phone at home listens to Firebase Realtime Database and relays app and voice commands over BLE Mesh, with Cloud Functions for credentials, alerts and voice. He also designs the APIs and partner SDKs.`, go:["notes","Read the write-ups"]},
   {id:"iot", k:/ble|bluetooth|mesh|iot|beacon|matter|smart home|alexa|google home|smartthings|home assistant|ifttt|gemini/, a:()=>`He picked BLE Mesh for Plexilent, built Cloud Mesh Sync (share a network by QR code, no account), merged two BLE stacks (mesh and beacon) into one app, and built the Alexa skills (live) plus Google Home and SmartThings integrations (in certification), a Home Assistant library on PyPI and an IFTTT service.`, go:["notes","Read his write-up"]},
   {id:"design", k:/design|ui|ux|figma|lottie|3d/, a:()=>`He led the Plexilent app redesign from Figma to release. The Lights, Curtains and Fan screens on this phone are rebuilt from his designs.`, go:["design","Open Design"]},
   {id:"projects", k:/project|apps?\b|portfolio|built|product|plexilent|bajaj|crompton|biggest|proud/, a:()=>`His main product is Plexilent, a smart-home app on iPhone, iPad, Android, Apple Watch and Wear OS. He also shipped brand apps like Uniflow, Galaxxy Hub (Kolors), Salt, Bajaj Illumiga and Bajaj Synchronous.`, go:["projects","See Projects"]},
